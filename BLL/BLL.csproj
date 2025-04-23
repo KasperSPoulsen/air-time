@@ -43,7 +43,11 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="test.cs" />
+=======
+    <Compile Include="Test.cs" />
+>>>>>>> fa61539ce13be854c35fc991505e7702aa92e947
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
