@@ -17,3 +17,23 @@ obj/
 *.log
 *.ncrunch*
 _ReSharper*/
+
+# VS og build-ting
+bin/
+obj/
+.vs/
+
+# EF migrations (valgfrit)
+Migrations/
+
+# EF databasefiler
+*.mdf
+*.ldf
+
+# VS-specifikke filer
+*.user
+*.suo
+
+# Cache og logs
+*.log
+*.cache
