@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataAccessLayer.Model
+{
+    public class KontaktPerson
+    {
+        public string Navn { get; set; }
+        public string TlfNr { get; set; }
+        public string Mail { get; set; }
+
+
+        public KontaktPerson(string navn, string tlfNr, string mail)
+        {
+            Navn = navn;
+            TlfNr = tlfNr;
+            Mail = mail;
+        }
+
+    }
+}
