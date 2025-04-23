@@ -8,7 +8,6 @@ namespace DataAccessLayer.Model
 {
     public class KontaktPerson
     {
-        public int ID { get; set; }
         public string Navn { get; set; }
         public string TlfNr { get; set; }
         public string Mail { get; set; }
@@ -21,8 +20,5 @@ namespace DataAccessLayer.Model
             Mail = mail;
         }
 
-        public KontaktPerson()
-        {
-        }
     }
 }
