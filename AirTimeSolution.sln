@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{18618915-6BDF-4BE3-B60D-CE5379AB0F1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{27C0BE73-358E-43C2-BF95-7BD1C0F5CE51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{18618915-6BDF-4BE3-B60D-CE5379AB0F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18618915-6BDF-4BE3-B60D-CE5379AB0F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18618915-6BDF-4BE3-B60D-CE5379AB0F1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C0BE73-358E-43C2-BF95-7BD1C0F5CE51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C0BE73-358E-43C2-BF95-7BD1C0F5CE51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C0BE73-358E-43C2-BF95-7BD1C0F5CE51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C0BE73-358E-43C2-BF95-7BD1C0F5CE51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
