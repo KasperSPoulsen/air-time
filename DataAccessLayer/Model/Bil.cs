@@ -13,6 +13,8 @@ namespace DataAccessLayer.Model
         public List<Springer> Springere { get; set; }
         public Konkurrence Konkurrence { get; set; }
 
+        public Bil() { }
+
         public Bil(KontaktPerson kontaktPerson, List<Springer> springere, Konkurrence konkurrence)
         {
             KontaktPerson = kontaktPerson;

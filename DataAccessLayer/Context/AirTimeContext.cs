@@ -1,4 +1,4 @@
-﻿using System;
+﻿using DataAccessLayer.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -20,7 +20,6 @@ namespace DataAccessLayer.Context
         public DbSet<Hold> Hold { get; set; }
         public DbSet<KontaktPerson> KontaktPersoner { get; set; }
         public DbSet<Springer> Springere { get; set; }
-        public DbSet<Status> Statusser { get; set; }
         public DbSet<Fremmoederegistrering> Fremmoederegistreringer { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

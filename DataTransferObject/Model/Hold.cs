@@ -9,5 +9,13 @@ namespace DataTransferObject.Model
     public class Hold
     {
         public string HoldNavn { get; set; }
+        public Hold()
+        {
+        }
+
+        public Hold(string holdNavn)
+        {
+            this.HoldNavn = holdNavn;
+        }
     }
 }
