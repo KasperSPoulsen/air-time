@@ -17,3 +17,7 @@ obj/
 *.log
 *.ncrunch*
 _ReSharper*/
+
+# Entity Framework lokale databasefiler (bør ignoreres)
+*.mdf
+*.ldf
