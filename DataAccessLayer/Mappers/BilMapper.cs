@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataAccessLayer.Model;
+using DataTransferObject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,18 +11,22 @@ namespace DataAccessLayer.Mappers
     internal class BilMapper
     {
         // Mapper fra DAL til DTO
-        public static DTO.Model.Bil Map(DAL.Model.Bil bil)
+        public static DataTransferObject.Model.Bil Map(DataAccessLayer.Model.Bil bil)
         {
-            return new DTO.Model.Bil(
-                
+            return new DataTransferObject.Model.Bil(
+                KontaktPersonMapper.Map(bil.KontaktPerson),
+                bil.Springere.Select(SpringerMapper.Map).ToList(),
+                KonkurrenceMapper.Map(bil.Konkurrence)
             );
         }
 
         // Mapper fra DTO til DAL
-        public static DAL.Model.Bil Map(DTO.Model.Bil bil)
+        public static DataAccessLayer.Model.Bil Map(DataTransferObject.Model.Bil bil)
         {
-            return new DAL.Model.Bil(
-                
+            return new DataAccessLayer.Model.Bil(
+                KontaktPersonMapper.Map(bil.KontaktPerson),
+                bil.Springere.Select(SpringerMapper.Map).ToList(),
+                KonkurrenceMapper.Map(bil.Konkurrence)
             );
         }
     }

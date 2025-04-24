@@ -9,5 +9,17 @@ namespace DataTransferObject.Model
     public class Fremmoederegistrering
     {
         public DateTime Dato { get; set; }
+        public Status Status { get; set; }
+        public Hold Hold { get; set; }
+
+        public Fremmoederegistrering()
+        {
+        }
+        public Fremmoederegistrering(DateTime dato, Status status, Hold hold)
+        {
+            Dato = dato;
+            Status = status;
+            Hold = hold;
+        }
     }
 }

@@ -54,6 +54,11 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Context\AirTimeContext.cs" />
     <Compile Include="Mappers\BilMapper.cs" />
+    <Compile Include="Mappers\FremmoederegistreringMapper.cs" />
+    <Compile Include="Mappers\HoldMapper.cs" />
+    <Compile Include="Mappers\KonkurrenceMapper.cs" />
+    <Compile Include="Mappers\KontaktPersonMapper.cs" />
+    <Compile Include="Mappers\SpringerMapper.cs" />
     <Compile Include="Model\Bil.cs" />
     <Compile Include="Model\Fremmoederegistrering.cs" />
     <Compile Include="Model\Hold.cs" />
