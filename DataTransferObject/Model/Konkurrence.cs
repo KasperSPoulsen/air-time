@@ -10,5 +10,19 @@ namespace DataTransferObject.Model
     {
         public string Adresse { get; set; }
         public string Navn { get; set; }
+        public List<Springer> Springere { get; set; }
+        public List<Bil> Biler { get; set; }
+
+        public Konkurrence()
+        {
+        }
+
+        public Konkurrence(string adresse, string navn, List<Springer> springere, List<Bil> biler)
+        {
+            Adresse = adresse;
+            Navn = navn;
+            Springere = springere;
+            Biler = biler;
+        }
     }
 }
