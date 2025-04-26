@@ -9,7 +9,7 @@
     <Grid>
         <Button Content="Fremmøderegistrering" HorizontalAlignment="Center" Margin="0,82,0,0" VerticalAlignment="Top" Height="58" Width="224" Click="VisFremmoedeRegistreringsVindue"/>
         <Button Content="Kunkurrencer" HorizontalAlignment="Center" Margin="0,249,0,0" VerticalAlignment="Top" Height="51" Width="224"/>
-        <Button Content="Hold" HorizontalAlignment="Center" Margin="0,161,0,0" VerticalAlignment="Top" Height="64" Width="224"/>
+        <Button Content="Hold" HorizontalAlignment="Center" Margin="0,161,0,0" VerticalAlignment="Top" Height="64" Width="224" Click="VisHoldVindue"/>
 
     </Grid>
 </Window>

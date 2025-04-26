@@ -1,0 +1,66 @@
+﻿<Window x:Class="WpfApp1.SpringerInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="SpringerInfo" Height="450" Width="800">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Første kolonne: Personlig info -->
+        <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="10">
+            <TextBlock FontWeight="Bold" Text="Springer Information" Margin="0 0 0 10"/>
+            <TextBlock Text="Navn:"/>
+            <Label Name="NavnLabel" Content=""/>
+            <TextBlock Text="Telefonnummer:"/>
+            <Label Name="TelefonLabel" Content=""/>
+            <TextBlock Text="Fødselsdag:"/>
+            <Label Name="FødselsdagLabel" Content=""/>
+            <TextBlock Text="Tilknyttede Hold:"/>
+            <Label Name="HoldLabel" Content=""/>
+            <TextBlock Text="Kontaktpersons navn:"/>
+            <Label Name="KontaktNavnLabel" Content=""/>
+            <TextBlock Text="Kontaktpersons tlf:"/>
+            <Label Name="KontaktTelefonLabel" Content=""/>
+            <TextBlock Text="Kontaktpersons email:"/>
+            <Label Name="KontaktEmailLabel" Content=""/>
+        </StackPanel>
+
+        <!-- Anden kolonne: Springserier -->
+        <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10">
+            <TextBlock FontWeight="Bold" Text="Springserier" Margin="0 0 0 10"/>
+            <ItemsControl Name="SpringserierListe">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Gray" BorderThickness="1" Margin="0 5 0 5" Padding="5">
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding SerieNavn}" />
+                                <ListBox ItemsSource="{Binding Spring}" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+
+        <!-- Tredje kolonne: Træningsmål -->
+        <StackPanel Grid.Column="2" VerticalAlignment="Top" Margin="10">
+            <TextBlock FontWeight="Bold" Text="Træningsmål" Margin="0 0 0 10"/>
+            <TextBlock Name="TræningsmålTekst" TextWrapping="Wrap"/>
+        </StackPanel>
+
+        <!-- Nederst: Opdater knap -->
+        <Button Grid.ColumnSpan="3" Content="Opdater Springer" Width="200" Height="40" Margin="0 20 0 0"
+                HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>
