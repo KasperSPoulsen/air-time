@@ -30,5 +30,11 @@ namespace WpfApp1
             var vindue = new FremmoedeRegistrering(); 
             vindue.Show();
         }
+
+        private void VisHoldVindue(object sender, RoutedEventArgs e)
+        {
+            var vindue = new Hold();
+            vindue.Show();
+        }
     }
 }

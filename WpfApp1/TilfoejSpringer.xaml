@@ -1,0 +1,46 @@
+﻿<Window x:Class="WpfApp1.TilfoejSpringer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="TilfoejSpringer" Height="389" Width="371">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Springer information -->
+        <StackPanel Orientation="Vertical" Grid.Row="0" Margin="0 0 0 20">
+            <TextBlock Text="Springerens navn:"/>
+            <TextBox Name="SpringerNavn" Width="300"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" Margin="0 0 0 20">
+            <TextBlock Text="Kontaktpersons navn:"/>
+            <TextBox Name="KontaktNavn" Width="300"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="2" Margin="0 0 0 20">
+            <TextBlock Text="Kontaktpersons telefonnummer:"/>
+            <TextBox Name="KontaktTelefon" Width="300"/>
+        </StackPanel>
+
+        <!-- Vælg hold -->
+        <StackPanel Orientation="Vertical" Grid.Row="3" Margin="0 0 0 20">
+            <TextBlock FontWeight="Bold" Text="Vælg hold:" Margin="0 0 0 10"/>
+            <CheckBox Content="Tirsdag hold 1" Name="Hold1"/>
+            <CheckBox Content="Tirsdag hold 2" Name="Hold2"/>
+            <CheckBox Content="Torsdag hold 1" Name="Hold3"/>
+            <CheckBox Content="Torsdag hold 2" Name="Hold4"/>
+        </StackPanel>
+
+        <!-- Gem knap -->
+        <Button Content="Gem Springer" Grid.Row="4" Width="200" Height="40" HorizontalAlignment="Center" Click="GemSpringerClick"/>
+    </Grid>
+</Window>

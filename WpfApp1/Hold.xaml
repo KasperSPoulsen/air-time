@@ -1,0 +1,41 @@
+﻿<Window x:Class="WpfApp1.Hold"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Hold" Height="450" Width="636">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <!-- venstre side med radio buttons -->
+            <ColumnDefinition Width="*"/>
+            <!-- højre side med navneliste -->
+        </Grid.ColumnDefinitions>
+
+        <!-- RadioButtons til holdvalg -->
+        <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="10">
+            <TextBlock FontWeight="Bold" Margin="0 0 0 10">Vælg hold:</TextBlock>
+            <RadioButton Content="Tirsdag hold 1" GroupName="Holdvalg" Checked="RadioButton_Checked"/>
+            <RadioButton Content="Tirsdag hold 2" GroupName="Holdvalg" Checked="RadioButton_Checked"/>
+            <RadioButton Content="Torsdag hold 1" GroupName="Holdvalg" Checked="RadioButton_Checked"/>
+            <RadioButton Content="Torsdag hold 2" GroupName="Holdvalg" Checked="RadioButton_Checked"/>
+        </StackPanel>
+
+        <!-- Navneliste -->
+        <ListBox Grid.Column="1" Margin="31,10,10,10" Name="NavneListe">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding}" Width="200"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Button Content="Vis springerinfo" HorizontalAlignment="Center" Margin="0,207,0,0" VerticalAlignment="Top" Click="VisSpringerInfoVindue" />
+        <Button Content="Tilføj springer" HorizontalAlignment="Center" Margin="0,252,0,0" VerticalAlignment="Top" Width="87" Click="VisTilfoejSpringerVindue"/>
+
+    </Grid>
+</Window>
