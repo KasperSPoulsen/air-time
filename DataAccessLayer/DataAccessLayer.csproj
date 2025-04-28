@@ -59,6 +59,7 @@
     <Compile Include="Mappers\KonkurrenceMapper.cs" />
     <Compile Include="Mappers\KontaktPersonMapper.cs" />
     <Compile Include="Mappers\SpringerMapper.cs" />
+    <Compile Include="Mappers\StatusMapper.cs" />
     <Compile Include="Model\Bil.cs" />
     <Compile Include="Model\Fremmoederegistrering.cs" />
     <Compile Include="Model\Hold.cs" />

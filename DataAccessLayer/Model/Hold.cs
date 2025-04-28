@@ -8,10 +8,14 @@ namespace DataAccessLayer.Model
 {
     public class Hold
     {
+        public int Id { get; set; }
         public string HoldNavn { get; set; }
-
-        public Hold(string holdNavn)
+        public Hold()
         {
+        }
+        public Hold(int id, string holdNavn)
+        {
+            Id = id;
             this.HoldNavn = holdNavn;
         }
     }
