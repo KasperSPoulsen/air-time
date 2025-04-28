@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Mappers
 {
-    internal class KontaktPersonMapper
+    public class KontaktPersonMapper
     {
         public static DataTransferObject.Model.KontaktPerson Map(DataAccessLayer.Model.KontaktPerson kontaktPerson)
         {
             return new DataTransferObject.Model.KontaktPerson(
+                kontaktPerson.Id,
                 kontaktPerson.Navn,
                 kontaktPerson.TlfNr,
                 kontaktPerson.Mail
@@ -22,6 +23,7 @@ namespace DataAccessLayer.Mappers
         public static DataAccessLayer.Model.KontaktPerson Map(DataTransferObject.Model.KontaktPerson kontaktPerson)
         {
             return new DataAccessLayer.Model.KontaktPerson(
+                kontaktPerson.Id,
                 kontaktPerson.Navn,
                 kontaktPerson.TlfNr,
                 kontaktPerson.Mail

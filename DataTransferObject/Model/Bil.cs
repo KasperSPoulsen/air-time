@@ -9,18 +9,16 @@ namespace DataTransferObject.Model
 {
     public class Bil
     {
-        public KontaktPerson KontaktPerson { get; set; }
-        public List<Springer> Springere { get; set; }
-        public Konkurrence Konkurrence { get; set; }
         public int Id { get; set; }
+        public KontaktPerson KontaktPerson { get; set; }
+        public List<Springer> Springere { get; set; } = new List<Springer>();
+
         public Bil() { }
 
-        public Bil(int id, KontaktPerson kontaktPerson, List<Springer> springere, Konkurrence konkurrence)
+        public Bil(int id, KontaktPerson kontaktPerson)
         {
-            KontaktPerson = kontaktPerson;
-            Springere = springere;
-            Konkurrence = konkurrence;
             Id = id;
+            KontaktPerson = kontaktPerson;
         }
     }
 }

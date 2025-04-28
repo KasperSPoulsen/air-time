@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Mappers
 {
-    internal static class StatusMapper
+    public static class StatusMapper
     {
         public static DataTransferObject.Model.Status Map(DataAccessLayer.Model.Status status)
         {
