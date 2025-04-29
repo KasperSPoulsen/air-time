@@ -63,6 +63,10 @@
     <Compile Include="Migrations\202504281356079_InitialCreate.Designer.cs">
       <DependentUpon>202504281356079_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202504291017048_NySeed.cs" />
+    <Compile Include="Migrations\202504291017048_NySeed.Designer.cs">
+      <DependentUpon>202504291017048_NySeed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Bil.cs" />
     <Compile Include="Model\Fremmoederegistrering.cs" />
@@ -93,6 +97,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202504281356079_InitialCreate.resx">
       <DependentUpon>202504281356079_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202504291017048_NySeed.resx">
+      <DependentUpon>202504291017048_NySeed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

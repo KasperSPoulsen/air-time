@@ -22,10 +22,18 @@
                 Mail = "anders@example.com"
             };
 
+            var kontakt2 = new KontaktPerson
+            {
+                Navn = "Clemen Dalgaard",
+                TlfNr = "4567890",
+                Mail = "clemen.dalgaard@gmail.com"
+            };
+
             // Only add if it doesn't already exist
             if (!context.KontaktPersoner.Any(k => k.Mail == kontakt.Mail))
             {
                 context.KontaktPersoner.Add(kontakt);
+                context.KontaktPersoner.Add(kontakt2);
                 context.SaveChanges();
             }
         }
