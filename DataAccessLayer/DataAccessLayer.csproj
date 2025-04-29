@@ -69,7 +69,11 @@
     <Compile Include="Model\Traening.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BilRepository.cs" />
+    <Compile Include="Repositories\FremmoederegisteringRepository.cs" />
+    <Compile Include="Repositories\HoldRepository.cs" />
     <Compile Include="Repositories\KonkurrenceRepository.cs" />
+    <Compile Include="Repositories\KontaktPersonRepository.cs" />
+    <Compile Include="Repositories\SpringerRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">

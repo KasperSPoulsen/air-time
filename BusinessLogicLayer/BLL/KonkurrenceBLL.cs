@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataTransferObject.Model;
 
 namespace BusinessLogicLayer.BLL
 {
@@ -12,7 +13,7 @@ namespace BusinessLogicLayer.BLL
         public Konkurrence getKonkurrence(int id)
         {
             if (id < 0) throw new IndexOutOfRangeException();
-            return KonkurrenceRepository.getKonkurrence(id);
+            return KonkurrenceRepository.GetKonkurrence(id);
         }
 
         public List<Konkurrence> GetAllKonkurrencer()

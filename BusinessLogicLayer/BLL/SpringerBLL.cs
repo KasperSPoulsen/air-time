@@ -13,7 +13,7 @@ namespace BusinessLogicLayer.BLL
         public Springer getSpringer(int id)
         {
             if (id < 0) throw new IndexOutOfRangeException();
-            return SpringerRepository.getSpringer(id);
+            return SpringerRepository.GetSpringer(id);
         }
 
         public List<Springer> GetAllSpringere()
@@ -26,6 +26,12 @@ namespace BusinessLogicLayer.BLL
         {
             //valider employee
             SpringerRepository.AddSpringer(springer);
+        }
+
+        public void UpdateSpringer(Springer springer)
+        {
+            //valider employee
+            SpringerRepository.UpdateSpringer(springer);
         }
     }
 }

@@ -1,38 +1,36 @@
-﻿using DataAccessLayer.Context;
-using DataAccessLayer.Mappers;
-using DataTransferObject.Model;
-
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using DataAccessLayer.Context;
+using DataAccessLayer.Mappers;
+using DataTransferObject.Model;
+
 namespace DataAccessLayer.Repositories
 {
-    public class BilRepository
+    public class SpringerRepository
     {
-        public static Bil getBil(int id)
+        public static Springer GetSpringer(int id)
         {
             using (AirTimeContext context = new AirTimeContext())
             {
-                return BilMapper.Map(context.Biler.Find(id));
+                return SpringerMapper.Map(context.Springere.Find(id));
             }
         }
-
-        public static List<Bil> GetAllBiler()
+        public static List<Springer> GetAllSpringere()
         {
             using (AirTimeContext context = new AirTimeContext())
             {
-                return context.Biler.Select(BilMapper.Map).ToList();
+                return context.Springere.ToList().Select(SpringerMapper.Map).ToList();
             }
         }
-        public static void AddBil(Bil bil)
+        public static void AddSpringer(Springer springer)
         {
             using (AirTimeContext context = new AirTimeContext())
             {
-                context.Biler.Add(BilMapper.Map(bil));
+                context.Springere.Add(SpringerMapper.Map(springer));
                 context.SaveChanges();
             }
         }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataTransferObject.Model;
 
 namespace BusinessLogicLayer.BLL
 {
@@ -12,7 +13,7 @@ namespace BusinessLogicLayer.BLL
         public Hold getHold(int id)
         {
             if (id < 0) throw new IndexOutOfRangeException();
-            return HoldRepository.getHold(id);
+            return HoldRepository.GetHold(id);
         }
 
         public List<Hold> GetAllHold()

@@ -1,4 +1,6 @@
-﻿using DataTransferObject.Model;
+﻿using DataAccessLayer.Context;
+using DataAccessLayer.Mappers;
+using DataTransferObject.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +11,28 @@ namespace DataAccessLayer.Repositories
 {
     public class KonkurrenceRepository
     {
-
-        /*public static Bil CreateBil()
+        public static Konkurrence GetKonkurrence(int id)
         {
-            
-        }*/
+           using (AirTimeContext context = new AirTimeContext())
+            {
+                return KonkurrenceMapper.Map(context.Konkurrencer.Find(id));
+            }
+        }
+        public static List<Konkurrence> GetAllKonkurrencer()
+        {
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                return context.Konkurrencer.ToList().Select(KonkurrenceMapper.Map).ToList();
+            }
+        }
+        public static void AddKonkurrence(Konkurrence konkurrence)
+        {
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                context.Konkurrencer.Add(KonkurrenceMapper.Map(konkurrence));
+                context.SaveChanges();
+            }
+        }
+
     }
 }

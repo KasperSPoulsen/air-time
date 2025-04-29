@@ -13,18 +13,18 @@ namespace BusinessLogicLayer.BLL
         public Fremmoederegistrering getFremmoederegistrering(int id)
         {
             if (id < 0) throw new IndexOutOfRangeException();
-            return FremmoederegistreringRepository.getFremmoederegistrering(id);
+            return FremmoederegisteringRepository.GetFremmoederegistering(id);
         }
 
         public List<Fremmoederegistrering> GetAllFremmoederegistreringer()
         {
-            return FremmoederegistreringRepository.GetAllFremmoederegistreringer();
+            return FremmoederegisteringRepository.GetAllFremmoederegisteringer();
         }
 
 
         public void AddFremmoederegistrering(Fremmoederegistrering fremmoederegistrering)
         {
-            FremmoederegistreringRepository.AddFremmoederegistrering(fremmoederegistrering);
+            FremmoederegisteringRepository.AddFremmoederegistrering(fremmoederegistrering);
         }
     }
 }

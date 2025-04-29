@@ -13,7 +13,7 @@ namespace BusinessLogicLayer.BLL
         public KontaktPerson getKontaktPerson(int id)
         {
             if (id < 0) throw new IndexOutOfRangeException();
-            return KontaktPersonRepository.getKontaktPerson(id);
+            return KontaktPersonRepository.GetKontaktPerson(id);
         }
 
         public List<KontaktPerson> GetAllKontaktPersoner()

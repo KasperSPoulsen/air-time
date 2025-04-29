@@ -1,38 +1,36 @@
-﻿using DataAccessLayer.Context;
-using DataAccessLayer.Mappers;
-using DataTransferObject.Model;
-
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using DataAccessLayer.Context;
+using DataAccessLayer.Mappers;
+using DataTransferObject.Model;
+
 namespace DataAccessLayer.Repositories
 {
-    public class BilRepository
+    public class HoldRepository
     {
-        public static Bil getBil(int id)
+        public static Hold GetHold(int id)
         {
             using (AirTimeContext context = new AirTimeContext())
             {
-                return BilMapper.Map(context.Biler.Find(id));
+                return HoldMapper.Map(context.Hold.Find(id));
             }
         }
-
-        public static List<Bil> GetAllBiler()
+        public static List<Hold> GetAllHold()
         {
             using (AirTimeContext context = new AirTimeContext())
             {
-                return context.Biler.Select(BilMapper.Map).ToList();
+                return context.Hold.Select(HoldMapper.Map).ToList();
             }
         }
-        public static void AddBil(Bil bil)
+        public static void AddHold(Hold hold)
         {
             using (AirTimeContext context = new AirTimeContext())
             {
-                context.Biler.Add(BilMapper.Map(bil));
+                context.Hold.Add(HoldMapper.Map(hold));
                 context.SaveChanges();
             }
         }

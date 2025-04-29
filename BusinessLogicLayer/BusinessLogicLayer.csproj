@@ -51,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="BLL\BilBLL.cs" />
     <Compile Include="BLL\FremmoederegistreringBLL.cs" />
     <Compile Include="BLL\HoldBLL.cs" />
@@ -59,7 +58,6 @@
     <Compile Include="BLL\KontaktPersonBLL.cs" />
     <Compile Include="BLL\SpringerBLL.cs" />
     <Compile Include="Class1.cs" />
-
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
