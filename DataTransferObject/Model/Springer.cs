@@ -8,6 +8,8 @@ namespace DataTransferObject.Model
 {
     public class Springer
     {
+
+        public int Id { get; set; }
         public string Navn { get; set; }
         public List<string> KonkurrenceSerie { get; set; }
         public DateTime Foedselsdato { get; set; }
@@ -17,8 +19,9 @@ namespace DataTransferObject.Model
         public Springer()
         {
         }
-        public Springer(string navn, List<string> konkurrenceSerie, DateTime foedselsdato, string traeningsMaal, KontaktPerson kontaktPerson)
+        public Springer(int id ,string navn, List<string> konkurrenceSerie, DateTime foedselsdato, string traeningsMaal, KontaktPerson kontaktPerson)
         {
+            Id = id;
             Navn = navn;
             KonkurrenceSerie = konkurrenceSerie;
             Foedselsdato = foedselsdato;

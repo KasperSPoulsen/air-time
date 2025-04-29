@@ -8,6 +8,7 @@ namespace DataTransferObject.Model
 {
     public class KontaktPerson
     {
+        public int Id { get; set; }
         public string Navn { get; set; }
         public string TlfNr { get; set; }
         public string Mail { get; set; }
@@ -16,8 +17,9 @@ namespace DataTransferObject.Model
         {
         }
 
-        public KontaktPerson(string navn, string tlfNr, string mail)
+        public KontaktPerson(int id, string navn, string tlfNr, string mail)
         {
+            Id = id;
             Navn = navn;
             TlfNr = tlfNr;
             Mail = mail;

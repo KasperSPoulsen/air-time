@@ -8,6 +8,7 @@ namespace DataTransferObject.Model
 {
     public class Fremmoederegistrering
     {
+        public int Id { get; set; }
         public DateTime Dato { get; set; }
         public Status Status { get; set; }
         public Hold Hold { get; set; }
@@ -15,8 +16,9 @@ namespace DataTransferObject.Model
         public Fremmoederegistrering()
         {
         }
-        public Fremmoederegistrering(DateTime dato, Status status, Hold hold)
+        public Fremmoederegistrering(int id, DateTime dato, Status status, Hold hold)
         {
+            Id = id;
             Dato = dato;
             Status = status;
             Hold = hold;
