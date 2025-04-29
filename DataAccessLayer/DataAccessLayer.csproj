@@ -59,6 +59,7 @@
     <Compile Include="Mappers\KontaktPersonMapper.cs" />
     <Compile Include="Mappers\SpringerMapper.cs" />
     <Compile Include="Mappers\StatusMapper.cs" />
+    <Compile Include="Mappers\TraeningMapper.cs" />
     <Compile Include="Migrations\202504281356079_InitialCreate.cs" />
     <Compile Include="Migrations\202504281356079_InitialCreate.Designer.cs">
       <DependentUpon>202504281356079_InitialCreate.cs</DependentUpon>
