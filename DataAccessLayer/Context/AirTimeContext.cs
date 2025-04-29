@@ -13,6 +13,7 @@ namespace DataAccessLayer.Context
     {
         public AirTimeContext() : base("AirTimeContext")
         {
+            
         }
 
         public DbSet<Bil> Biler { get; set; }
