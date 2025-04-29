@@ -14,8 +14,9 @@ namespace DataAccessLayer.Mappers
         {
             return new DataTransferObject.Model.Fremmoederegistrering(
                 fremmoederegistrering.Dato,
-                fremmoederegistrering.Status,
-                fremmoederegistrering.Hold
+                            StatusMapper.Map(fremmoederegistrering.Status),
+                            HoldMapper.Map(fremmoederegistrering.Hold)
+
             );
         }
 
@@ -23,8 +24,9 @@ namespace DataAccessLayer.Mappers
         {
             return new DataAccessLayer.Model.Fremmoederegistrering(
                 fremmoederegistrering.Dato,
-                fremmoederegistrering.Status,
-                fremmoederegistrering.Hold
+                            StatusMapper.Map(fremmoederegistrering.Status),
+                            HoldMapper.Map(fremmoederegistrering.Hold)
+
             );
         }
     }

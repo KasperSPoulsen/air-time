@@ -10,9 +10,9 @@ namespace DataAccessLayer.Repositories
     public class KonkurrenceRepository
     {
 
-        public static Bil CreateBil()
+        /*public static Bil CreateBil()
         {
             
-        }
+        }*/
     }
 }
