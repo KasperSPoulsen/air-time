@@ -12,13 +12,15 @@ namespace DataTransferObject.Model
         public KontaktPerson KontaktPerson { get; set; }
         public List<Springer> Springere { get; set; }
         public Konkurrence Konkurrence { get; set; }
+        public int Id { get; set; }
         public Bil() { }
 
-        public Bil(KontaktPerson kontaktPerson, List<Springer> springere, Konkurrence konkurrence)
+        public Bil(int id, KontaktPerson kontaktPerson, List<Springer> springere, Konkurrence konkurrence)
         {
             KontaktPerson = kontaktPerson;
             Springere = springere;
             Konkurrence = konkurrence;
+            Id = id;
         }
     }
 }
