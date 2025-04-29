@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Mappers
 {
-    internal class FremmoederegistreringMapper
+    public class FremmoederegistreringMapper
     {
         public static DataTransferObject.Model.Fremmoederegistrering Map(DataAccessLayer.Model.Fremmoederegistrering fremmoederegistrering)
         {
             return new DataTransferObject.Model.Fremmoederegistrering(
-                fremmoederegistrering.Dato,
+                fremmoederegistrering.Id,
                             StatusMapper.Map(fremmoederegistrering.MoedeStatus),
-                            HoldMapper.Map(fremmoederegistrering.Hold)
+                SpringerMapper.Map(fremmoederegistrering.Springer)
 
             );
         }
@@ -23,10 +23,9 @@ namespace DataAccessLayer.Mappers
         public static DataAccessLayer.Model.Fremmoederegistrering Map(DataTransferObject.Model.Fremmoederegistrering fremmoederegistrering)
         {
             return new DataAccessLayer.Model.Fremmoederegistrering(
-                fremmoederegistrering.Dato,
-                            StatusMapper.Map(fremmoederegistrering.Status),
-                            HoldMapper.Map(fremmoederegistrering.Hold)
-
+                fremmoederegistrering.Id,
+                            StatusMapper.Map(fremmoederegistrering.MoedeStatus),
+                SpringerMapper.Map(fremmoederegistrering.Springer)
             );
         }
     }

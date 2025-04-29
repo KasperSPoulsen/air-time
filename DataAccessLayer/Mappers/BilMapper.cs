@@ -8,15 +8,14 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Mappers
 {
-    internal class BilMapper
+    public class BilMapper
     {
         // Mapper fra DAL til DTO
         public static DataTransferObject.Model.Bil Map(DataAccessLayer.Model.Bil bil)
         {
             return new DataTransferObject.Model.Bil(
-                KontaktPersonMapper.Map(bil.KontaktPerson),
-                bil.Springere.Select(SpringerMapper.Map).ToList(),
-                KonkurrenceMapper.Map(bil.Konkurrence)
+                bil.Id,
+                KontaktPersonMapper.Map(bil.KontaktPerson)
             );
         }
 
@@ -24,9 +23,8 @@ namespace DataAccessLayer.Mappers
         public static DataAccessLayer.Model.Bil Map(DataTransferObject.Model.Bil bil)
         {
             return new DataAccessLayer.Model.Bil(
-                KontaktPersonMapper.Map(bil.KontaktPerson),
-                bil.Springere.Select(SpringerMapper.Map).ToList(),
-                KonkurrenceMapper.Map(bil.Konkurrence)
+                bil.Id,
+                KontaktPersonMapper.Map(bil.KontaktPerson)
             );
         }
     }

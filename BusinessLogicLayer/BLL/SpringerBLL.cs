@@ -28,10 +28,6 @@ namespace BusinessLogicLayer.BLL
             SpringerRepository.AddSpringer(springer);
         }
 
-        public void UpdateSpringer(Springer springer)
-        {
-            //valider employee
-            SpringerRepository.UpdateSpringer(springer);
-        }
+       
     }
 }

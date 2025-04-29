@@ -12,7 +12,7 @@ namespace DataAccessLayer.Model
         public Status MoedeStatus { get; set; }
         public Springer Springer { get; set; }
         public Fremmoederegistrering() {}
-        public Fremmoederegistrering(int id, Springer springer, Status MoedeStatus)
+        public Fremmoederegistrering(int id, Status MoedeStatus, Springer springer)
         {
             Id = id;
             this.MoedeStatus = MoedeStatus;
