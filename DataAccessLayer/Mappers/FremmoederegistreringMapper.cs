@@ -14,7 +14,7 @@ namespace DataAccessLayer.Mappers
         {
             return new DataTransferObject.Model.Fremmoederegistrering(
                 fremmoederegistrering.Dato,
-                            StatusMapper.Map(fremmoederegistrering.Status),
+                            StatusMapper.Map(fremmoederegistrering.MoedeStatus),
                             HoldMapper.Map(fremmoederegistrering.Hold)
 
             );

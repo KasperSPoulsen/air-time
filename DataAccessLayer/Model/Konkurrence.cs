@@ -12,18 +12,18 @@ namespace DataAccessLayer.Model
         public int Id { get; set; }
         public string Adresse { get; set; }
         public string Navn { get; set; }
-        public List<Springer> Springere { get; set; }
-        public List<Bil> Biler { get; set; }
+        public DateTime Dato { get; set; }
+        public List<Springer> Springere { get; set; } = new List<Springer>();
+        public List<Bil> Biler { get; set; } = new List<Bil>();
         public Konkurrence()
         {
         }
-        public Konkurrence(int id, string adresse, string navn, List<Springer> springere, List<Bil> biler)
+        public Konkurrence(int id, string adresse, string navn, DateTime dato)
         {
             Id = id;
             Adresse = adresse;
             Navn = navn;
-            Springere = springere;
-            Biler = biler;
+            Dato = dato;
         }
 
     }
