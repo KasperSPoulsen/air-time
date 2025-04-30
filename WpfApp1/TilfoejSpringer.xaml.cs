@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DataTransferObject.Model;
 
 namespace WpfApp1
 {
@@ -29,6 +30,7 @@ namespace WpfApp1
             string navn = SpringerNavn.Text;
             string kontaktNavn = KontaktNavn.Text;
             string kontaktTelefon = KontaktTelefon.Text;
+            DateTime? fodselsdato = FodselsdatoPicker.SelectedDate;
 
             List<string> valgteHold = new List<string>();
 
@@ -39,7 +41,19 @@ namespace WpfApp1
 
             if (string.IsNullOrWhiteSpace(navn) || string.IsNullOrWhiteSpace(kontaktNavn) || string.IsNullOrWhiteSpace(kontaktTelefon))
             {
-                MessageBox.Show("Udfyld venligst alle felter!", "Fejl", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Udfyld venligst alle tekstfelter!", "Fejl", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (fodselsdato == null)
+            {
+                MessageBox.Show("Vælg venligst en fødselsdato.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (fodselsdato > DateTime.Today)
+            {
+                MessageBox.Show("Fødselsdatoen kan ikke ligge i fremtiden.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -49,11 +63,15 @@ namespace WpfApp1
                 return;
             }
 
-            // Her kunne skal vi få gemt springeren ned i databasen
-            MessageBox.Show($"Springeren '{navn}' er oprettet med {valgteHold.Count} hold valgt.", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+            //KontaktPerson kontaktPerson = new KontaktPerson(1, kontaktNavn, kontaktTelefon, );
+            //Springer springer = new Springer(1, navn, fodselsdato.Value, kontaktNavn, kontaktTelefon, valgteHold);
 
-            this.Close(); 
+            MessageBox.Show($"Springeren '{navn}' er oprettet med {valgteHold.Count} hold valgt og fødselsdato {fodselsdato:dd-MM-yyyy}.",
+                "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            this.Close();
         }
+
 
     }
 }
