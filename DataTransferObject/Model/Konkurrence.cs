@@ -20,9 +20,9 @@ namespace DataTransferObject.Model
         {
         }
 
-        public Konkurrence(int id, string adresse, string navn, DateTime dato)
+        public Konkurrence(string adresse, string navn, DateTime dato)
         {
-            Id = id;
+            
             Adresse = adresse;
             Navn = navn;
             Dato = dato;

@@ -14,9 +14,9 @@ namespace DataTransferObject.Model
         {
         }
 
-        public Hold(int id ,string holdNavn)
+        public Hold(string holdNavn)
         {
-            Id = id;
+            
             HoldNavn = holdNavn;
         }
     }

@@ -21,9 +21,9 @@ namespace DataTransferObject.Model
         public Springer()
         {
         }
-        public Springer(int id ,string navn, DateTime foedselsdato, KontaktPerson kontaktPerson, List<Hold> hold)
+        public Springer(string navn, DateTime foedselsdato, KontaktPerson kontaktPerson, List<Hold> hold)
         {
-            Id = id;
+            
             Navn = navn;
             Foedselsdato = foedselsdato;
             KontaktPerson = kontaktPerson;

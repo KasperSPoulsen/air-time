@@ -15,9 +15,9 @@ namespace DataTransferObject.Model
         public Fremmoederegistrering()
         {
         }
-        public Fremmoederegistrering(int id, Status MoedeStatus, Springer springer)
+        public Fremmoederegistrering(Status MoedeStatus, Springer springer)
         {
-            Id = id;
+            
             this.MoedeStatus = MoedeStatus;
             this.Springer = springer;
         }

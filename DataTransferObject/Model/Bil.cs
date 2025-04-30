@@ -15,9 +15,9 @@ namespace DataTransferObject.Model
 
         public Bil() { }
 
-        public Bil(int id, KontaktPerson kontaktPerson)
+        public Bil(KontaktPerson kontaktPerson)
         {
-            Id = id;
+            
             KontaktPerson = kontaktPerson;
         }
     }

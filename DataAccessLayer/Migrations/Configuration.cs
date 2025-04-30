@@ -36,6 +36,25 @@
                 context.KontaktPersoner.Add(kontakt2);
                 context.SaveChanges();
             }
+
+            // Tilføj hold hvis de ikke allerede findes
+            string[] holdNavne = {
+                "Tirsdag hold 1",
+                "Tirsdag hold 2",
+                "Torsdag hold 1",
+                "Torsdag hold 2"
+};
+
+            foreach (var navn in holdNavne)
+            {
+                if (!context.Hold.Any(h => h.HoldNavn == navn))
+                {
+                    context.Hold.Add(new Hold { HoldNavn = navn });
+                }
+            }
+
+            context.SaveChanges();
+
         }
 
     }

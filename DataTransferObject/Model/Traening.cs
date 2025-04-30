@@ -14,10 +14,10 @@ namespace DataTransferObject.Model
         public List<Fremmoederegistrering> Fremmoederegistreringer { get; set; } = new List<Fremmoederegistrering>();
         public Traening() { }
 
-        public Traening(DateTime dato, int id, Hold hold, List<Fremmoederegistrering> fremmoederegistrering)
+        public Traening(DateTime dato, Hold hold, List<Fremmoederegistrering> fremmoederegistrering)
         {
             Dato = dato;
-            Id = id;
+            
             Hold = hold;
             Fremmoederegistreringer = fremmoederegistrering;
         }

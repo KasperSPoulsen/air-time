@@ -10,14 +10,14 @@ namespace DataAccessLayer.Model
     {
         public DateTime Dato {  get; set; }
         public int Id { get; set; }
-        public Hold Hold { get; set; }
-        public List<Fremmoederegistrering> Fremmoederegistreringer { get; set; } = new List<Fremmoederegistrering>();
+        public virtual Hold Hold { get; set; }
+        public virtual List<Fremmoederegistrering> Fremmoederegistreringer { get; set; } = new List<Fremmoederegistrering>();
         public Traening() { }
 
-        public Traening(DateTime dato, int id, Hold hold,List<Fremmoederegistrering> fremmoederegistrering)
+        public Traening(DateTime dato, Hold hold, List<Fremmoederegistrering> fremmoederegistrering)
         {
             Dato = dato;
-            Id = id;
+            
             Hold = hold;
             Fremmoederegistreringer = fremmoederegistrering;
         }
