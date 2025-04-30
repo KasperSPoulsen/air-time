@@ -20,6 +20,18 @@ namespace DataAccessLayer.Mappers
             );
         }
 
+        public static List<DataTransferObject.Model.Fremmoederegistrering> Map(List<DataAccessLayer.Model.Fremmoederegistrering> fremmoederegistreringer)
+        {
+            List<DataTransferObject.Model.Fremmoederegistrering> DTOregistreringer = new List<DataTransferObject.Model.Fremmoederegistrering>();
+            foreach (var registrering in fremmoederegistreringer)
+            {
+                DTOregistreringer.Add(Map(registrering));
+            }
+            return DTOregistreringer;
+
+            
+        }
+
         public static DataAccessLayer.Model.Fremmoederegistrering Map(DataTransferObject.Model.Fremmoederegistrering fremmoederegistrering)
         {
             return new DataAccessLayer.Model.Fremmoederegistrering(
@@ -27,6 +39,18 @@ namespace DataAccessLayer.Mappers
                             StatusMapper.Map(fremmoederegistrering.MoedeStatus),
                 SpringerMapper.Map(fremmoederegistrering.Springer)
             );
+        }
+
+        public static List<DataAccessLayer.Model.Fremmoederegistrering> Map(List<DataTransferObject.Model.Fremmoederegistrering> fremmoederegistreringer)
+        {
+            List<DataAccessLayer.Model.Fremmoederegistrering> DALregistreringer = new List<DataAccessLayer.Model.Fremmoederegistrering>();
+            foreach (var registrering in fremmoederegistreringer)
+            {
+                DALregistreringer.Add(Map(registrering));
+            }
+            return DALregistreringer;
+
+
         }
     }
 }
