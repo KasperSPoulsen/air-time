@@ -14,7 +14,6 @@ namespace DataAccessLayer.Mappers
         public static DataTransferObject.Model.Bil Map(DataAccessLayer.Model.Bil bil)
         {
             return new DataTransferObject.Model.Bil(
-                bil.Id,
                 KontaktPersonMapper.Map(bil.KontaktPerson)
             );
         }
@@ -23,7 +22,6 @@ namespace DataAccessLayer.Mappers
         public static DataAccessLayer.Model.Bil Map(DataTransferObject.Model.Bil bil)
         {
             return new DataAccessLayer.Model.Bil(
-                bil.Id,
                 KontaktPersonMapper.Map(bil.KontaktPerson)
             );
         }

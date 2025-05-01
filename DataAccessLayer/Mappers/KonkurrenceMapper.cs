@@ -13,7 +13,6 @@ namespace DataAccessLayer.Mappers
         public static DataTransferObject.Model.Konkurrence Map(DataAccessLayer.Model.Konkurrence konkurrence)
         {
             return new DataTransferObject.Model.Konkurrence(
-                konkurrence.Id,
                 konkurrence.Adresse,
                 konkurrence.Navn,
                 konkurrence.Dato
@@ -23,7 +22,6 @@ namespace DataAccessLayer.Mappers
         public static DataAccessLayer.Model.Konkurrence Map(DataTransferObject.Model.Konkurrence konkurrence)
         {
             return new DataAccessLayer.Model.Konkurrence(
-                konkurrence.Id,
                 konkurrence.Adresse,
                 konkurrence.Navn,
                 konkurrence.Dato
