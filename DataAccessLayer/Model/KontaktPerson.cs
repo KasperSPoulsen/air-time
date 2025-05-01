@@ -16,9 +16,9 @@ namespace DataAccessLayer.Model
         public KontaktPerson()
         {
         }
-        public KontaktPerson(int id, string navn, string tlfNr, string mail)
+        public KontaktPerson(string navn, string tlfNr, string mail)
         {
-            Id = id;
+            
             Navn = navn;
             TlfNr = tlfNr;
             Mail = mail;

@@ -10,15 +10,15 @@ namespace DataAccessLayer.Model
     {
         public int Id { get; set; }
         public string HoldNavn { get; set; }
-        public List<Springer> Springere { get; set; } =  new List<Springer>();
-        public List<Traening> Traeninger { get; set; } = new List<Traening>();
+        public virtual List<Springer> Springere { get; set; } =  new List<Springer>();
+        public virtual List<Traening> Traeninger { get; set; } = new List<Traening>();
         public Hold()
         {
         }
-        public Hold(int id, string holdNavn)
+        public Hold(string holdNavn)
         {
-            Id = id;
-            this.HoldNavn = holdNavn;
+            
+            HoldNavn = holdNavn;
         }
     }
 }

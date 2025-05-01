@@ -34,5 +34,11 @@ namespace DataAccessLayer.Repositories
                 context.SaveChanges();
             }
         }
+
+
+        public static List<DataTransferObject.Model.Hold> GetHold(List<string> holdnavne)
+        {
+            return null; //skal implementeres
+        }
     }
 }

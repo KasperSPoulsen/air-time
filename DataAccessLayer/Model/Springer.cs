@@ -10,17 +10,16 @@ namespace DataAccessLayer.Model
     {
         public int Id { get; set; }
         public string Navn { get; set; }
-        public List<string> KonkurrenceSerie { get; set; } = new List<string>();
+        public virtual List<string> KonkurrenceSerie { get; set; } = new List<string>();
         public DateTime Foedselsdato { get; set; }
         public string TraeningsMaal { get; set; }
-        public KontaktPerson KontaktPerson { get; set; }
-        public List<Hold> Hold { get; set; } = new List<Hold>();
+        public virtual KontaktPerson KontaktPerson { get; set; }
+        public virtual List<Hold> Hold { get; set; } = new List<Hold>();
         public Springer()
         {
         }
-        public Springer(int id, string navn, DateTime foedselsdato, KontaktPerson kontaktPerson, List<Hold> hold)
+        public Springer(string navn, DateTime foedselsdato, KontaktPerson kontaktPerson, List<Hold> hold)
         {
-            Id = id;
             Navn = navn;
             Foedselsdato = foedselsdato;
             KontaktPerson = kontaktPerson;

@@ -10,14 +10,14 @@ namespace DataAccessLayer.Model
     public class Bil
     {
         public int Id { get; set; }
-        public KontaktPerson KontaktPerson { get; set; }
-        public List<Springer> Springere { get; set; } = new List<Springer>();
+        public virtual KontaktPerson KontaktPerson { get; set; }
+        public virtual List<Springer> Springere { get; set; } = new List<Springer>();
 
         public Bil() { }
 
-        public Bil(int id, KontaktPerson kontaktPerson)
+        public Bil(KontaktPerson kontaktPerson)
         {
-            Id = id;
+            
             KontaktPerson = kontaktPerson;
         }
 

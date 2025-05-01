@@ -10,11 +10,11 @@ namespace DataAccessLayer.Model
     {
         public int Id { get; set; }
         public Status MoedeStatus { get; set; }
-        public Springer Springer { get; set; }
+        public virtual Springer Springer { get; set; }
         public Fremmoederegistrering() {}
-        public Fremmoederegistrering(int id, Status MoedeStatus, Springer springer)
+        public Fremmoederegistrering(Status MoedeStatus, Springer springer)
         {
-            Id = id;
+            
             this.MoedeStatus = MoedeStatus;
             this.Springer = springer;
         }
