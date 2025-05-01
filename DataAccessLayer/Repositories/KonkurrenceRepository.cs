@@ -13,7 +13,7 @@ namespace DataAccessLayer.Repositories
     {
         public static Konkurrence GetKonkurrence(int id)
         {
-           using (AirTimeContext context = new AirTimeContext())
+            using (AirTimeContext context = new AirTimeContext())
             {
                 return KonkurrenceMapper.Map(context.Konkurrencer.Find(id));
             }
@@ -34,5 +34,20 @@ namespace DataAccessLayer.Repositories
             }
         }
 
+
+        public static void TilfoejSpringerTilKonkurrence(int konkurrenceId, Springer springer)
+        {
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                var konkurrence = context.Konkurrencer.Find(konkurrenceId);
+                if (konkurrence != null)
+                {
+                    DataAccessLayer.Model.Springer DALSpringer = SpringerMapper.Map(springer);
+                    konkurrence.Springere.Add(DALSpringer);
+                    context.SaveChanges();
+                }
+            }
+
+        }
     }
 }

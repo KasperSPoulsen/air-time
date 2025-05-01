@@ -36,5 +36,11 @@ namespace WpfApp1
             var vindue = new Hold();
             vindue.Show();
         }
+
+        private void VisKonkurrenceVindue(object sender, RoutedEventArgs e)
+        {
+            var vindue = new Konkurrence();
+            vindue.Show();
+        }
     }
 }

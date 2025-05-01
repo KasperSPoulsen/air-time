@@ -27,5 +27,24 @@ namespace BusinessLogicLayer.BLL
             //valider employee
             KonkurrenceRepository.AddKonkurrence(konkurrence);
         }
+
+        public void TilfoejSpringerTilKonkurrence(int konkurrenceId, Springer springer)
+        {
+            if (springer == null) throw new ArgumentNullException();
+            if (konkurrenceId < 0) throw new IndexOutOfRangeException();
+            KonkurrenceRepository.TilfoejSpringerTilKonkurrence(konkurrenceId, springer);
+        }
+
+
+        public void test()
+        {
+            Konkurrence konkurrence = new Konkurrence("Testvej 1", "Testkonkurrence", DateTime.Now);
+            List<Hold> holds = new List<Hold>();
+            KontaktPerson k = new KontaktPerson("Hej", "91", "asd");
+            Springer springer = new Springer("Test", DateTime.Now, k, holds);
+
+
+            Console.WriteLine(konkurrence.ToString());
+        }
     }
 }
