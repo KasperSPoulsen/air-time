@@ -51,12 +51,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BLL\BilBLL.cs" />
+    <Compile Include="BLL\FremmoederegistreringBLL.cs" />
+    <Compile Include="BLL\HoldBLL.cs" />
+    <Compile Include="BLL\KonkurrenceBLL.cs" />
+    <Compile Include="BLL\KontaktPersonBLL.cs" />
+    <Compile Include="BLL\SpringerBLL.cs" />
+    <Compile Include="BLL\TraeningBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{27c0be73-358e-43c2-bf95-7bd1c0f5ce51}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
+      <Project>{663ca3d8-93d9-4d73-a613-0328fffc3500}</Project>
+      <Name>DataTransferObject</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

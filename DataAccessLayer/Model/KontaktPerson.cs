@@ -8,13 +8,17 @@ namespace DataAccessLayer.Model
 {
     public class KontaktPerson
     {
+        public int Id { get; set; }
         public string Navn { get; set; }
         public string TlfNr { get; set; }
         public string Mail { get; set; }
 
-
+        public KontaktPerson()
+        {
+        }
         public KontaktPerson(string navn, string tlfNr, string mail)
         {
+            
             Navn = navn;
             TlfNr = tlfNr;
             Mail = mail;

@@ -8,7 +8,24 @@ namespace DataTransferObject.Model
 {
     public class Konkurrence
     {
+        public int Id { get; set; }
         public string Adresse { get; set; }
         public string Navn { get; set; }
+        public DateTime Dato { get; set; }
+
+        public List<Springer> Springere { get; set; }
+        public List<Bil> Biler { get; set; }
+
+        public Konkurrence()
+        {
+        }
+
+        public Konkurrence(string adresse, string navn, DateTime dato)
+        {
+            
+            Adresse = adresse;
+            Navn = navn;
+            Dato = dato;
+        }
     }
 }

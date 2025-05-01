@@ -1,4 +1,9 @@
-﻿using System;
+﻿using DataAccessLayer.Context;
+using DataAccessLayer.Mappers;
+using DataTransferObject.Model;
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +11,30 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
-    internal class BilRepository
+    public class BilRepository
     {
+        public static Bil getBil(int id)
+        {
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                return BilMapper.Map(context.Biler.Find(id));
+            }
+        }
+
+        public static List<Bil> GetAllBiler()
+        {
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                return context.Biler.Select(BilMapper.Map).ToList();
+            }
+        }
+        public static void AddBil(Bil bil)
+        {
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                context.Biler.Add(BilMapper.Map(bil));
+                context.SaveChanges();
+            }
+        }
     }
 }

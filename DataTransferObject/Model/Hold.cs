@@ -8,6 +8,16 @@ namespace DataTransferObject.Model
 {
     public class Hold
     {
+        public int Id { get; set; }
         public string HoldNavn { get; set; }
+        public Hold()
+        {
+        }
+
+        public Hold(string holdNavn)
+        {
+            
+            HoldNavn = holdNavn;
+        }
     }
 }

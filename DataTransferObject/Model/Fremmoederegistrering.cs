@@ -8,6 +8,18 @@ namespace DataTransferObject.Model
 {
     public class Fremmoederegistrering
     {
-        public DateTime Dato { get; set; }
+        public int Id { get; set; }
+        public Status MoedeStatus { get; set; }
+        public Springer Springer { get; set; }
+
+        public Fremmoederegistrering()
+        {
+        }
+        public Fremmoederegistrering(Status MoedeStatus, Springer springer)
+        {
+            
+            this.MoedeStatus = MoedeStatus;
+            this.Springer = springer;
+        }
     }
 }

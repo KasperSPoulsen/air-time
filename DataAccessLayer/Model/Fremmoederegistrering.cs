@@ -8,15 +8,15 @@ namespace DataAccessLayer.Model
 {
     public class Fremmoederegistrering
     {
-        public DateTime Dato { get; set; }
-        public Status Status { get; set; }
-        public Hold Hold { get; set; }
-
-        public Fremmoederegistrering(DateTime dato, Status status, Hold hold)
+        public int Id { get; set; }
+        public Status MoedeStatus { get; set; }
+        public virtual Springer Springer { get; set; }
+        public Fremmoederegistrering() {}
+        public Fremmoederegistrering(Status MoedeStatus, Springer springer)
         {
-            Dato = dato;
-            Status = status;
-            Hold = hold;
+            
+            this.MoedeStatus = MoedeStatus;
+            this.Springer = springer;
         }
 
     }

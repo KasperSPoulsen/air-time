@@ -9,15 +9,18 @@ namespace DataAccessLayer.Model
 {
     public class Bil
     {
-        public KontaktPerson KontaktPerson { get; set; }
-        public List<Springer> Springere { get; set; }
-        public Konkurrence Konkurrence { get; set; }
+        public int Id { get; set; }
+        public virtual KontaktPerson KontaktPerson { get; set; }
+        public virtual List<Springer> Springere { get; set; } = new List<Springer>();
 
-        public Bil(KontaktPerson kontaktPerson, List<Springer> springere, Konkurrence konkurrence)
+        public Bil() { }
+
+        public Bil(KontaktPerson kontaktPerson)
         {
+            
             KontaktPerson = kontaktPerson;
-            Springere = springere;
-            Konkurrence = konkurrence;
         }
+
+
     }
 }
