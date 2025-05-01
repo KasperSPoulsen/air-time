@@ -1,17 +1,17 @@
-﻿namespace DataAccessLayer.Migrations
-{
-    using DataAccessLayer.Model;
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+﻿using DataAccessLayer.Mappers;
+using DataAccessLayer.Model;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DataAccessLayer.Context.AirTimeContext>
+namespace DataAccessLayer.Context
+{
+    internal class Initializer : CreateDatabaseIfNotExists<AirTimeContext>
     {
-        public Configuration()
-        {
-            AutomaticMigrationsEnabled = false;
-        }
+        public static Dictionary<string, int> HoldMap { get; set; } = new Dictionary<string, int>();
 
         protected override void Seed(DataAccessLayer.Context.AirTimeContext context)
         {
@@ -29,7 +29,6 @@
                 Mail = "clemen.dalgaard@gmail.com"
             };
 
-            // Only add if it doesn't already exist
             if (!context.KontaktPersoner.Any(k => k.Mail == kontakt.Mail))
             {
                 context.KontaktPersoner.Add(kontakt);
@@ -37,13 +36,12 @@
                 context.SaveChanges();
             }
 
-            // Tilføj hold hvis de ikke allerede findes
             string[] holdNavne = {
-                "Tirsdag hold 1",
-                "Tirsdag hold 2",
-                "Torsdag hold 1",
-                "Torsdag hold 2"
-};
+            "Tirsdag hold 1",
+            "Tirsdag hold 2",
+            "Torsdag hold 1",
+            "Torsdag hold 2"
+        };
 
             foreach (var navn in holdNavne)
             {
@@ -55,7 +53,9 @@
 
             context.SaveChanges();
 
+            HoldMap = context.Hold
+                .Where(h => holdNavne.Contains(h.HoldNavn))
+                .ToDictionary(h => h.HoldNavn, h => h.Id);
         }
-
     }
 }
