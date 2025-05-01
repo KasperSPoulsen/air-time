@@ -14,7 +14,6 @@ namespace DataAccessLayer.Mappers
         public static DataTransferObject.Model.Springer Map(DataAccessLayer.Model.Springer springer)
         {
             return new DataTransferObject.Model.Springer(
-                springer.Id,
                 springer.Navn,
             springer.Foedselsdato,
             KontaktPersonMapper.Map(springer.KontaktPerson),
@@ -27,7 +26,6 @@ namespace DataAccessLayer.Mappers
         public static DataAccessLayer.Model.Springer Map(DataTransferObject.Model.Springer springer)
         {
             return new DataAccessLayer.Model.Springer(
-                springer.Id,
                    springer.Navn,
             springer.Foedselsdato,
             KontaktPersonMapper.Map(springer.KontaktPerson),

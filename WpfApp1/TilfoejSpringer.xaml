@@ -30,12 +30,12 @@
             <TextBox Name="SpringerNavn" Width="300"/>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Row="4" Margin="0 0 0 20">
+        <StackPanel Orientation="Vertical" Grid.Row="2" Margin="0 0 0 20">
             <TextBlock Text="Kontaktpersons navn:"/>
             <TextBox Name="KontaktNavn" Width="300"/>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Row="2" Margin="0 0 0 20">
+        <StackPanel Orientation="Vertical" Grid.Row="4" Margin="0 0 0 20">
             <TextBlock Text="Kontaktpersons telefonnummer:"/>
             <TextBox Name="KontaktTelefon" Width="300"/>
         </StackPanel>
