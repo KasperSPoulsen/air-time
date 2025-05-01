@@ -12,7 +12,7 @@ namespace DataTransferObject.Model
         public int Id { get; set; }
         public string Navn { get; set; }
         public List<string> KonkurrenceSerie { get; set; }
-        public DateTime Foedselsdato { get; set; }
+        public DateTime? Foedselsdato { get; set; }
         public string TraeningsMaal { get; set; }
         public KontaktPerson KontaktPerson { get; set; }
         public List<Hold> Hold { get; set; } = new List<Hold>();
@@ -21,7 +21,7 @@ namespace DataTransferObject.Model
         public Springer()
         {
         }
-        public Springer(string navn, DateTime foedselsdato, KontaktPerson kontaktPerson, List<Hold> hold)
+        public Springer(string navn, DateTime? foedselsdato, KontaktPerson kontaktPerson, List<Hold> hold)
         {
             
             Navn = navn;
