@@ -20,7 +20,6 @@ namespace DataAccessLayer.Model
         }
         public Konkurrence(string adresse, string navn, DateTime dato)
         {
-            Id = id;
             Adresse = adresse;
             Navn = navn;
             Dato = dato;

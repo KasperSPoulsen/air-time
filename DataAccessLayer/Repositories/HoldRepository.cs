@@ -38,7 +38,16 @@ namespace DataAccessLayer.Repositories
 
         public static List<DataTransferObject.Model.Hold> GetHold(List<string> holdnavne)
         {
-            return null; //skal implementeres
+            List<DataTransferObject.Model.Hold> valgteHold = new List<Hold>();
+              
+            foreach (var e in Initializer.HoldMap)
+            {
+                if (holdnavne.Contains(e.Key))
+                {
+                    valgteHold.Add(HoldRepository.GetHold(e.Value));
+                }
+            }
+            return valgteHold;
         }
     }
 }

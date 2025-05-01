@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\AirTimeContext.cs" />
+    <Compile Include="Context\Initializer.cs" />
     <Compile Include="Mappers\BilMapper.cs" />
     <Compile Include="Mappers\FremmoederegistreringMapper.cs" />
     <Compile Include="Mappers\HoldMapper.cs" />
@@ -60,15 +61,6 @@
     <Compile Include="Mappers\SpringerMapper.cs" />
     <Compile Include="Mappers\StatusMapper.cs" />
     <Compile Include="Mappers\TraeningMapper.cs" />
-    <Compile Include="Migrations\202504281356079_InitialCreate.cs" />
-    <Compile Include="Migrations\202504281356079_InitialCreate.Designer.cs">
-      <DependentUpon>202504281356079_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202504291017048_NySeed.cs" />
-    <Compile Include="Migrations\202504291017048_NySeed.Designer.cs">
-      <DependentUpon>202504291017048_NySeed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Bil.cs" />
     <Compile Include="Model\Fremmoederegistrering.cs" />
     <Compile Include="Model\Hold.cs" />
@@ -94,14 +86,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202504281356079_InitialCreate.resx">
-      <DependentUpon>202504281356079_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202504291017048_NySeed.resx">
-      <DependentUpon>202504291017048_NySeed.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
