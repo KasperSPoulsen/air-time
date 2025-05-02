@@ -22,8 +22,10 @@ namespace DataAccessLayer.Context
         public DbSet<KontaktPerson> KontaktPersoner { get; set; }
         public DbSet<Springer> Springere { get; set; }
         public DbSet<Fremmoederegistrering> Fremmoederegistreringer { get; set; }
+        public DbSet<Traening> Traeninger { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     }
