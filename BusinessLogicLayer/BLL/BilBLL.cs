@@ -22,10 +22,18 @@ namespace BusinessLogicLayer.BLL
         }
 
 
-        public void AddBil(Bil bil)
+        public Bil CreateBil(KontaktPerson kontaktPerson)
         {
-            //valider employee
+            if (kontaktPerson == null) throw new ArgumentNullException(nameof(kontaktPerson));
+
+            Bil bil = new Bil(kontaktPerson);
             BilRepository.AddBil(bil);
+            return bil;
+        }
+
+        public void SletBil(int id)
+        {
+            BilRepository.SletBil(id);
         }
     }
 }

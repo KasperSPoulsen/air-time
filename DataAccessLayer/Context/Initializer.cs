@@ -29,6 +29,8 @@ namespace DataAccessLayer.Context
                 Mail = "clemen.dalgaard@gmail.com"
             };
 
+
+
             if (!context.KontaktPersoner.Any(k => k.Mail == kontakt.Mail))
             {
                 context.KontaktPersoner.Add(kontakt);
@@ -50,6 +52,20 @@ namespace DataAccessLayer.Context
                     context.Hold.Add(new Hold { HoldNavn = navn });
                 }
             }
+
+            var hoppePeter = new Springer
+            {
+                Navn = "Hoppe peter",
+                Foedselsdato = new DateTime(1990, 1, 1),
+                KontaktPerson = kontakt,
+                Hold = new List<Hold>
+                {
+                    context.Hold.FirstOrDefault(h => h.HoldNavn == "Tirsdag hold 1"),
+                    context.Hold.FirstOrDefault(h => h.HoldNavn == "Torsdag hold 1")
+                }
+            };
+
+            context.Springere.Add(hoppePeter);
 
             context.SaveChanges();
 
