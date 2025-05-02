@@ -9,9 +9,9 @@
     <Grid>
 
         <TextBlock  HorizontalAlignment="Left" Margin="62,30,0,0" TextWrapping="Wrap" Text="Konkurrencer" VerticalAlignment="Top" Height="44" Width="184" RenderTransformOrigin="0.688,1.025" FontSize="30"/>
-        <TextBlock x:Name="Konkurrence1" HorizontalAlignment="Left" Margin="62,89,0,0" TextWrapping="Wrap" Text="Placeholder" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="62,105,0,0" TextWrapping="Wrap" Text="Placeholder" VerticalAlignment="Top" FontSize="10"/>
-        <TextBlock HorizontalAlignment="Left" Margin="62,121,0,0" TextWrapping="Wrap" Text="Placeholder" VerticalAlignment="Top" FontSize="10"/>
+
+        <Button Content="Opret Konkurrence" HorizontalAlignment="Left" Margin="62,360,0,0" VerticalAlignment="Top" Click="OpretKonkurrence"/>
+        <ListBox x:Name="KonkurrenceListBox" DisplayMemberPath="Adresse" Margin="62,100,498,199" SelectionChanged="ValgteKonkurrence"/>
 
 
     </Grid>

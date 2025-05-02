@@ -36,5 +36,18 @@ namespace DataAccessLayer.Repositories
                 context.SaveChanges();
             }
         }
+
+        public static void SletBil(int id)
+        {
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                var bil = context.Biler.Find(id);
+                if (bil != null)
+                {
+                    context.Biler.Remove(bil);
+                    context.SaveChanges();
+                }
+            }
+        }
     }
 }

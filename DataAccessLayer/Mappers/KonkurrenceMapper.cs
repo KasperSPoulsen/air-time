@@ -12,21 +12,53 @@ namespace DataAccessLayer.Mappers
     {
         public static DataTransferObject.Model.Konkurrence Map(DataAccessLayer.Model.Konkurrence konkurrence)
         {
-            return new DataTransferObject.Model.Konkurrence(
-                konkurrence.Adresse,
-                konkurrence.Navn,
-                konkurrence.Dato
-            );
+
+            DataTransferObject.Model.Konkurrence DTOKonkurrence = new DataTransferObject.Model.Konkurrence(konkurrence.Adresse,konkurrence.Navn,konkurrence.Dato);
+            if (konkurrence.Springere != null)
+            {
+                foreach (var springer in konkurrence.Springere)
+                {
+                    DTOKonkurrence.Springere.Add(SpringerMapper.Map(springer));
+                }
+            }
+            if (konkurrence.Biler != null)
+            {
+                foreach (var bil in konkurrence.Biler)
+                {
+                    DTOKonkurrence.Biler.Add(BilMapper.Map(bil));
+                }
+            }
+            if (konkurrence.Id != 0)
+            {
+                DTOKonkurrence.Id = konkurrence.Id;
+            }
+            return DTOKonkurrence;
         }
 
         public static DataAccessLayer.Model.Konkurrence Map(DataTransferObject.Model.Konkurrence konkurrence)
         {
-            return new DataAccessLayer.Model.Konkurrence(
-                konkurrence.Adresse,
-                konkurrence.Navn,
-                konkurrence.Dato
-            );
+            DataAccessLayer.Model.Konkurrence DALKonkurrence =  new DataAccessLayer.Model.Konkurrence(konkurrence.Adresse,konkurrence.Navn,konkurrence.Dato);
+
+            if (konkurrence.Springere != null)
+            {
+                foreach (var springer in konkurrence.Springere)
+                {
+                    DALKonkurrence.Springere.Add(SpringerMapper.Map(springer));
+                }
+            }
+
+            if (konkurrence.Biler != null)
+            {
+                foreach (var bil in konkurrence.Biler)
+                {
+                    DALKonkurrence.Biler.Add(BilMapper.Map(bil));
+                }
+            }
+            if (konkurrence.Id != 0)
+            {
+                DALKonkurrence.Id = konkurrence.Id;
+            }
+            return DALKonkurrence;
         }
-        
     }
 }
