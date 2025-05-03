@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BusinessLogicLayer.BLL;
+using DataTransferObject.Model;
 
 namespace WpfApp1
 {
@@ -24,24 +26,17 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private string valgtHoldNavn = null;
+        
 
-        private Dictionary<string, List<string>> holdData = new Dictionary<string, List<string>>()
-        {
-            { "Tirsdag hold 1", new List<string> { "Emil", "Frederik", "Anna" } },
-            { "Tirsdag hold 2", new List<string> { "Maja", "Jonas", "Sofie" } },
-            { "Torsdag hold 1", new List<string> { "William", "Oliver", "Ida" } },
-            { "Torsdag hold 2", new List<string> { "Laura", "Mikkel", "Josefine" } },
-        };
+        
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            valgtHoldNavn = (sender as RadioButton)?.Content.ToString();
+            string valgtHoldNavn = (sender as RadioButton)?.Content.ToString();
 
-            if (valgtHoldNavn != null && holdData.ContainsKey(valgtHoldNavn))
-            {
-                NavneListe.ItemsSource = holdData[valgtHoldNavn];
-            }
+            
+                NavneListe.ItemsSource = HoldBLL.GetSpringerePaaHold(valgtHoldNavn);
+            
         }
 
         private void VisTilfoejSpringerVindue(object sender, RoutedEventArgs e)

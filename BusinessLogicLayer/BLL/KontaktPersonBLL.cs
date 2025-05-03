@@ -10,11 +10,11 @@ namespace BusinessLogicLayer.BLL
 {
     public class KontaktPersonBLL
     {
-        public KontaktPerson getKontaktPerson(int id)
+        /*public KontaktPerson getKontaktPerson(int id)
         {
             if (id < 0) throw new IndexOutOfRangeException();
             return KontaktPersonRepository.GetKontaktPerson(id);
-        }
+        }*/
 
         public List<KontaktPerson> GetAllKontaktPersoner()
         {
@@ -22,10 +22,10 @@ namespace BusinessLogicLayer.BLL
         }
 
 
-        public void AddKontaktPerson(KontaktPerson kontaktPerson)
+        /*public void AddKontaktPerson(KontaktPerson kontaktPerson)
         {
             //valider employee
             KontaktPersonRepository.AddKontaktPerson(kontaktPerson);
-        }
+        }*/
     }
 }

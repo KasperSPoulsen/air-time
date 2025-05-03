@@ -5,16 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataTransferObject.Model;
+using DataAccessLayer.Context;
 
 namespace BusinessLogicLayer.BLL
 {
     public class HoldBLL
     {
-        public Hold getHold(int id)
+        /*public Hold getHold(int id)
         {
-            if (id < 0) throw new IndexOutOfRangeException();
-            return HoldRepository.GetHold(id);
-        }
+            using (var context = new AirTimeContext())
+            {
+                if (id < 0) throw new IndexOutOfRangeException();
+                return HoldRepository.GetHold(id, context);
+
+            }
+
+                
+        }*/
 
         public List<Hold> GetAllHold()
         {
@@ -28,7 +35,19 @@ namespace BusinessLogicLayer.BLL
             HoldRepository.AddHold(hold);
         }
 
+        public static List<Springer> GetSpringerePaaHold(string holdnavn)
+        {
+            using (var context = new AirTimeContext())
+            {
+                return SpringerRepository.GetAllSpringere(context)  
+                .Where(s => s.Hold.Any(h => h.HoldNavn == holdnavn))
+                .ToList();
+            }
+                
+        }
 
-        
+
+
+
     }
 }

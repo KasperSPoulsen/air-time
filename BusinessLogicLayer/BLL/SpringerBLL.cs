@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLayer.Context;
 
 namespace BusinessLogicLayer.BLL
 {
@@ -18,7 +19,11 @@ namespace BusinessLogicLayer.BLL
 
         public List<Springer> GetAllSpringere()
         {
-            return SpringerRepository.GetAllSpringere();
+            using (var context = new AirTimeContext())
+            {
+                return SpringerRepository.GetAllSpringere(context);
+            }
+               
         }
 
 
@@ -26,18 +31,36 @@ namespace BusinessLogicLayer.BLL
 
         public static void CreateSpringer(string navn, DateTime? foedselsdato, string kontaktNavn, string kontaktTelefon, string kontaktEmail, List<string> holdNavne)
         {
-            if (string.IsNullOrWhiteSpace(navn) || string.IsNullOrWhiteSpace(kontaktNavn) || string.IsNullOrWhiteSpace(kontaktTelefon) || string.IsNullOrWhiteSpace(kontaktEmail) || foedselsdato == null || holdNavne.Count == 0)
+            if (string.IsNullOrWhiteSpace(navn) ||
+                string.IsNullOrWhiteSpace(kontaktNavn) ||
+                string.IsNullOrWhiteSpace(kontaktTelefon) ||
+                string.IsNullOrWhiteSpace(kontaktEmail) ||
+                foedselsdato == null ||
+                holdNavne == null || 
+                holdNavne.Count == 0)
             {
-                throw new ArgumentException();
-            } else
-            {
-                KontaktPerson kontaktPerson = new KontaktPerson(kontaktNavn, kontaktTelefon, kontaktEmail);
-                List<Hold> DTOhold = HoldRepository.GetHold(holdNavne);
-                
-                Springer springer = new Springer(navn, foedselsdato, kontaktPerson, DTOhold);
-                SpringerRepository.AddSpringer(springer);
+                throw new ArgumentException("Ugyldige inputværdier.");
             }
-               
+
+            using (var context = new AirTimeContext())
+            {
+                var kontaktPerson = KontaktPersonRepository.GetDALKontaktPerson(kontaktNavn, kontaktTelefon, kontaktEmail, context);
+                if (kontaktPerson == null)
+                {
+                    kontaktPerson = new DataAccessLayer.Model.KontaktPerson(kontaktNavn, kontaktTelefon, kontaktEmail);
+                }
+
+                List<DataAccessLayer.Model.Hold> efHold = HoldRepository.GetDALHold(holdNavne, context); // EF-entity objekter fra samme context
+
+                var springer = new DataAccessLayer.Model.Springer(navn, foedselsdato, kontaktPerson, efHold);
+
+                context.Springere.Add(springer);
+                context.SaveChanges();
+                context.SaveChanges();
+            }
+
+            
+                             
         }
 
     }
