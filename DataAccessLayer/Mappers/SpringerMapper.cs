@@ -18,7 +18,8 @@ namespace DataAccessLayer.Mappers
             DataTransferObject.Model.Springer DTOSpringer = new DataTransferObject.Model.Springer(
                 springer.Navn,
                 springer.Foedselsdato,
-                springer.KontaktPerson != null ? KontaktPersonMapper.Map(springer.KontaktPerson) : null,
+                KontaktPersonMapper.Map(springer.KontaktPerson),
+                //springer.KontaktPerson != null ? KontaktPersonMapper.Map(springer.KontaktPerson) : null,
                 HoldMapper.MapWithoutSpringere(springer.Hold)
             );
 

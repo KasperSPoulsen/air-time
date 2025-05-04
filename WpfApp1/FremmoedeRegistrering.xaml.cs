@@ -11,18 +11,20 @@ namespace WpfApp1
     public partial class FremmoedeRegistrering : Window
     {
         private string valgtHoldNavn = null;
+        private DataTransferObject.Model.Hold valgtHold = new DataTransferObject.Model.Hold();
         private List<Springer> holdetSpringere = new List<Springer>();
         private List<DataTransferObject.Model.Hold> alleHold = new List<DataTransferObject.Model.Hold>();
-
+        private List<DataTransferObject.Model.Fremmoederegistrering> alleFremmoederegistreringer = new List<Fremmoederegistrering>();
         private HoldBLL holdbll;
         private FremmoederegistreringBLL FremmoederegistreringBLL;
-
+        private TraeningBLL traeningBLL;
         public FremmoedeRegistrering()
         {
             InitializeComponent();
 
             FremmoederegistreringBLL = new FremmoederegistreringBLL();
             holdbll = new HoldBLL();
+            traeningBLL = new TraeningBLL();
 
             alleHold = holdbll.GetAllHold().ToList();
             AlleHoldPanel.DataContext = alleHold;
@@ -47,9 +49,10 @@ namespace WpfApp1
             if (sender is RadioButton radioButton)
             {
                 valgtHoldNavn = radioButton.Content.ToString();
+                
             }
 
-            var valgtHold = alleHold.First(hold => hold.HoldNavn == valgtHoldNavn);
+            valgtHold = alleHold.First(hold => hold.HoldNavn == valgtHoldNavn);
             holdetSpringere = valgtHold.Springere;
 
             holdetSpringere.ForEach(springer =>
@@ -141,8 +144,13 @@ namespace WpfApp1
                     };
 
                     FremmoederegistreringBLL.AddFremmoederegistrering(fremmoede);
+                    alleFremmoederegistreringer.Add(fremmoede);
+                    
+
                 }
             }
+            Traening newTraening = new Traening(valgtDato, valgtHold, alleFremmoederegistreringer);
+            traeningBLL.AddTraening(newTraening);
 
             MessageBox.Show("Fremmøde registreret.");
         }
