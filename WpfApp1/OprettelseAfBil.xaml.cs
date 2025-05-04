@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BusinessLogicLayer.BLL;
+using DataTransferObject.Model;
 
 namespace WpfApp1
 {
@@ -21,7 +23,7 @@ namespace WpfApp1
     {
         private DataTransferObject.Model.Konkurrence Konkurrence = null;
 
-        private BusinessLogicLayer.BLL.KonkurrenceBLL konkurrenceBLL;
+        //private BusinessLogicLayer.BLL.KonkurrenceBLL konkurrenceBLL;
 
         private DataTransferObject.Model.KontaktPerson KontaktPerson = null;
 
@@ -33,7 +35,7 @@ namespace WpfApp1
         {
             InitializeComponent();
             Konkurrence = k;
-            konkurrenceBLL = new BusinessLogicLayer.BLL.KonkurrenceBLL();
+            //konkurrenceBLL = new BusinessLogicLayer.BLL.KonkurrenceBLL();
             LoadKontaktPersoner();
         }
         public void LoadKontaktPersoner()
@@ -53,12 +55,10 @@ namespace WpfApp1
 
         private void OpretBillistFinal(object sender, RoutedEventArgs e)
         {
-            BusinessLogicLayer.BLL.BilBLL bilBLL = new BusinessLogicLayer.BLL.BilBLL();
-            //var bil = bilBLL.CreateBil(KontaktPerson);
-            var bil = new DataTransferObject.Model.Bil(KontaktPerson);
-
-            //Opretter en ekstra Konktakperson?!?!?! Samme objekt
-            konkurrenceBLL.TilfoejBilTilKonkurrence(Konkurrence.Id, bil);
+            BilBLL bilBLL = new BilBLL();
+            bilBLL.CreateBil(KontaktPerson, Konkurrence);
+            
+            
             this.Close();
         }
     }

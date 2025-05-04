@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLayer.Context;
 
 namespace BusinessLogicLayer.BLL
 {
@@ -22,13 +23,22 @@ namespace BusinessLogicLayer.BLL
         }
 
 
-        public Bil CreateBil(KontaktPerson kontaktPerson)
+        public void CreateBil(KontaktPerson kontaktPerson, Konkurrence konkurrence)
         {
-            if (kontaktPerson == null) throw new ArgumentNullException(nameof(kontaktPerson));
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                if (kontaktPerson == null) throw new ArgumentNullException(nameof(kontaktPerson));
 
-            Bil bil = new Bil(kontaktPerson);
-            BilRepository.AddBil(bil);
-            return bil;
+                var DALkontaktPerson = KontaktPersonRepository.GetDALKontaktPerson(kontaktPerson.Navn, kontaktPerson.TlfNr, kontaktPerson.Mail, context);
+
+
+                DataAccessLayer.Model.Bil bil = new DataAccessLayer.Model.Bil(DALkontaktPerson);
+               
+                
+                KonkurrenceRepository.TilfoejBilTilKonkurrence(konkurrence.Id, bil, context);
+                context.SaveChanges();
+            }
+                
         }
 
         public void SletBil(int id)

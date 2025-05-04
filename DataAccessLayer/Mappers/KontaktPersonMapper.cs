@@ -12,20 +12,12 @@ namespace DataAccessLayer.Mappers
     {
         public static DataTransferObject.Model.KontaktPerson Map(DataAccessLayer.Model.KontaktPerson kontaktPerson)
         {
-            return new DataTransferObject.Model.KontaktPerson(
-                kontaktPerson.Navn,
-                kontaktPerson.TlfNr,
-                kontaktPerson.Mail
-                );
+            return new DataTransferObject.Model.KontaktPerson(kontaktPerson.Navn, kontaktPerson.TlfNr,kontaktPerson.Mail);
         }
 
         public static DataAccessLayer.Model.KontaktPerson Map(DataTransferObject.Model.KontaktPerson kontaktPerson)
         {
-            return new DataAccessLayer.Model.KontaktPerson(
-                kontaktPerson.Navn,
-                kontaktPerson.TlfNr,
-                kontaktPerson.Mail
-            );
+            return new DataAccessLayer.Model.KontaktPerson(kontaktPerson.Navn,kontaktPerson.TlfNr,kontaktPerson.Mail);
         }
     }
 }
