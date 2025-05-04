@@ -33,6 +33,7 @@ namespace WpfApp1
 
         private void VisHoldVindue(object sender, RoutedEventArgs e)
         {
+
             var vindue = new Hold();
             vindue.Show();
         }

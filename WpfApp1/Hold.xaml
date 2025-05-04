@@ -28,7 +28,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding}" Width="200"/>
+                        <TextBlock Text="{Binding Navn}" Width="200"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

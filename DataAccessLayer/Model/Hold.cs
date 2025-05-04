@@ -17,7 +17,6 @@ namespace DataAccessLayer.Model
         }
         public Hold(string holdNavn)
         {
-            
             HoldNavn = holdNavn;
         }
     }
