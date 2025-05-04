@@ -41,13 +41,17 @@ namespace DataAccessLayer.Repositories
                 var konkurrence = context.Konkurrencer.Find(konkurrenceId);
                 if (konkurrence != null)
                 {
-                    DataAccessLayer.Model.Bil DALBil = BilMapper.Map(bil);
-                    konkurrence.Biler.Add(DALBil);
+                    var dalBil = BilMapper.Map(bil);
+
+                    //Finder kontakt person fra databasen, men virker ikke?
+                    var eksisterendeKontakt = context.KontaktPersoner.FirstOrDefault(k => k.Id == bil.KontaktPerson.Id);
+                    dalBil.KontaktPerson = eksisterendeKontakt;
+
+                    konkurrence.Biler.Add(dalBil);
                     context.SaveChanges();
                 }
             }
         }
-
 
         public static void TilfoejSpringerTilKonkurrence(int konkurrenceId, Springer springer)
         {

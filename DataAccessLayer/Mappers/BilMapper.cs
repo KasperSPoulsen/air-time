@@ -14,6 +14,7 @@ namespace DataAccessLayer.Mappers
         public static DataTransferObject.Model.Bil Map(DataAccessLayer.Model.Bil bil)
         {
             DataTransferObject.Model.Bil DTOBil = new DataTransferObject.Model.Bil(KontaktPersonMapper.Map(bil.KontaktPerson));
+
             if (bil.Springere != null)
             {
                 foreach (var springer in bil.Springere)

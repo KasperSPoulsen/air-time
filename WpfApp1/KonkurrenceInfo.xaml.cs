@@ -23,13 +23,11 @@ namespace WpfApp1
     {
         private DataTransferObject.Model.Konkurrence Konkurrence = null;
 
-        private BusinessLogicLayer.BLL.BilBLL bilBLL = new BusinessLogicLayer.BLL.BilBLL();
 
         private DataTransferObject.Model.Bil skalSlettes = null;
 
         private BusinessLogicLayer.BLL.SpringerBLL springerBLL = new BusinessLogicLayer.BLL.SpringerBLL();
 
-        private BusinessLogicLayer.BLL.KontaktPersonBLL kontaktPersonBLL = new BusinessLogicLayer.BLL.KontaktPersonBLL();
 
 
         public KonkurrenceInfo(DataTransferObject.Model.Konkurrence k)
@@ -47,12 +45,25 @@ namespace WpfApp1
             List<DataTransferObject.Model.Springer> springere = springerBLL.GetAllSpringere();
             SpringerListBox.ItemsSource = springere;
         }
+
         public void LoadBiler()
         {
             List<DataTransferObject.Model.Bil> biler = KonkurrenceBLL.GetAlleBilerTilKonkurrence(Konkurrence.Id);
-            Console.WriteLine(Konkurrence.Id);
+            foreach (var bil in biler)
+            {
+                Console.WriteLine($"Bil ID: {bil.Id}");
+                Console.WriteLine(bil.KontaktPerson != null
+                    ? $"KontaktPerson Navn: {bil.KontaktPerson.Navn}, KontaktPerson ID: {bil.KontaktPerson.Id}"
+                    : "KontaktPerson er null");
+            }
+
             BilListBox.ItemsSource = biler;
+
         }
+        
+
+
+
 
         private void TiloejBillistTilKonk(object sender, RoutedEventArgs e)
         {
@@ -64,15 +75,25 @@ namespace WpfApp1
         private void ValgteBilSkalSlettes(object sender, SelectionChangedEventArgs e)
         {
             var valgteBil = BilListBox.SelectedItem as DataTransferObject.Model.Bil;
-            skalSlettes = valgteBil;
+
+            if (valgteBil != null)
+            {
+                skalSlettes = valgteBil;
+                Console.WriteLine($"Valgt Bil Id: {skalSlettes.Id}");
+            }
+            else
+            {
+                Console.WriteLine("Ingen bil valgt.");
+            }
         }
+
 
         private void RedigereBillist(object sender, RoutedEventArgs e)
         {
             BilBLL bilBLL = new BilBLL();
+            //Konkurrence.Biler.Remove(skalSlettes.Id);
             bilBLL.SletBil(skalSlettes.Id);
             LoadBiler();
-
         }
     }
 }
