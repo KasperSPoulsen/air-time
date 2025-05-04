@@ -13,7 +13,7 @@ namespace DataAccessLayer.Context
     {
         public AirTimeContext() : base("AirTimeContext")
         {
-            
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<Bil> Biler { get; set; }

@@ -23,6 +23,9 @@ namespace DataAccessLayer.Mappers
             if (hold.Traeninger != null)
             {
                 DTOHold.Traeninger = TraeningMapper.Map(hold.Traeninger);
+            }else
+            {
+                DTOHold.Traeninger = null;
             }
             if (hold.Springere != null)
             {
