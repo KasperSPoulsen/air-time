@@ -21,6 +21,7 @@ namespace WpfApp1
     /// </summary>
     public partial class Hold : Window
     {
+        private string valgtHoldNavn;
         public Hold()
         {
             InitializeComponent();
@@ -32,16 +33,25 @@ namespace WpfApp1
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            string valgtHoldNavn = (sender as RadioButton)?.Content.ToString();
+            valgtHoldNavn = (sender as RadioButton)?.Content.ToString();
 
-            
+            OpdaterSpringerListe(sender, e);
+
+
+        }
+
+        private void OpdaterSpringerListe(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(valgtHoldNavn))
+            {
                 NavneListe.ItemsSource = HoldBLL.GetSpringerePaaHold(valgtHoldNavn);
-            
+            }
         }
 
         private void VisTilfoejSpringerVindue(object sender, RoutedEventArgs e)
         {
             var vindue = new TilfoejSpringer();
+            vindue.Closed += OpdaterSpringerListe;
             vindue.Show();
         }
 

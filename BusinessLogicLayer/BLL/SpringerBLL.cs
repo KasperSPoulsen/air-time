@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer.Context;
+using DataAccessLayer.Mappers;
 
 namespace BusinessLogicLayer.BLL
 {
@@ -29,7 +30,7 @@ namespace BusinessLogicLayer.BLL
 
     
 
-        public static void CreateSpringer(string navn, DateTime? foedselsdato, string kontaktNavn, string kontaktTelefon, string kontaktEmail, List<string> holdNavne)
+        public static DataTransferObject.Model.Springer CreateSpringer(string navn, DateTime? foedselsdato, string kontaktNavn, string kontaktTelefon, string kontaktEmail, List<string> holdNavne)
         {
             if (string.IsNullOrWhiteSpace(navn) ||
                 string.IsNullOrWhiteSpace(kontaktNavn) ||
@@ -56,7 +57,9 @@ namespace BusinessLogicLayer.BLL
 
                 context.Springere.Add(springer);
                 context.SaveChanges();
-                context.SaveChanges();
+
+
+                return new DataTransferObject.Model.Springer(navn, foedselsdato, KontaktPersonMapper.Map(kontaktPerson), HoldMapper.Map(efHold));
             }
 
             
