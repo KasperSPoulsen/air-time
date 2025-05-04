@@ -39,12 +39,7 @@ namespace BusinessLogicLayer.BLL
         }
 
 
-        public void TilfoejBilTilKonkurrence(int konkurrenceId, Bil bil)
-        {
-            if (bil == null) throw new ArgumentNullException();
-            if (konkurrenceId < 0) throw new IndexOutOfRangeException();
-            KonkurrenceRepository.TilfoejBilTilKonkurrence(konkurrenceId, bil);
-        }
+        
 
 
 
@@ -56,6 +51,13 @@ namespace BusinessLogicLayer.BLL
 
             var bilerDTO = KonkurrenceRepository.GetAllBilerTilKonkurrence(konkurrenceId);
             return bilerDTO;
+        }
+
+        public static List<Springer> GetAlleSpringerTilKonkurrence(int konkurrenceId)
+        {
+            if (konkurrenceId < 0) throw new IndexOutOfRangeException();
+            var springereDTO = KonkurrenceRepository.GetAlleSpringerTilKonkurrence(konkurrenceId);
+            return springereDTO;
         }
     }
 }

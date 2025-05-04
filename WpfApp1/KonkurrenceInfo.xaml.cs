@@ -26,7 +26,6 @@ namespace WpfApp1
 
         private DataTransferObject.Model.Bil skalSlettes = null;
 
-        private BusinessLogicLayer.BLL.SpringerBLL springerBLL = new BusinessLogicLayer.BLL.SpringerBLL();
 
 
 
@@ -42,21 +41,13 @@ namespace WpfApp1
 
         public void LoadSpringere()
         {
-            List<DataTransferObject.Model.Springer> springere = springerBLL.GetAllSpringere();
+            List<DataTransferObject.Model.Springer> springere = KonkurrenceBLL.GetAlleSpringerTilKonkurrence(Konkurrence.Id);
             SpringerListBox.ItemsSource = springere;
         }
 
         public void LoadBiler()
         {
             List<DataTransferObject.Model.Bil> biler = KonkurrenceBLL.GetAlleBilerTilKonkurrence(Konkurrence.Id);
-            foreach (var bil in biler)
-            {
-                Console.WriteLine($"Bil ID: {bil.Id}");
-                Console.WriteLine(bil.KontaktPerson != null
-                    ? $"KontaktPerson Navn: {bil.KontaktPerson.Navn}, KontaktPerson ID: {bil.KontaktPerson.Id}"
-                    : "KontaktPerson er null");
-            }
-
             BilListBox.ItemsSource = biler;
 
         }
@@ -79,11 +70,8 @@ namespace WpfApp1
             if (valgteBil != null)
             {
                 skalSlettes = valgteBil;
-                Console.WriteLine($"Valgt Bil Id: {skalSlettes.Id}");
-            }
-            else
-            {
-                Console.WriteLine("Ingen bil valgt.");
+                Console.WriteLine("HEJ");
+                Console.WriteLine(valgteBil.Id);
             }
         }
 
@@ -94,6 +82,13 @@ namespace WpfApp1
             //Konkurrence.Biler.Remove(skalSlettes.Id);
             bilBLL.SletBil(skalSlettes.Id);
             LoadBiler();
+        }
+
+        private void TilfoejSpringerTilKonk(object sender, RoutedEventArgs e)
+        {
+            var vindue = new OprettelseAfSpringer(Konkurrence);
+            vindue.ShowDialog();
+            LoadSpringere();
         }
     }
 }

@@ -28,14 +28,7 @@ namespace DataAccessLayer.Repositories
                 return context.Biler.Select(BilMapper.Map).ToList();
             }
         }
-        public static void AddBil(Bil bil)
-        {
-            using (AirTimeContext context = new AirTimeContext())
-            {
-                context.Biler.Add(BilMapper.Map(bil));
-                context.SaveChanges();
-            }
-        }
+
 
         public static void SletBil(int id)
         {

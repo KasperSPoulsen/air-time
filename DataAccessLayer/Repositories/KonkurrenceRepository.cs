@@ -34,23 +34,16 @@ namespace DataAccessLayer.Repositories
             }
         }
 
-        public static void TilfoejBilTilKonkurrence(int konkurrenceId, Bil bil)
+        public static void TilfoejBilTilKonkurrence(int konkurrenceId, DataAccessLayer.Model.Bil bil, AirTimeContext context)
         {
-            using (AirTimeContext context = new AirTimeContext())
-            {
+            
                 var konkurrence = context.Konkurrencer.Find(konkurrenceId);
                 if (konkurrence != null)
                 {
-                    var dalBil = BilMapper.Map(bil);
-
-                    //Finder kontakt person fra databasen, men virker ikke?
-                    var eksisterendeKontakt = context.KontaktPersoner.FirstOrDefault(k => k.Id == bil.KontaktPerson.Id);
-                    dalBil.KontaktPerson = eksisterendeKontakt;
-
-                    konkurrence.Biler.Add(dalBil);
+                    konkurrence.Biler.Add(bil);
                     context.SaveChanges();
                 }
-            }
+            
         }
 
         public static void TilfoejSpringerTilKonkurrence(int konkurrenceId, Springer springer)
@@ -77,6 +70,17 @@ namespace DataAccessLayer.Repositories
                             .SelectMany(k => k.Biler)
                             .ToList();
                 return biler.Select(BilMapper.Map).ToList();
+            }
+        }
+        public static List<DataTransferObject.Model.Springer> GetAlleSpringerTilKonkurrence(int konkurrenceId)
+        {
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                var springere = context.Konkurrencer
+                            .Where(k => k.Id == konkurrenceId)
+                            .SelectMany(k => k.Springere)
+                            .ToList();
+                return springere.Select(SpringerMapper.Map).ToList();
             }
         }
     }
