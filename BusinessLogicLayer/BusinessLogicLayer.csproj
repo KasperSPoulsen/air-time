@@ -57,6 +57,7 @@
     <Compile Include="BLL\KonkurrenceBLL.cs" />
     <Compile Include="BLL\KontaktPersonBLL.cs" />
     <Compile Include="BLL\SpringerBLL.cs" />
+    <Compile Include="BLL\TraeningBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

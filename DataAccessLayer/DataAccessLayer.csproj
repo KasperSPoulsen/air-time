@@ -76,6 +76,7 @@
     <Compile Include="Repositories\KonkurrenceRepository.cs" />
     <Compile Include="Repositories\KontaktPersonRepository.cs" />
     <Compile Include="Repositories\SpringerRepository.cs" />
+    <Compile Include="Repositories\TraeningRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">

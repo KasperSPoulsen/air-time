@@ -21,6 +21,7 @@ namespace DataAccessLayer.Context
         public DbSet<Hold> Hold { get; set; }
         public DbSet<KontaktPerson> KontaktPersoner { get; set; }
         public DbSet<Springer> Springere { get; set; }
+        public DbSet<Traening> Traeninger { get; set; }
         public DbSet<Fremmoederegistrering> Fremmoederegistreringer { get; set; }
         public DbSet<Traening> Traeninger { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
