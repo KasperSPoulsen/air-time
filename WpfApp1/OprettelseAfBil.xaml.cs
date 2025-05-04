@@ -54,9 +54,10 @@ namespace WpfApp1
         private void OpretBillistFinal(object sender, RoutedEventArgs e)
         {
             BusinessLogicLayer.BLL.BilBLL bilBLL = new BusinessLogicLayer.BLL.BilBLL();
-            var bil = bilBLL.CreateBil(KontaktPerson);
+            //var bil = bilBLL.CreateBil(KontaktPerson);
+            var bil = new DataTransferObject.Model.Bil(KontaktPerson);
 
-
+            //Opretter en ekstra Konktakperson?!?!?! Samme objekt
             konkurrenceBLL.TilfoejBilTilKonkurrence(Konkurrence.Id, bil);
             this.Close();
         }
