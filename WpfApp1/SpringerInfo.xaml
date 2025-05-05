@@ -20,19 +20,17 @@
         <!-- Første kolonne: Personlig info -->
         <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="10">
             <TextBlock FontWeight="Bold" Text="Springer Information" Margin="0 0 0 10"/>
-            <TextBlock Text="Navn:"/>
+            <TextBlock FontWeight="Bold" Text="Navn:"/>
             <Label Name="NavnLabel" Content=""/>
-            <TextBlock Text="Telefonnummer:"/>
-            <Label Name="TelefonLabel" Content=""/>
-            <TextBlock Text="Fødselsdag:"/>
+            <TextBlock FontWeight="Bold" Text="Fødselsdag:"/>
             <Label Name="FødselsdagLabel" Content=""/>
-            <TextBlock Text="Tilknyttede Hold:"/>
+            <TextBlock FontWeight="Bold" Text="Tilknyttede Hold:"/>
             <Label Name="HoldLabel" Content=""/>
-            <TextBlock Text="Kontaktpersons navn:"/>
+            <TextBlock FontWeight="Bold" Text="Kontaktpersons navn:"/>
             <Label Name="KontaktNavnLabel" Content=""/>
-            <TextBlock Text="Kontaktpersons tlf:"/>
+            <TextBlock FontWeight="Bold" Text="Kontaktpersons tlf:"/>
             <Label Name="KontaktTelefonLabel" Content=""/>
-            <TextBlock Text="Kontaktpersons email:"/>
+            <TextBlock FontWeight="Bold" Text="Kontaktpersons email:"/>
             <Label Name="KontaktEmailLabel" Content=""/>
         </StackPanel>
 
@@ -57,6 +55,12 @@
         <StackPanel Grid.Column="2" VerticalAlignment="Top" Margin="10">
             <TextBlock FontWeight="Bold" Text="Træningsmål" Margin="0 0 0 10"/>
             <TextBlock Name="TræningsmålTekst" TextWrapping="Wrap"/>
+        </StackPanel>
+
+        <!-- Fjerde kolonne: Tilmeldte -->
+        <StackPanel Grid.Column="4" VerticalAlignment="Top" Margin="10">
+            <TextBlock FontWeight="Bold" Text="Træningsmål" Margin="0 0 0 10"/>
+            <TextBlock Name="TilmeldteHold" TextWrapping="Wrap"/>
         </StackPanel>
 
         <!-- Nederst: Opdater knap -->
