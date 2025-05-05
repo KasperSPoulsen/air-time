@@ -55,7 +55,7 @@ namespace WpfApp1
 
             valgtHold = alleHold.First(hold => hold.HoldNavn == valgtHoldNavn);
 
-            holdetSpringere = springerBLL.GetSpringerByHold(valgtHold);
+            //holdetSpringere = springerBLL.GetSpringerByHold(valgtHold);
 
             holdetSpringere.ForEach(springer =>
             {

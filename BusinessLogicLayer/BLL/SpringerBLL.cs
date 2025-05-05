@@ -27,6 +27,14 @@ namespace BusinessLogicLayer.BLL
                
         }
 
+        public List<Springer> GetSpringerFromHold()
+        {
+            using (var context = new AirTimeContext())
+            {
+                return SpringerRepository.GetAllSpringere(context);
+            }
+        }
+
 
     
 

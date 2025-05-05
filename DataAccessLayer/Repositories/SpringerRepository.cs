@@ -32,5 +32,11 @@ namespace DataAccessLayer.Repositories
                 
             
         }
+        //public static List<Springer> GetSpringerFromHold(Hold hold, AirTimeContext context)
+        //{
+        //    //return context.Springere
+        //    //    .Where(springer => springer.Hold.Any(springerHold => springerHold.Id == hold.Id))
+        //    //    .ToList();
+        //}
     }
 }
