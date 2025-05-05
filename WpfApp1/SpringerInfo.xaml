@@ -37,18 +37,15 @@
         <!-- Anden kolonne: Springserier -->
         <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10">
             <TextBlock FontWeight="Bold" Text="Springserier" Margin="0 0 0 10"/>
-            <ItemsControl Name="SpringserierListe">
-                <ItemsControl.ItemTemplate>
+            <ListBox x:Name="SpringserierListe" Height="100">
+                <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Border BorderBrush="Gray" BorderThickness="1" Margin="0 5 0 5" Padding="5">
-                            <StackPanel>
-                                <TextBlock FontWeight="Bold" Text="{Binding SerieNavn}" />
-                                <ListBox ItemsSource="{Binding Spring}" />
-                            </StackPanel>
+                            <TextBlock Text="{Binding}" />
                         </Border>
                     </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </StackPanel>
 
         <!-- Tredje kolonne: Træningsmål -->

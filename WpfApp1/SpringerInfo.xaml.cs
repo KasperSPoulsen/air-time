@@ -45,8 +45,12 @@ public partial class SpringerInfo : Window
                 KontaktEmailLabel.Content = springer.KontaktPerson.Mail ?? "";
             }
 
+       
+
             // Hvis du har springserier, sæt dem her:
             SpringserierListe.ItemsSource = springer.KonkurrenceSerie;
+           
+
         }
     }
 
