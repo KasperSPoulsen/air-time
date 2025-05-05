@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,8 +21,21 @@ namespace WpfApp1
     /// Interaction logic for SpringerInfo.xaml
     /// </summary>
 
-public partial class SpringerInfo : Window
+public partial class SpringerInfo : Window, INotifyPropertyChanged
     {
+
+        public ObservableCollection<Springer> Springer { get; set; }
+
+        private Springer _selectedSpringer;
+        public Springer SelectedSpringer
+        {
+            get => _selectedSpringer;
+            set
+            {
+                _selectedSpringer = value;
+                OnPropertyChanged(nameof(SelectedSpringer));
+            }
+        }
         private Springer _springer;
 
         public SpringerInfo(Springer springer)
@@ -35,18 +50,40 @@ public partial class SpringerInfo : Window
         {
             NavnLabel.Content = springer.Navn ?? "";
             FødselsdagLabel.Content = springer.Foedselsdato?.ToString("dd-MM-yyyy") ?? "";
-            HoldLabel.Content = string.Join(", ", springer.Hold?.Select(h => h.Navn) ?? new List<string>());
             TræningsmålTekst.Text = springer.TraeningsMaal ?? "";
+            HoldLabel.Content = string.Join(", ", springer.Hold?.Select(h => h.HoldNavn) ?? new List<string>());
+
 
             if (springer.KontaktPerson != null)
             {
                 KontaktNavnLabel.Content = springer.KontaktPerson.Navn ?? "";
-                KontaktTelefonLabel.Content = springer.KontaktPerson.Telefonnummer ?? "";
-                KontaktEmailLabel.Content = springer.KontaktPerson.Email ?? "";
+                KontaktTelefonLabel.Content = springer.KontaktPerson.TlfNr ?? "";
+                KontaktEmailLabel.Content = springer.KontaktPerson.Mail ?? "";
             }
 
             // Hvis du har springserier, sæt dem her:
-            SpringserierListe.ItemsSource = springer.KonkurrenceSerie;
+            KonkurrenceserierListe.ItemsSource = springer.KonkurrenceSerie;
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+        }
+        private void OpdaterSpringer_Click(object sender, RoutedEventArgs e)
+        {
+            
+                var edit = new EditSpringer(_springer);
+                edit.Closed += Edit_Dialog_Closed;
+                //mærk mærke til denne EventHandler – bruges senere når edit vinduet er lukket
+                edit.ShowDialog();
+            
+        }
+
+        private void Edit_Dialog_Closed(object sender, EventArgs e)
+        {
+            VisSpringerInfo(_springer); // sørger for UI opdateres
         }
     }
 
