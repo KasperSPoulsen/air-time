@@ -11,31 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using BusinessLogicLayer.BLL;
 
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for TidligereTraeninger.xaml
+    /// Interaction logic for Traening.xaml
     /// </summary>
-    public partial class TidligereTraeninger : Window
+    public partial class Traening : Window
     {
-        public TidligereTraeninger()
+        public Traening()
         {
             InitializeComponent();
-
-
-            TraeningBLL BLL = new TraeningBLL();
-
-            var senesteTraening = BLL.GetSenesteTraening();
-            var tilmeldte = BLL.GetTilmeldte();
-
-            DatoLabel1.Content = tilmeldte;
-            TraeningNavn1.Content = senesteTraening;
-
-
         }
-
-
     }
 }

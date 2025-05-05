@@ -77,6 +77,9 @@
     <Compile Include="TilfoejSpringer.xaml.cs">
       <DependentUpon>TilfoejSpringer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Traening.xaml.cs">
+      <DependentUpon>Traening.xaml</DependentUpon>
+    </Compile>
     <Page Include="FremmoedeRegistrering.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,6 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TilfoejSpringer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Traening.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

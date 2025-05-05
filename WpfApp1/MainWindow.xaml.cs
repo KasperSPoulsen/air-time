@@ -42,5 +42,11 @@ namespace WpfApp1
             var vindue = new Konkurrence();
             vindue.Show();
         }
+
+        private void Tidligere_Træninger_Click(object sender, RoutedEventArgs e)
+        {
+            var vindue = new TidligereTraeninger();
+            vindue.Show();
+        }
     }
 }

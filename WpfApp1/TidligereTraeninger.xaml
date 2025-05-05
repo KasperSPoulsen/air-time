@@ -7,19 +7,24 @@
         mc:Ignorable="d"
         Title="TidligereTraeninger" Height="450" Width="800">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="63,45,0,0" TextWrapping="Wrap" Text="Tidligere Træninger" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <TextBox HorizontalAlignment="Left" Margin="63,112,0,0" TextWrapping="Wrap" Text="Træning" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="63,199,0,0" TextWrapping="Wrap" Text="Træning" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="63,284,0,0" TextWrapping="Wrap" Text="Træning" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="63,130,0,0" TextWrapping="Wrap" Text="Skovbakken" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="63,217,0,0" TextWrapping="Wrap" Text="Skovbakken" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="63,302,0,0" TextWrapping="Wrap" Text="Skovbakken" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="570,112,0,0" TextWrapping="Wrap" Text="Vælg dato:" VerticalAlignment="Top" Width="120"/>
+        <Label HorizontalAlignment="Left" Margin="63,45,0,0" Content="Tidligere Træninger" VerticalAlignment="Top" Width="120"/>
+        <Grid HorizontalAlignment="Left" Height="62" Margin="63,112,0,0" VerticalAlignment="Top">
+            <Label x:Name="TraeningOversigtLabel1" HorizontalAlignment="Left" Content="Træning" VerticalAlignment="Top" Width="120"/>
+            <Label x:Name="TraeningNavn1" HorizontalAlignment="Left" Content="" VerticalAlignment="Center" Width="120"/>
+            <Label x:Name="DatoLabel1" HorizontalAlignment="Left" Margin="0,36,0,0" Content="" VerticalAlignment="Top" Width="120"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Margin="63,199,0,0" VerticalAlignment="Top" Width="120">
+            <Label HorizontalAlignment="Center" Content="Træning" VerticalAlignment="Top" Width="120"/>
+            <Label HorizontalAlignment="Center" Margin="0,18,0,0" Content="Skovbakken" VerticalAlignment="Top" Width="120"/>
+            <Label HorizontalAlignment="Center" Margin="0,36,0,0" Content="13/03/2025" VerticalAlignment="Top" Width="120"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="62" Margin="63,284,0,0" VerticalAlignment="Top">
+            <Label HorizontalAlignment="Left" Content="Træning" VerticalAlignment="Top" Width="120"/>
+            <Label HorizontalAlignment="Left" Content="Skovbakken" VerticalAlignment="Center" Width="120"/>
+            <Label HorizontalAlignment="Left" Margin="0,36,0,0" Content="13/03/2025" VerticalAlignment="Top" Width="120"/>
+        </Grid>
+        <Label HorizontalAlignment="Left" Margin="570,112,0,0" Content="Vælg dato:" VerticalAlignment="Top" Width="120"/>
         <Calendar HorizontalAlignment="Left" Margin="570,130,0,0" VerticalAlignment="Top"/>
         <Button Content="Tilbage" HorizontalAlignment="Left" Margin="46,404,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="63,148,0,0" TextWrapping="Wrap" Text="13/03/2025" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="63,235,0,0" TextWrapping="Wrap" Text="13/03/2025" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="63,320,0,0" TextWrapping="Wrap" Text="13/03/2025" VerticalAlignment="Top" Width="120"/>
-
     </Grid>
 </Window>
