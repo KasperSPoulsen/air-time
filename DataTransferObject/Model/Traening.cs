@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataTransferObject.Model
 {
-    public class Traening : INotifyPropertyChanged
+    public class Traening
     {
         public DateTime Dato { get; set; }
         public int Id { get; set; }
@@ -23,6 +23,5 @@ namespace DataTransferObject.Model
             Fremmoederegistreringer = fremmoederegistrering;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
