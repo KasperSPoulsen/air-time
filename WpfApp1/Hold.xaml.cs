@@ -57,17 +57,18 @@ namespace WpfApp1
 
         private void VisSpringerInfoVindue(object sender, RoutedEventArgs e)
         {
-            
-
             if (NavneListe.SelectedItem == null)
             {
                 MessageBox.Show("Vælg venligst en springer fra listen.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            var vindue = new SpringerInfo();
+            var valgtSpringer = (Springer)NavneListe.SelectedItem;
+            var vindue = new SpringerInfo(valgtSpringer);
+
             vindue.Show();
         }
+
 
     }
 }

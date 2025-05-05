@@ -51,8 +51,6 @@ namespace WpfApp1
             BilListBox.ItemsSource = biler;
 
         }
-        
-
 
 
 
