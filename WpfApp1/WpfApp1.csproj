@@ -65,6 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EditSpringer.xaml.cs">
+      <DependentUpon>EditSpringer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Konkurrence.xaml.cs">
       <DependentUpon>Konkurrence.xaml</DependentUpon>
     </Compile>
@@ -83,9 +86,16 @@
     <Compile Include="SpringerInfo.xaml.cs">
       <DependentUpon>SpringerInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SpringerInfoListe.xaml.cs">
+      <DependentUpon>SpringerInfoListe.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TilfoejSpringer.xaml.cs">
       <DependentUpon>TilfoejSpringer.xaml</DependentUpon>
     </Compile>
+    <Page Include="EditSpringer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FremmoedeRegistrering.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SpringerInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpringerInfoListe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
