@@ -8,7 +8,7 @@ using DataTransferObject.Model;
 
 namespace BusinessLogicLayer.BLL
 {
-    internal class TraeningBLL
+    public class TraeningBLL
     {
 
         public Traening getTraening(int id)
