@@ -12,12 +12,18 @@ namespace DataAccessLayer.Repositories
 {
     public class HoldRepository
     {
-        public static Hold GetHold(int id)
+        public static Hold GetDTOHold(int id, AirTimeContext context)
         {
-            using (AirTimeContext context = new AirTimeContext())
-            {
-                return HoldMapper.Map(context.Hold.Find(id));
-            }
+            return HoldMapper.Map(context.Hold.Find(id));
+            
+        }
+
+        public static List<DataAccessLayer.Model.Hold> GetDALHold(List<string> holdNavne, AirTimeContext context)
+        {
+            return context.Hold
+                .Where(h => holdNavne.Contains(h.HoldNavn))
+                .ToList();
+
         }
         public static List<Hold> GetAllHold()
         {
@@ -36,7 +42,7 @@ namespace DataAccessLayer.Repositories
         }
 
 
-        public static List<DataTransferObject.Model.Hold> GetHold(List<string> holdnavne)
+        public static List<DataTransferObject.Model.Hold> GetHold(List<string> holdnavne, AirTimeContext context)
         {
             List<DataTransferObject.Model.Hold> valgteHold = new List<Hold>();
               
@@ -44,7 +50,7 @@ namespace DataAccessLayer.Repositories
             {
                 if (holdnavne.Contains(e.Key))
                 {
-                    valgteHold.Add(HoldRepository.GetHold(e.Value));
+                    valgteHold.Add(GetDTOHold(e.Value, context));
                 }
             }
             return valgteHold;

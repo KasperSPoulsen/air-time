@@ -29,6 +29,8 @@ namespace DataAccessLayer.Context
                 Mail = "clemen.dalgaard@gmail.com"
             };
 
+
+
             if (!context.KontaktPersoner.Any(k => k.Mail == kontakt.Mail))
             {
                 context.KontaktPersoner.Add(kontakt);
@@ -51,11 +53,35 @@ namespace DataAccessLayer.Context
                 }
             }
 
+                      
+
             context.SaveChanges();
 
             HoldMap = context.Hold
                 .Where(h => holdNavne.Contains(h.HoldNavn))
                 .ToDictionary(h => h.HoldNavn, h => h.Id);
+
+            // Find holdet "Tirsdag hold 1"
+            var tirsdagHold1 = context.Hold.FirstOrDefault(h => h.HoldNavn == "Tirsdag hold 1");
+
+            // Sørg for at holdet findes
+            if (tirsdagHold1 != null)
+            {
+                var springere = new List<Springer>
+                {
+                    new Springer("William Jensen", new DateTime(2010, 5, 15), kontakt, new List<Hold> { tirsdagHold1 }),
+                    new Springer("Emil Sørensen", new DateTime(2011, 3, 20), kontakt, new List<Hold> { tirsdagHold1 }),
+                    new Springer("Laura Nielsen", new DateTime(2009, 11, 2), kontakt2, new List<Hold> { tirsdagHold1 }),
+                    new Springer("Frederik Madsen", new DateTime(2012, 7, 8), kontakt2, new List<Hold> { tirsdagHold1 }),
+                    new Springer("Sofie Kristensen", new DateTime(2010, 1, 25), kontakt, new List<Hold> { tirsdagHold1 }),
+                };
+
+                context.Springere.AddRange(springere);
+                
+            }
+
+
+            context.SaveChanges();
         }
     }
 }

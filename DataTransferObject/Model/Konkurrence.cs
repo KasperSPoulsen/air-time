@@ -13,8 +13,9 @@ namespace DataTransferObject.Model
         public string Navn { get; set; }
         public DateTime Dato { get; set; }
 
-        public List<Springer> Springere { get; set; }
-        public List<Bil> Biler { get; set; }
+        public List<Springer> Springere { get; set; } = new List<Springer>();
+        public List<Bil> Biler { get; set; } = new List<Bil>();
+
 
         public Konkurrence()
         {

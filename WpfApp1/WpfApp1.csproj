@@ -68,6 +68,18 @@
     <Compile Include="Konkurrence.xaml.cs">
       <DependentUpon>Konkurrence.xaml</DependentUpon>
     </Compile>
+    <Compile Include="KonkurrenceInfo.xaml.cs">
+      <DependentUpon>KonkurrenceInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OprettelseAfBil.xaml.cs">
+      <DependentUpon>OprettelseAfBil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OprettelseAfKonkurrence.xaml.cs">
+      <DependentUpon>OprettelseAfKonkurrence.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OprettelseAfSpringer.xaml.cs">
+      <DependentUpon>OprettelseAfSpringer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SpringerInfo.xaml.cs">
       <DependentUpon>SpringerInfo.xaml</DependentUpon>
     </Compile>
@@ -83,6 +95,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Konkurrence.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KonkurrenceInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -104,6 +120,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OprettelseAfBil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OprettelseAfKonkurrence.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OprettelseAfSpringer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SpringerInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

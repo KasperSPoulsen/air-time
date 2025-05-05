@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfApp1.OprettelseAfKonkurrence"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="OprettelseAfKonkurrence" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="56,42,0,0" TextWrapping="Wrap" Text="Opret Konkurrencer!" VerticalAlignment="Top" FontSize="35"/>
+        <TextBlock HorizontalAlignment="Left" Margin="56,107,0,0" TextWrapping="Wrap" Text="Adresse:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="56,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="da-dk" Text="Navn"/><Run Text=":"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="56,149,0,0" TextWrapping="Wrap" Text="Dato:" VerticalAlignment="Top"/>
+        <TextBox x:Name="AdresseTextBox" HorizontalAlignment="Left" Margin="105,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="NavnTextBox" HorizontalAlignment="Left" Margin="105,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <DatePicker x:Name="DatoPicker" HorizontalAlignment="Left" Margin="105,157,0,0" VerticalAlignment="Top"/>
+        <Button Content="Opret" HorizontalAlignment="Left" Margin="105,217,0,0" VerticalAlignment="Top" Click="OpretSlut"/>
+
+    </Grid>
+</Window>

@@ -13,7 +13,7 @@ namespace DataAccessLayer.Mappers
         public static DataTransferObject.Model.Fremmoederegistrering Map(DataAccessLayer.Model.Fremmoederegistrering fremmoederegistrering)
         {
             return new DataTransferObject.Model.Fremmoederegistrering(
-                            StatusMapper.Map(fremmoederegistrering.MoedeStatus),
+                            StatusMapper.Map(fremmoederegistrering.MoedeStatus), //Ik nødvendig at mappe denne?
                 SpringerMapper.Map(fremmoederegistrering.Springer)
 
             );

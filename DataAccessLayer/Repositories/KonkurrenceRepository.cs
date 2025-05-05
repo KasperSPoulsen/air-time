@@ -34,6 +34,17 @@ namespace DataAccessLayer.Repositories
             }
         }
 
+        public static void TilfoejBilTilKonkurrence(int konkurrenceId, DataAccessLayer.Model.Bil bil, AirTimeContext context)
+        {
+            
+                var konkurrence = context.Konkurrencer.Find(konkurrenceId);
+                if (konkurrence != null)
+                {
+                    konkurrence.Biler.Add(bil);
+                    context.SaveChanges();
+                }
+            
+        }
 
         public static void TilfoejSpringerTilKonkurrence(int konkurrenceId, Springer springer)
         {
@@ -48,6 +59,29 @@ namespace DataAccessLayer.Repositories
                 }
             }
 
+        }
+
+        public static List<DataTransferObject.Model.Bil> GetAllBilerTilKonkurrence(int konkurrenceId)
+        {
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                var biler = context.Konkurrencer
+                            .Where(k => k.Id == konkurrenceId)
+                            .SelectMany(k => k.Biler)
+                            .ToList();
+                return biler.Select(BilMapper.Map).ToList();
+            }
+        }
+        public static List<DataTransferObject.Model.Springer> GetAlleSpringerTilKonkurrence(int konkurrenceId)
+        {
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                var springere = context.Konkurrencer
+                            .Where(k => k.Id == konkurrenceId)
+                            .SelectMany(k => k.Springere)
+                            .ToList();
+                return springere.Select(SpringerMapper.Map).ToList();
+            }
         }
     }
 }

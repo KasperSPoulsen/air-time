@@ -21,3 +21,4 @@ _ReSharper*/
 # Entity Framework lokale databasefiler (bør ignoreres)
 *.mdf
 *.ldf
+/WpfApp1/KonkurrenceVinduer
