@@ -67,18 +67,18 @@ namespace DataAccessLayer.Mappers
             return DTOHold;
         }
 
-        public static List<DataTransferObject.Model.Hold> MapWithoutSpringere(List<DataAccessLayer.Model.Hold> hold)
+        internal static List<DataTransferObject.Model.Hold> MapWithoutSpringereAndTraeninger(List<DataAccessLayer.Model.Hold> hold)
         {
             List<DataTransferObject.Model.Hold> DTOHold = new List<DataTransferObject.Model.Hold>();
             foreach (var e in hold)
             {
-                DTOHold.Add(MapWithoutSpringere(e));
+                DTOHold.Add(MapWithoutSpringereAndTraeninger(e));
             }
             return DTOHold;
         }
 
 
-        public static DataTransferObject.Model.Hold MapWithoutSpringere(DataAccessLayer.Model.Hold hold)
+        internal static DataTransferObject.Model.Hold MapWithoutSpringereAndTraeninger(DataAccessLayer.Model.Hold hold)
         {
             DataTransferObject.Model.Hold DTOHold = new DataTransferObject.Model.Hold(
                 hold.HoldNavn
@@ -87,16 +87,13 @@ namespace DataAccessLayer.Mappers
             {
                 DTOHold.Id = hold.Id;
             }
-            if (hold.Traeninger != null)
-            {
-                DTOHold.Traeninger = TraeningMapper.Map(hold.Traeninger);
-            }
+            
             
             return DTOHold;
         }
 
 
-        public static DataAccessLayer.Model.Hold MapWithoutSpringer(DataTransferObject.Model.Hold hold)
+        internal static DataAccessLayer.Model.Hold MapWithoutSpringereAndTraeninger(DataTransferObject.Model.Hold hold)
         {
             DataAccessLayer.Model.Hold DALHold = new DataAccessLayer.Model.Hold(
                 hold.HoldNavn
@@ -105,20 +102,17 @@ namespace DataAccessLayer.Mappers
             {
                 DALHold.Id = hold.Id;
             }
-            if (hold.Traeninger != null)
-            {
-                DALHold.Traeninger = TraeningMapper.Map(hold.Traeninger);
-            }
+            
 
             return DALHold;
         }
 
-        public static List<DataAccessLayer.Model.Hold> MapWithoutSpringere(List<DataTransferObject.Model.Hold> hold)
+        internal static List<DataAccessLayer.Model.Hold> MapWithoutSpringereAndTraeninger(List<DataTransferObject.Model.Hold> hold)
         {
             List<DataAccessLayer.Model.Hold> DALHold = new List<DataAccessLayer.Model.Hold>();
             foreach (var e in hold)
             {
-                DALHold.Add(MapWithoutSpringer(e));
+                DALHold.Add(MapWithoutSpringereAndTraeninger(e));
             }
             return DALHold;
         }
