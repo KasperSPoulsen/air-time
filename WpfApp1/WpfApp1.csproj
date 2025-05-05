@@ -71,6 +71,9 @@
     <Compile Include="SpringerInfo.xaml.cs">
       <DependentUpon>SpringerInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TidligereTraeninger.xaml.cs">
+      <DependentUpon>TidligereTraeninger.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TilfoejSpringer.xaml.cs">
       <DependentUpon>TilfoejSpringer.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="SpringerInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TidligereTraeninger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
