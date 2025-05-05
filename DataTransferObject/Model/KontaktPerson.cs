@@ -12,6 +12,7 @@ namespace DataTransferObject.Model
         public string Navn { get; set; }
         public string TlfNr { get; set; }
         public string Mail { get; set; }
+      
 
         public KontaktPerson()
         {
