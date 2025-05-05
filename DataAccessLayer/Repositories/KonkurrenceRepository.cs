@@ -46,18 +46,18 @@ namespace DataAccessLayer.Repositories
             
         }
 
-        public static void TilfoejSpringerTilKonkurrence(int konkurrenceId, Springer springer)
+        public static void TilfoejSpringerTilKonkurrence(int konkurrenceId, Springer springer, AirTimeContext context)
         {
-            using (AirTimeContext context = new AirTimeContext())
-            {
+            
+            
                 var konkurrence = context.Konkurrencer.Find(konkurrenceId);
                 if (konkurrence != null)
                 {
-                    DataAccessLayer.Model.Springer DALSpringer = SpringerMapper.Map(springer);
-                    konkurrence.Springere.Add(DALSpringer);
-                    context.SaveChanges();
+                    var dalSpringer = context.Springere.Find(springer.Id);
+                    konkurrence.Springere.Add(dalSpringer);
+
                 }
-            }
+            
 
         }
 

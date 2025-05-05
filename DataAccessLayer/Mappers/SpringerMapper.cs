@@ -31,6 +31,10 @@ namespace DataAccessLayer.Mappers
             {
                 DTOSpringer.KonkurrenceSerie = springer.KonkurrenceSerie;
             }
+            if (springer.Id != 0)
+            {
+                DTOSpringer.Id = springer.Id;
+            }
             return DTOSpringer;
         }
 
@@ -61,6 +65,10 @@ namespace DataAccessLayer.Mappers
             if (springer.KonkurrenceSerie != null)
             {
                 DALSpringer.KonkurrenceSerie = springer.KonkurrenceSerie;
+            }
+            if (springer.Id != 0)
+            {
+                DALSpringer.Id = springer.Id;
             }
             return DALSpringer;
 
@@ -94,6 +102,10 @@ namespace DataAccessLayer.Mappers
             {
                 DTOSpringer.KonkurrenceSerie = springer.KonkurrenceSerie;
             }
+            if (springer.Id != 0)
+            {
+                DTOSpringer.Id = springer.Id;
+            }
             return DTOSpringer;
         }
 
@@ -114,6 +126,10 @@ namespace DataAccessLayer.Mappers
             if (springer.KonkurrenceSerie != null)
             {
                 DALSpringer.KonkurrenceSerie = springer.KonkurrenceSerie;
+            }
+            if (springer.Id != 0)
+            {
+                DALSpringer.Id = springer.Id;
             }
             return DALSpringer;
         }

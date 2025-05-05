@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataTransferObject.Model;
 using DataAccessLayer.Mappers;
+using DataAccessLayer.Context;
 
 namespace BusinessLogicLayer.BLL
 {
@@ -31,11 +32,19 @@ namespace BusinessLogicLayer.BLL
             KonkurrenceRepository.AddKonkurrence(newKonk);
         }
 
-        public void TilfoejSpringerTilKonkurrence(int konkurrenceId, Springer springer)
+        public static void TilfoejSpringereTilKonkurrence(int konkurrenceId, List<Springer> springere)
         {
-            if (springer == null) throw new ArgumentNullException();
-            if (konkurrenceId < 0) throw new IndexOutOfRangeException();
-            KonkurrenceRepository.TilfoejSpringerTilKonkurrence(konkurrenceId, springer);
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                if (springere == null) throw new ArgumentNullException();
+                if (konkurrenceId < 0) throw new IndexOutOfRangeException();
+                foreach (var item in springere)
+                {
+                    KonkurrenceRepository.TilfoejSpringerTilKonkurrence(konkurrenceId, item, context);
+                }
+                context.SaveChanges();
+            }   
+            
         }
 
 
