@@ -51,6 +51,29 @@ namespace DataAccessLayer.Context
                 }
             }
 
+            var Hold1 = new Hold
+            {
+                HoldNavn = "TEST"
+            };
+
+            var Springer = new Springer
+            {
+                Navn = "Kasper Dalgaard",
+                Foedselsdato = new DateTime(2001, 01, 01),
+                KontaktPerson = kontakt2,
+            };
+
+            var traening1 = new Traening
+            {
+                Dato = new DateTime(2025, 07, 02)
+            };
+
+            var fremmoede = new Fremmoederegistrering
+            {
+                MoedeStatus = Status.FREMMOEDT,
+                Springer = Springer
+            };
+
             context.SaveChanges();
 
             HoldMap = context.Hold

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataTransferObject.Model
 {
-    public class Traening
+    public class Traening : INotifyPropertyChanged
     {
         public DateTime Dato { get; set; }
         public int Id { get; set; }
@@ -21,5 +22,7 @@ namespace DataTransferObject.Model
             Hold = hold;
             Fremmoederegistreringer = fremmoederegistrering;
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

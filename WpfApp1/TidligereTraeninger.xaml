@@ -1,0 +1,30 @@
+﻿<Window x:Class="WpfApp1.TidligereTraeninger"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="TidligereTraeninger" Height="450" Width="800">
+    <Grid>
+        <Label HorizontalAlignment="Left" Margin="63,45,0,0" Content="Tidligere Træninger" VerticalAlignment="Top" Width="120"/>
+        <Grid HorizontalAlignment="Left" Height="62" Margin="63,112,0,0" VerticalAlignment="Top">
+            <Label x:Name="TraeningOversigtLabel1" HorizontalAlignment="Left" Content="Træning" VerticalAlignment="Top" Width="120"/>
+            <Label x:Name="TraeningNavn1" HorizontalAlignment="Left" Content="" VerticalAlignment="Center" Width="120"/>
+            <Label x:Name="DatoLabel1" HorizontalAlignment="Left" Margin="0,36,0,0" Content="" VerticalAlignment="Top" Width="120"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Margin="63,199,0,0" VerticalAlignment="Top" Width="120">
+            <Label HorizontalAlignment="Center" Content="Træning" VerticalAlignment="Top" Width="120"/>
+            <Label HorizontalAlignment="Center" Margin="0,18,0,0" Content="Skovbakken" VerticalAlignment="Top" Width="120"/>
+            <Label HorizontalAlignment="Center" Margin="0,36,0,0" Content="13/03/2025" VerticalAlignment="Top" Width="120"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="62" Margin="63,284,0,0" VerticalAlignment="Top">
+            <Label HorizontalAlignment="Left" Content="Træning" VerticalAlignment="Top" Width="120"/>
+            <Label HorizontalAlignment="Left" Content="Skovbakken" VerticalAlignment="Center" Width="120"/>
+            <Label HorizontalAlignment="Left" Margin="0,36,0,0" Content="13/03/2025" VerticalAlignment="Top" Width="120"/>
+        </Grid>
+        <Label HorizontalAlignment="Left" Margin="570,112,0,0" Content="Vælg dato:" VerticalAlignment="Top" Width="120"/>
+        <Calendar HorizontalAlignment="Left" Margin="570,130,0,0" VerticalAlignment="Top"/>
+        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="46,404,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

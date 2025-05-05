@@ -36,5 +36,31 @@ namespace DataAccessLayer.Repositories
                 context.SaveChanges();
             }
         }
+
+
+        public static Traening GetSenesteTraening()
+        {
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                var seneste = context.Traeninger
+                    .OrderByDescending(t => t.Dato) // får nyeste træning på dato
+                    .FirstOrDefault(); // null check
+
+                return TraeningMapper.Map(seneste);
+            }
+        }
+
+        public static Traening GetTilmeldte()
+        {
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                var seneste = context.Traeninger
+                    .OrderByDescending (t => t.Dato)
+                    .OrderByDescending(t => t.Fremmoederegistreringer) // får antal fremmødte
+                    .FirstOrDefault(); 
+
+                return TraeningMapper.Map(seneste);
+            }
+        }
     }
 }

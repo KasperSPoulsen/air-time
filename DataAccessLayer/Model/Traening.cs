@@ -17,7 +17,6 @@ namespace DataAccessLayer.Model
         public Traening(DateTime dato, Hold hold, List<Fremmoederegistrering> fremmoederegistrering)
         {
             Dato = dato;
-            
             Hold = hold;
             Fremmoederegistreringer = fremmoederegistrering;
         }
