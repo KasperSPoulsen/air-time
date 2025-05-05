@@ -26,5 +26,14 @@ namespace DataAccessLayer.Model
             Hold = hold;
 
         }
+
+        public Springer(string navn, DateTime? foedselsdato, KontaktPerson kontaktPerson)
+        {
+
+            Navn = navn;
+            Foedselsdato = foedselsdato;
+            KontaktPerson = kontaktPerson;
+
+        }
     }
 }

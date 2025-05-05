@@ -19,7 +19,7 @@ namespace DataAccessLayer.Mappers
             {
                 foreach (var springer in bil.Springere)
                 {
-                    DTOBil.Springere.Add(SpringerMapper.Map(springer));
+                    DTOBil.Springere.Add(SpringerMapper.MapWithoutHold(springer));
                 }
             }
             if (bil.Id != 0)
@@ -37,7 +37,7 @@ namespace DataAccessLayer.Mappers
             {
                 foreach (var springer in bil.Springere)
                 {
-                    DALBil.Springere.Add(SpringerMapper.Map(springer));
+                    DALBil.Springere.Add(SpringerMapper.MapWithoutHold(springer));
                 }
             }
             if (bil.Id != 0)
