@@ -18,6 +18,7 @@ namespace WpfApp1
         private HoldBLL holdbll;
         private FremmoederegistreringBLL FremmoederegistreringBLL;
         private TraeningBLL traeningBLL;
+        private SpringerBLL springerBLL;
         public FremmoedeRegistrering()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace WpfApp1
             FremmoederegistreringBLL = new FremmoederegistreringBLL();
             holdbll = new HoldBLL();
             traeningBLL = new TraeningBLL();
-
+            springerBLL = new SpringerBLL();
             alleHold = holdbll.GetAllHold().ToList();
             AlleHoldPanel.DataContext = alleHold;
             PlayerStackPanel.DataContext = holdetSpringere;
@@ -53,7 +54,8 @@ namespace WpfApp1
             }
 
             valgtHold = alleHold.First(hold => hold.HoldNavn == valgtHoldNavn);
-            holdetSpringere = valgtHold.Springere;
+
+            holdetSpringere = springerBLL.GetSpringerByHold(valgtHold);
 
             holdetSpringere.ForEach(springer =>
             {
