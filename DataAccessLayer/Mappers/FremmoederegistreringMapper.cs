@@ -14,7 +14,7 @@ namespace DataAccessLayer.Mappers
         {
             return new DataTransferObject.Model.Fremmoederegistrering(
                             StatusMapper.Map(fremmoederegistrering.MoedeStatus), //Ik nødvendig at mappe denne?
-                SpringerMapper.Map(fremmoederegistrering.Springer)
+                SpringerMapper.MapWithoutHold(fremmoederegistrering.Springer)
 
             );
         }
@@ -35,7 +35,7 @@ namespace DataAccessLayer.Mappers
         {
             return new DataAccessLayer.Model.Fremmoederegistrering(
                             StatusMapper.Map(fremmoederegistrering.MoedeStatus),
-                SpringerMapper.Map(fremmoederegistrering.Springer)
+                SpringerMapper.MapWithoutHold(fremmoederegistrering.Springer)
             );
         }
 
