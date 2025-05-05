@@ -9,7 +9,7 @@
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="46,32,0,0" TextWrapping="Wrap" Text="Tilføj Springer" VerticalAlignment="Top" FontSize="35"/>
         <TextBlock HorizontalAlignment="Left" Margin="46,79,0,0" TextWrapping="Wrap" Text="Vælg springer" VerticalAlignment="Top"/>
-        <ListBox SelectionMode="Multiple" Name="SpringerListBox" DisplayMemberPath="Navn" Margin="40,117,532,205" SelectionChanged="ValgteSpringerSkalMed"/>
+        <ListBox SelectionMode="Multiple" Name="SpringerListBox" DisplayMemberPath="Navn" Margin="40,117,532,205" />
         <Button Content="Tilføj!" HorizontalAlignment="Left" Margin="46,255,0,0" VerticalAlignment="Top" Click="TilfoejTilKonk"/>
 
     </Grid>
