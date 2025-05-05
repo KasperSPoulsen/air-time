@@ -25,7 +25,7 @@ namespace WpfApp1
 
 
 
-        private List<DataTransferObject.Model.Springer> ValgteSpringereDerSkalMed = new List<DataTransferObject.Model.Springer>();
+        
 
 
 
@@ -43,25 +43,22 @@ namespace WpfApp1
             SpringerListBox.ItemsSource = springere;
         }
 
-        private void ValgteSpringerSkalMed(object sender, SelectionChangedEventArgs e)
-        {
-            var valgteSpringere = SpringerListBox.SelectedItems.Cast<DataTransferObject.Model.Springer>();
-            foreach (var springer in valgteSpringere)
-            {
-                if (!ValgteSpringereDerSkalMed.Contains(springer))
-                {
-                    ValgteSpringereDerSkalMed.Add(springer);
-                }
-            }
-        }
 
         private void TilfoejTilKonk(object sender, RoutedEventArgs e)
         {
-            foreach (var springer in ValgteSpringereDerSkalMed)
+            var valgteSpringere = SpringerListBox.SelectedItems
+                .OfType<DataTransferObject.Model.Springer>()
+                .ToList();
+
+            
+
+
+            foreach (var springer in valgteSpringere)
             {
                 if (!Konkurrence.Springere.Contains(springer))
                 {
-                    Konkurrence.Springere.Add(springer);
+                    KonkurrenceBLL.TilfoejSpringereTilKonkurrence(Konkurrence.Id, valgteSpringere);
+                    //Konkurrence.Springere.Add(springer);
                 }
             }
             this.Close();
