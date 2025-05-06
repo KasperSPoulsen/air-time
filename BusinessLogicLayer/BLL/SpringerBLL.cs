@@ -60,11 +60,46 @@ namespace BusinessLogicLayer.BLL
 
 
                 return new DataTransferObject.Model.Springer(navn, foedselsdato, KontaktPersonMapper.Map(kontaktPerson), HoldMapper.Map(efHold));
-            }
-
-            
-                             
+            }             
         }
+
+        public static void UpdateSpringer(DataTransferObject.Model.Springer updatedSpringer)
+        {
+            if (updatedSpringer == null || updatedSpringer.Id <= 0)
+                throw new ArgumentException("Invalid springer.");
+
+            using (var context = new AirTimeContext())
+            {
+                var existingSpringer = context.Springere.FirstOrDefault(s => s.Id == updatedSpringer.Id);
+
+                if (existingSpringer == null)
+                    throw new InvalidOperationException("Springer not found.");
+
+                existingSpringer.Navn = updatedSpringer.Navn;
+                existingSpringer.Foedselsdato = updatedSpringer.Foedselsdato;
+                existingSpringer.TraeningsMaal = updatedSpringer.TraeningsMaal;
+
+                if (existingSpringer.KontaktPerson != null && updatedSpringer.KontaktPerson != null)
+                {
+                    existingSpringer.KontaktPerson.Navn = updatedSpringer.KontaktPerson.Navn;
+                    existingSpringer.KontaktPerson.TlfNr = updatedSpringer.KontaktPerson.TlfNr;
+                    existingSpringer.KontaktPerson.Mail = updatedSpringer.KontaktPerson.Mail;
+                }
+
+                existingSpringer.KonkurrenceSerie = string.Join(", ", updatedSpringer.KonkurrenceSerieList);
+
+                existingSpringer.Hold.Clear();
+                var newHolds = HoldRepository.GetDALHold(updatedSpringer.Hold.Select(h => h.HoldNavn).ToList(), context);
+                foreach (var hold in newHolds)
+                {
+                    context.Entry(hold).State = System.Data.Entity.EntityState.Unchanged; // tell EF not to re-insert
+                    existingSpringer.Hold.Add(hold);
+                }
+
+                context.SaveChanges();
+            }
+        }
+
 
     }
 }
