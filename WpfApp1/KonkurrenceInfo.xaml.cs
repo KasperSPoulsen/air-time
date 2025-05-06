@@ -61,15 +61,13 @@ namespace WpfApp1
             LoadBiler();
         }
 
-        private void ValgteBilSkalSlettes(object sender, SelectionChangedEventArgs e)
+        private void ValgteBil(object sender, SelectionChangedEventArgs e)
         {
             var valgteBil = BilListBox.SelectedItem as DataTransferObject.Model.Bil;
 
             if (valgteBil != null)
             {
                 skalSlettes = valgteBil;
-                Console.WriteLine("HEJ");
-                Console.WriteLine(valgteBil.Id);
             }
         }
 
@@ -87,6 +85,13 @@ namespace WpfApp1
             var vindue = new OprettelseAfSpringer(Konkurrence);
             vindue.ShowDialog();
             LoadSpringere();
+        }
+
+        private void IndPaaValgteBillist(object sender, RoutedEventArgs e)
+        {
+            var vindue = new TilfoejSpringerTilBil(skalSlettes, Konkurrence);
+            vindue.ShowDialog();
+
         }
     }
 }
