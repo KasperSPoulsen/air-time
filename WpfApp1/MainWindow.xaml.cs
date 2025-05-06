@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataTransferObject.Model;
 
 namespace WpfApp1
 {
@@ -20,6 +21,7 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Springer springer;
         public MainWindow()
         {
             InitializeComponent();
@@ -33,6 +35,7 @@ namespace WpfApp1
 
         private void VisHoldVindue(object sender, RoutedEventArgs e)
         {
+
             var vindue = new Hold();
             vindue.Show();
         }
@@ -43,9 +46,13 @@ namespace WpfApp1
             vindue.Show();
         }
 
+
         private void Tidligere_Træninger_Click(object sender, RoutedEventArgs e)
         {
             var vindue = new TidligereTraeninger();
+        private void InformationOmSpringer_Click(object sender, RoutedEventArgs e)
+        {
+            var vindue = new SpringerInfoListe();
             vindue.Show();
         }
     }

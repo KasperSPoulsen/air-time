@@ -25,6 +25,7 @@ namespace DataAccessLayer.Context
         public DbSet<Fremmoederegistrering> Fremmoederegistreringer { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     }

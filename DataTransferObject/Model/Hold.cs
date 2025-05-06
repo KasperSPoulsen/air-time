@@ -10,6 +10,10 @@ namespace DataTransferObject.Model
     {
         public int Id { get; set; }
         public string HoldNavn { get; set; }
+        public List<Traening> Traeninger { get; set; } = new List<Traening>();
+        public List<Springer> Springere { get; set; } = new List<Springer>();
+     
+
         public Hold()
         {
         }

@@ -13,8 +13,8 @@ namespace DataAccessLayer.Mappers
         public static DataTransferObject.Model.Fremmoederegistrering Map(DataAccessLayer.Model.Fremmoederegistrering fremmoederegistrering)
         {
             return new DataTransferObject.Model.Fremmoederegistrering(
-                            StatusMapper.Map(fremmoederegistrering.MoedeStatus),
-                SpringerMapper.Map(fremmoederegistrering.Springer)
+                            StatusMapper.Map(fremmoederegistrering.MoedeStatus), //Ik nødvendig at mappe denne?
+                SpringerMapper.MapWithoutHold(fremmoederegistrering.Springer)
 
             );
         }
@@ -35,7 +35,7 @@ namespace DataAccessLayer.Mappers
         {
             return new DataAccessLayer.Model.Fremmoederegistrering(
                             StatusMapper.Map(fremmoederegistrering.MoedeStatus),
-                SpringerMapper.Map(fremmoederegistrering.Springer)
+                SpringerMapper.MapWithoutHold(fremmoederegistrering.Springer)
             );
         }
 

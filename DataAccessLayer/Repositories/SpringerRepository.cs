@@ -19,20 +19,18 @@ namespace DataAccessLayer.Repositories
                 return SpringerMapper.Map(context.Springere.Find(id));
             }
         }
-        public static List<Springer> GetAllSpringere()
+        public static List<Springer> GetAllSpringere(AirTimeContext context)
         {
-            using (AirTimeContext context = new AirTimeContext())
-            {
-                return context.Springere.ToList().Select(SpringerMapper.Map).ToList();
-            }
+            
+                return SpringerMapper.Map(context.Springere.ToList());
+            
         }
-        public static void AddSpringer(Springer springer)
+        public static void AddSpringer(Springer springer, AirTimeContext context)
         {
-            using (AirTimeContext context = new AirTimeContext())
-            {
+            
                 context.Springere.Add(SpringerMapper.Map(springer));
-                context.SaveChanges();
-            }
+                
+            
         }
     }
 }
