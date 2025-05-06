@@ -12,7 +12,7 @@
         <TextBlock Text="{Binding Mode=TwoWay, Path=Adresse}"  HorizontalAlignment="Left" Margin="55,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <TextBlock HorizontalAlignment="Left" Margin="55,269,0,0" TextWrapping="Wrap" Text="Valgte billister:" VerticalAlignment="Top"/>
 
-        <ListBox x:Name="BilListBox" DisplayMemberPath="KontaktPerson.Navn" Margin="55,290,600,68" SelectionChanged="ValgteBilSkalSlettes"/>
+        <ListBox x:Name="BilListBox" DisplayMemberPath="KontaktPerson.Navn" Margin="55,290,600,68" SelectionChanged="ValgteBil"/>
 
         <Button Content="Tilføj billist" HorizontalAlignment="Left" Margin="55,385,0,0" VerticalAlignment="Top" Background="#FF5DF448" Click="TiloejBillistTilKonk"/>
         <Button Content="Slet billist" HorizontalAlignment="Left" Margin="145,385,0,0" VerticalAlignment="Top" Background="#FFFA7111" Click="RedigereBillist"/>
@@ -20,6 +20,7 @@
         <ListBox x:Name="SpringerListBox" DisplayMemberPath="Navn" Margin="499,51,93,226"/>
         <Button Content="Tilføj springer" HorizontalAlignment="Left" Margin="499,217,0,0" VerticalAlignment="Top" Background="#FF8EDD59" Click="TilfoejSpringerTilKonk"/>
         <Button Content="Slet Springer" HorizontalAlignment="Left" Margin="635,217,0,0" VerticalAlignment="Top" Background="#FFF6824B"/>
+        <Button Content="Tilføj springer" HorizontalAlignment="Left" Margin="220,328,0,0" VerticalAlignment="Top" Click="IndPaaValgteBillist"/>
 
     </Grid>
 </Window>

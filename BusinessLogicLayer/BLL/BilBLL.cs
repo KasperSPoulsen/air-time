@@ -45,5 +45,16 @@ namespace BusinessLogicLayer.BLL
         {
             BilRepository.SletBil(id);
         }
+
+        public static void TilfoejSpringerTilBil(int bilId, List<Springer> valgteSpringere)
+        {
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                BilRepository.TilfoejSpringerTilBil(bilId, valgteSpringere, context);
+                context.SaveChanges();
+
+            }
+        }
+
     }
 }

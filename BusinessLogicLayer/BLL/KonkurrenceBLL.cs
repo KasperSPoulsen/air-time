@@ -68,5 +68,22 @@ namespace BusinessLogicLayer.BLL
             var springereDTO = KonkurrenceRepository.GetAlleSpringerTilKonkurrence(konkurrenceId);
             return springereDTO;
         }
+
+        public static List<DataTransferObject.Model.Springer> GetSpringerePaaBil(int bilId, int konkurrenceId)
+        {
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                return KonkurrenceRepository.GetSpringerePaaBil(bilId, konkurrenceId, context);
+            }
+        }
+
+
+        public static List<DataTransferObject.Model.Springer> GetSpringerePaaKonkSomIkErIBil(int konkId)
+        {
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                return KonkurrenceRepository.GetSpringerePaaKonkSomIkErIBil(konkId, context);
+            }
+        }
     }
 }
