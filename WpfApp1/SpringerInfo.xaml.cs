@@ -35,18 +35,22 @@ public partial class SpringerInfo : Window
         {
             NavnLabel.Content = springer.Navn ?? "";
             FødselsdagLabel.Content = springer.Foedselsdato?.ToString("dd-MM-yyyy") ?? "";
-            HoldLabel.Content = string.Join(", ", springer.Hold?.Select(h => h.Navn) ?? new List<string>());
+            HoldLabel.Content = string.Join(", ", springer.Hold?.Select(h => h.HoldNavn) ?? new List<string>());
             TræningsmålTekst.Text = springer.TraeningsMaal ?? "";
 
             if (springer.KontaktPerson != null)
             {
                 KontaktNavnLabel.Content = springer.KontaktPerson.Navn ?? "";
-                KontaktTelefonLabel.Content = springer.KontaktPerson.Telefonnummer ?? "";
-                KontaktEmailLabel.Content = springer.KontaktPerson.Email ?? "";
+                KontaktTelefonLabel.Content = springer.KontaktPerson.TlfNr ?? "";
+                KontaktEmailLabel.Content = springer.KontaktPerson.Mail ?? "";
             }
+
+       
 
             // Hvis du har springserier, sæt dem her:
             SpringserierListe.ItemsSource = springer.KonkurrenceSerie;
+           
+
         }
     }
 
