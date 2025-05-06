@@ -50,6 +50,7 @@ public partial class SpringerInfo : Window, INotifyPropertyChanged
         {
             NavnLabel.Content = springer.Navn ?? "";
             FødselsdagLabel.Content = springer.Foedselsdato?.ToString("dd-MM-yyyy") ?? "";
+            HoldLabel.Content = string.Join(", ", springer.Hold?.Select(h => h.HoldNavn) ?? new List<string>());
             TræningsmålTekst.Text = springer.TraeningsMaal ?? "";
             HoldLabel.Content = string.Join(", ", springer.Hold?.Select(h => h.HoldNavn) ?? new List<string>());
 
@@ -60,6 +61,8 @@ public partial class SpringerInfo : Window, INotifyPropertyChanged
                 KontaktTelefonLabel.Content = springer.KontaktPerson.TlfNr ?? "";
                 KontaktEmailLabel.Content = springer.KontaktPerson.Mail ?? "";
             }
+
+       
 
             // Hvis du har springserier, sæt dem her:
             KonkurrenceserierListe.ItemsSource = springer.KonkurrenceSerie;
@@ -83,7 +86,8 @@ public partial class SpringerInfo : Window, INotifyPropertyChanged
 
         private void Edit_Dialog_Closed(object sender, EventArgs e)
         {
-            VisSpringerInfo(_springer); // sørger for UI opdateres
+            VisSpringerInfo(_springer); // sørger for UI opdateres           
+
         }
     }
 

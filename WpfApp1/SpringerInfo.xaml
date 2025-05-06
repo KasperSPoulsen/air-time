@@ -18,26 +18,26 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Første kolonne: Personlig info -->
-        <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="10,10,10,0" Height="319">
+        <!-- Kolonne 0 -->
+        <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="10,10,10,0">
             <TextBlock FontWeight="Bold" Text="Springer Information" Margin="0 0 0 10"/>
-            <TextBlock Text="Navn:"/>
+            <TextBlock FontWeight="Bold" Text="Navn:"/>
             <Label Name="NavnLabel" Content=""/>
-            <TextBlock Text="Fødselsdag:"/>
+            <TextBlock FontWeight="Bold" Text="Fødselsdag:"/>
             <Label Name="FødselsdagLabel" Content=""/>
-            <TextBlock Text="Tilknyttede Hold:"/>
+            <TextBlock FontWeight="Bold" Text="Tilknyttede Hold:"/>
             <Label Name="HoldLabel" Content=""/>
-            <TextBlock Text="Kontaktpersons navn:"/>
+            <TextBlock FontWeight="Bold" Text="Kontaktpersons navn:"/>
             <Label Name="KontaktNavnLabel" Content=""/>
-            <TextBlock Text="Kontaktpersons tlf:"/>
+            <TextBlock FontWeight="Bold" Text="Kontaktpersons tlf:"/>
             <Label Name="KontaktTelefonLabel" Content=""/>
-            <TextBlock Text="Kontaktpersons email:"/>
+            <TextBlock FontWeight="Bold" Text="Kontaktpersons email:"/>
             <Label Name="KontaktEmailLabel" Content=""/>
         </StackPanel>
 
-        <!-- Anden kolonne: Springserier -->
-        <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10,10,10,0" Height="26">
-            <TextBlock FontWeight="Bold" Text="Konkrrenceserier" Margin="0 0 0 10"/>
+        <!-- Kolonne 1 -->
+        <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10,10,10,0">
+            <TextBlock FontWeight="Bold" Text="Konkurrenceserier" Margin="0 0 0 10"/>
             <ItemsControl Name="KonkurrenceserierListe">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -52,20 +52,28 @@
             </ItemsControl>
         </StackPanel>
 
-        <!-- Tredje kolonne: Træningsmål -->
-        <StackPanel Grid.Column="2" VerticalAlignment="Top" Margin="10,10,10,0" Height="42">
+        <!-- Kolonne 2 -->
+        <StackPanel Grid.Column="2" VerticalAlignment="Top" Margin="10,10,10,0">
             <TextBlock FontWeight="Bold" Text="Træningsmål" Margin="0 0 0 10"/>
             <TextBlock Name="TræningsmålTekst" TextWrapping="Wrap"/>
         </StackPanel>
 
-        <!-- Fjerde kolonne: Tilmeldte hold -->
-        <StackPanel Grid.Column="3" VerticalAlignment="Top" Margin="10,10,10,0" Height="42">
-            <TextBlock FontWeight="Bold" Text="Tilmledt(e) Hold:" Margin="0 0 0 10"/>
+        <!-- Kolonne 3 -->
+        <StackPanel Grid.Column="3" VerticalAlignment="Top" Margin="10,10,10,0">
+            <TextBlock FontWeight="Bold" Text="Tilmeldt(e) Hold:" Margin="0 0 0 10"/>
             <TextBlock Name="TilmeldteHold" TextWrapping="Wrap"/>
         </StackPanel>
 
-        <!-- Nederst: Opdater knap -->
-        <Button x:Name="OpdaterSpringer" Grid.ColumnSpan="3" Content="Redigér Springer" Width="200" Height="40" Margin="0 20 0 0"
-                HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="OpdaterSpringer_Click"/>
+        <!-- Opdater knap nederst -->
+        <Button x:Name="OpdaterSpringer"
+                Grid.Row="1"
+                Grid.ColumnSpan="4"
+                Content="Redigér Springer"
+                Width="200"
+                Height="40"
+                Margin="0 20 0 0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Click="OpdaterSpringer_Click"/>
     </Grid>
 </Window>
