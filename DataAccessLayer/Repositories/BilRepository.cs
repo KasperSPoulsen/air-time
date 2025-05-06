@@ -42,5 +42,19 @@ namespace DataAccessLayer.Repositories
                 }
             }
         }
+
+        public static void TilfoejSpringerTilBil(int bilId, List<Springer> valgteSpringere, AirTimeContext context)
+        {
+            var bil = context.Biler.Find(bilId);
+            if (bil != null)
+            {
+                foreach (var springer in valgteSpringere)
+                {
+                    var dalSpringer = context.Springere.Find(springer.Id);
+                    bil.Springere.Add(dalSpringer);
+                }
+                
+            }
+        }
     }
 }
