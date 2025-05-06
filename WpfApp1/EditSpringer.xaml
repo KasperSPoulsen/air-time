@@ -1,0 +1,86 @@
+﻿<Window x:Class="WpfApp1.EditSpringer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="EditSpringer" Height="450" Width="800">
+    <Grid Name="springerDialogGrid" Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Første kolonne: Personlig info -->
+        <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="10,10,10,0">
+            <TextBlock FontWeight="Bold" Text="Springer Information" Margin="0 0 0 10"/>
+            <TextBlock Text="Navn:"/>
+            <TextBox Name="NavnTextBox"/>
+
+            <TextBlock Text="Fødselsdag:"/>
+            <TextBox Name="FødselsdagTextBox"/>
+
+            <TextBlock Text="Tilknyttede Hold:"/>
+            <TextBox Name="HoldTextBox"/>
+
+            <TextBlock Text="Kontaktpersons navn:"/>
+            <TextBox Name="KontaktNavnTextBox"/>
+
+            <TextBlock Text="Kontaktpersons tlf:"/>
+            <TextBox Name="KontaktTelefonTextBox"/>
+
+            <TextBlock Text="Kontaktpersons email:"/>
+            <TextBox Name="KontaktEmailTextBox"/>
+        </StackPanel>
+
+        <!-- Anden kolonne: Springserier -->
+        <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10,10,10,0">
+            <TextBlock FontWeight="Bold" Text="Springserier" Margin="0 0 0 10"/>
+            <ItemsControl Name="SpringserierListe">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Gray" BorderThickness="1" Margin="0 5 0 5" Padding="5">
+                            <StackPanel>
+                                <!-- Editable SerieNavn -->
+                                <TextBox Text="{Binding SerieNavn, Mode=TwoWay}" FontWeight="Bold" Margin="0 0 0 5"/>
+
+                                <!-- Editable Springs in the series -->
+                                <ItemsControl ItemsSource="{Binding Spring}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding ., Mode=TwoWay}" Margin="0 2"/>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+
+
+        <!-- Tredje kolonne: Træningsmål -->
+        <StackPanel Grid.Column="2" VerticalAlignment="Top" Margin="10,10,10,0">
+            <TextBlock FontWeight="Bold" Text="Træningsmål" Margin="0 0 0 10"/>
+            <TextBox Name="TræningsmålTextBox" TextWrapping="Wrap" AcceptsReturn="True" Height="100"/>
+        </StackPanel>
+
+        <!-- Fjerde kolonne: Tilmeldte hold -->
+        <StackPanel Grid.Column="3" VerticalAlignment="Top" Margin="10,10,10,0">
+            <TextBlock FontWeight="Bold" Text="Tilmeldt(e) Hold:" Margin="0 0 0 10"/>
+            <TextBox Name="TilmeldteHoldTextBox" TextWrapping="Wrap" AcceptsReturn="True" Height="100"/>
+        </StackPanel>
+
+        <!-- Nederst: Gem knap -->
+        <Button x:Name="GemOplysninger" Content="Gem Oplysninger" Width="200" Height="40" Margin="37,0,0,0"
+                HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="1" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>

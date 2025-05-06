@@ -6,20 +6,20 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="SpringerInfo" Height="450" Width="800">
-    <Grid Margin="20,20,194,20">
+    <Grid Name="springerDialogGrid" Margin="20">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Første kolonne: Personlig info -->
-        <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="10">
+        <!-- Kolonne 0 -->
+        <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="10,10,10,0">
             <TextBlock FontWeight="Bold" Text="Springer Information" Margin="0 0 0 10"/>
             <TextBlock FontWeight="Bold" Text="Navn:"/>
             <Label Name="NavnLabel" Content=""/>
@@ -35,34 +35,45 @@
             <Label Name="KontaktEmailLabel" Content=""/>
         </StackPanel>
 
-        <!-- Anden kolonne: Springserier -->
-        <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10">
-            <TextBlock FontWeight="Bold" Text="Springserier" Margin="0 0 0 10"/>
-            <ListBox x:Name="SpringserierListe" Height="100">
-                <ListBox.ItemTemplate>
+        <!-- Kolonne 1 -->
+        <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10,10,10,0">
+            <TextBlock FontWeight="Bold" Text="Konkurrenceserier" Margin="0 0 0 10"/>
+            <ItemsControl Name="KonkurrenceserierListe">
+                <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border BorderBrush="Gray" BorderThickness="1" Margin="0 5 0 5" Padding="5">
-                            <TextBlock Text="{Binding}" />
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding}" />
+                                <ListBox ItemsSource="{Binding}" />
+                            </StackPanel>
                         </Border>
                     </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </StackPanel>
 
-        <!-- Tredje kolonne: Træningsmål -->
-        <StackPanel Grid.Column="2" VerticalAlignment="Top" Margin="10">
+        <!-- Kolonne 2 -->
+        <StackPanel Grid.Column="2" VerticalAlignment="Top" Margin="10,10,10,0">
             <TextBlock FontWeight="Bold" Text="Træningsmål" Margin="0 0 0 10"/>
             <TextBlock Name="TræningsmålTekst" TextWrapping="Wrap"/>
         </StackPanel>
 
-        <!-- Fjerde kolonne: Tilmeldte -->
-        <StackPanel Grid.Column="3" VerticalAlignment="Top" Margin="10">
-            <TextBlock FontWeight="Bold" Text="Tilmeldte"/>
-            <TextBlock x:Name="TilmeldteHold" TextWrapping="Wrap"/>
+        <!-- Kolonne 3 -->
+        <StackPanel Grid.Column="3" VerticalAlignment="Top" Margin="10,10,10,0">
+            <TextBlock FontWeight="Bold" Text="Tilmeldt(e) Hold:" Margin="0 0 0 10"/>
+            <TextBlock Name="TilmeldteHold" TextWrapping="Wrap"/>
         </StackPanel>
 
-        <!-- Nederst: Opdater knap -->
-        <Button Grid.ColumnSpan="3" Content="Opdater Springer" Width="200" Height="40" Margin="0 20 0 0"
-                HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <!-- Opdater knap nederst -->
+        <Button x:Name="OpdaterSpringer"
+                Grid.Row="1"
+                Grid.ColumnSpan="4"
+                Content="Redigér Springer"
+                Width="200"
+                Height="40"
+                Margin="0 20 0 0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Click="OpdaterSpringer_Click"/>
     </Grid>
 </Window>

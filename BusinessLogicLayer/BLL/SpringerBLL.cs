@@ -22,7 +22,7 @@ namespace BusinessLogicLayer.BLL
         {
             using (var context = new AirTimeContext())
             {
-                return SpringerRepository.GetAllSpringere(context);
+                return SpringerRepository.GetAllSpringere(context).ToList();
             }
                
         }

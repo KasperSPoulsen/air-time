@@ -52,6 +52,9 @@ namespace DataAccessLayer.Context
                     context.Hold.Add(new Hold { HoldNavn = navn });
                 }
             }
+
+
+
             context.SaveChanges();
 
             HoldMap = context.Hold
@@ -78,13 +81,13 @@ namespace DataAccessLayer.Context
                 springer5.KonkurrenceSerie.AddRange(new List<string> { "Double Frontflip", "Den Sejeste Skrue" });
 
                 var springere = new List<Springer>
-{
-            springer1,
-             springer2,
-             springer3,
-             springer4,
-             springer5
-};
+    {
+        springer1,
+        springer2,
+        springer3,
+        springer4,
+        springer5
+    };
 
                 context.Springere.AddRange(springere);
 
