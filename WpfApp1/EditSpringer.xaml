@@ -27,9 +27,6 @@
             <TextBlock Text="Fødselsdag:"/>
             <TextBox Name="FødselsdagTextBox"/>
 
-            <TextBlock Text="Tilknyttede Hold:"/>
-            <TextBox Name="HoldTextBox"/>
-
             <TextBlock Text="Kontaktpersons navn:"/>
             <TextBox Name="KontaktNavnTextBox"/>
 
@@ -40,31 +37,17 @@
             <TextBox Name="KontaktEmailTextBox"/>
         </StackPanel>
 
-        <!-- Anden kolonne: Springserier -->
-        <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10,10,10,0">
-            <TextBlock FontWeight="Bold" Text="Springserier" Margin="0 0 0 10"/>
-            <ItemsControl Name="SpringserierListe">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border BorderBrush="Gray" BorderThickness="1" Margin="0 5 0 5" Padding="5">
-                            <StackPanel>
-                                <!-- Editable SerieNavn -->
-                                <TextBox Text="{Binding SerieNavn, Mode=TwoWay}" FontWeight="Bold" Margin="0 0 0 5"/>
+        <!-- Anden kolonne: Konkurrenceserier -->
+        <StackPanel x:Name="KonkurrenceSerierPanel" Grid.Column="1" VerticalAlignment="Top" Margin="10,10,10,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontWeight="Bold" Text="Konkurrenceserier" Margin="0 0 10 10" Width="104"/>
+                <Button Content="+" Width="27" Click="AddKonkurrenceSerie_Click"/>
+            </StackPanel>
 
-                                <!-- Editable Springs in the series -->
-                                <ItemsControl ItemsSource="{Binding Spring}">
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBox Text="{Binding ., Mode=TwoWay}" Margin="0 2"/>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
-                            </StackPanel>
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <TextBlock Text="Konkurrenceserie 1:" Margin="0 0 0 5"/>
+            <TextBox Name="KonkurreneSerie1Box" Margin="0 0 0 10"/>
         </StackPanel>
+
 
 
         <!-- Tredje kolonne: Træningsmål -->
@@ -81,6 +64,6 @@
 
         <!-- Nederst: Gem knap -->
         <Button x:Name="GemOplysninger" Content="Gem Oplysninger" Width="200" Height="40" Margin="37,0,0,0"
-                HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="1" Grid.ColumnSpan="2"/>
+                HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="1" Grid.ColumnSpan="2" Click="GemOplysninger_Click"/>
     </Grid>
 </Window>

@@ -10,7 +10,7 @@ namespace DataAccessLayer.Model
     {
         public int Id { get; set; }
         public string Navn { get; set; }
-        public virtual List<string> KonkurrenceSerie { get; set; } = new List<string>();
+        public virtual string KonkurrenceSerie { get; set; }
         public DateTime? Foedselsdato { get; set; }
         public string TraeningsMaal { get; set; }
         public virtual KontaktPerson KontaktPerson { get; set; }

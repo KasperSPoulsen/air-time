@@ -25,8 +25,6 @@
             <Label Name="NavnLabel" Content=""/>
             <TextBlock FontWeight="Bold" Text="Fødselsdag:"/>
             <Label Name="FødselsdagLabel" Content=""/>
-            <TextBlock FontWeight="Bold" Text="Tilknyttede Hold:"/>
-            <Label Name="HoldLabel" Content=""/>
             <TextBlock FontWeight="Bold" Text="Kontaktpersons navn:"/>
             <Label Name="KontaktNavnLabel" Content=""/>
             <TextBlock FontWeight="Bold" Text="Kontaktpersons tlf:"/>
@@ -42,20 +40,19 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border BorderBrush="Gray" BorderThickness="1" Margin="0 5 0 5" Padding="5">
-                            <StackPanel>
-                                <TextBlock FontWeight="Bold" Text="{Binding}" />
-                                <ListBox ItemsSource="{Binding}" />
-                            </StackPanel>
+                            <TextBlock FontSize="12" Text="{Binding}" />
                         </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+
         </StackPanel>
+
 
         <!-- Kolonne 2 -->
         <StackPanel Grid.Column="2" VerticalAlignment="Top" Margin="10,10,10,0">
             <TextBlock FontWeight="Bold" Text="Træningsmål" Margin="0 0 0 10"/>
-            <TextBlock Name="TræningsmålTekst" TextWrapping="Wrap"/>
+            <TextBlock Name="TraeningsmaalTekst" TextWrapping="Wrap"/>
         </StackPanel>
 
         <!-- Kolonne 3 -->
