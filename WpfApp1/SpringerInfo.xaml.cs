@@ -50,7 +50,6 @@ public partial class SpringerInfo : Window, INotifyPropertyChanged
         {
             NavnLabel.Content = springer.Navn ?? "";
             FødselsdagLabel.Content = springer.Foedselsdato?.ToString("dd-MM-yyyy") ?? "";
-            HoldLabel.Content = string.Join(", ", springer.Hold?.Select(h => h.HoldNavn) ?? new List<string>());
             TræningsmålTekst.Text = springer.TraeningsMaal ?? "";
             HoldLabel.Content = string.Join(", ", springer.Hold?.Select(h => h.HoldNavn) ?? new List<string>());
 
