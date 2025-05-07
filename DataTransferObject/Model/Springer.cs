@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace DataTransferObject.Model
 {
@@ -8,7 +10,16 @@ namespace DataTransferObject.Model
     {
         public int Id { get; set; }
         public string Navn { get; set; }
-        public List<string> KonkurrenceSerie { get; set; } = new List<string>();
+        public string KonkurrenceSerie { get; set; } 
+
+        [NotMapped]
+        public List<string> KonkurrenceSerieList
+        {
+            get => string.IsNullOrEmpty(KonkurrenceSerie)
+                ? new List<string>()
+                : KonkurrenceSerie.Split(',').Select(s => s.Trim()).ToList();
+            set => KonkurrenceSerie = string.Join(", ", value);
+        }
         public DateTime? Foedselsdato { get; set; }
         public string TraeningsMaal { get; set; }
         public KontaktPerson KontaktPerson { get; set; }

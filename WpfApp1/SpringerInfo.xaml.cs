@@ -50,8 +50,9 @@ public partial class SpringerInfo : Window, INotifyPropertyChanged
         {
             NavnLabel.Content = springer.Navn ?? "";
             FødselsdagLabel.Content = springer.Foedselsdato?.ToString("dd-MM-yyyy") ?? "";
-            TræningsmålTekst.Text = springer.TraeningsMaal ?? "";
-            HoldLabel.Content = string.Join(", ", springer.Hold?.Select(h => h.HoldNavn) ?? new List<string>());
+            TraeningsmaalTekst.Text = springer.TraeningsMaal ?? "";
+            TilmeldteHold.Text = string.Join(", ", springer.Hold?.Select(h => h.HoldNavn) ?? new List<string>());
+            
 
 
             if (springer.KontaktPerson != null)
@@ -61,10 +62,16 @@ public partial class SpringerInfo : Window, INotifyPropertyChanged
                 KontaktEmailLabel.Content = springer.KontaktPerson.Mail ?? "";
             }
 
-       
 
-            // Hvis du har springserier, sæt dem her:
-            KonkurrenceserierListe.ItemsSource = springer.KonkurrenceSerie;
+
+            if (springer.KonkurrenceSerieList != null)
+            {
+                var visningsliste = springer.KonkurrenceSerieList
+                    .Select((serie, index) => $"Konkurrenceserie {index + 1}:\n{serie}\n")
+                    .ToList();
+
+                KonkurrenceserierListe.ItemsSource = visningsliste;
+            }
         }
 
 
@@ -89,19 +96,4 @@ public partial class SpringerInfo : Window, INotifyPropertyChanged
 
         }
     }
-
-
-    /*
-     * NavnLabel.Content = springer.Navn ?? "";
-        TelefonLabel.Content = springer.Telefonnummer ?? "";
-FødselsdagLabel.Content = springer.Fødselsdag?.ToString("dd-MM-yyyy") ?? "";
-HoldLabel.Content = string.Join(", ", springer.Hold ?? new List<string>());
-KontaktNavnLabel.Content = springer.KontaktNavn ?? "";
-KontaktTelefonLabel.Content = springer.KontaktTelefon ?? "";
-KontaktEmailLabel.Content = springer.KontaktEmail ?? "";
-
-SpringserierListe.ItemsSource = springer.Springserier; // List<SpringSerie>
-TræningsmålTekst.Text = springer.Træningsmål ?? "";
-     */
 }
-
