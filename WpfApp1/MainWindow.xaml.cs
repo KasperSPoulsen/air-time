@@ -50,6 +50,7 @@ namespace WpfApp1
         private void Tidligere_Træninger_Click(object sender, RoutedEventArgs e)
         {
             var vindue = new TidligereTraeninger();
+        }
         private void InformationOmSpringer_Click(object sender, RoutedEventArgs e)
         {
             var vindue = new SpringerInfoListe();

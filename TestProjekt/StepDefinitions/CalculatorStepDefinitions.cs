@@ -1,4 +1,4 @@
-namespace Test.StepDefinitions
+namespace TestProjekt.StepDefinitions
 {
     [Binding]
     public sealed class CalculatorStepDefinitions

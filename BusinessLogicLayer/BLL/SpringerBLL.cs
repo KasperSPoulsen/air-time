@@ -51,7 +51,7 @@ namespace BusinessLogicLayer.BLL
                     kontaktPerson = new DataAccessLayer.Model.KontaktPerson(kontaktNavn, kontaktTelefon, kontaktEmail);
                 }
 
-                List<DataAccessLayer.Model.Hold> efHold = HoldRepository.GetDALHold(holdNavne, context); // EF-entity objekter fra samme context
+                List<DataAccessLayer.Model.Hold> efHold = HoldRepository.GetDALHold(holdNavne, context);
 
                 var springer = new DataAccessLayer.Model.Springer(navn, foedselsdato, kontaktPerson, efHold);
 
@@ -92,7 +92,7 @@ namespace BusinessLogicLayer.BLL
                 var newHolds = HoldRepository.GetDALHold(updatedSpringer.Hold.Select(h => h.HoldNavn).ToList(), context);
                 foreach (var hold in newHolds)
                 {
-                    context.Entry(hold).State = System.Data.Entity.EntityState.Unchanged; // tell EF not to re-insert
+                    context.Entry(hold).State = System.Data.Entity.EntityState.Unchanged;
                     existingSpringer.Hold.Add(hold);
                 }
 
