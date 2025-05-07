@@ -23,6 +23,8 @@ namespace WpfApp1
 
         private DataTransferObject.Model.Bil Bil = null;
         private DataTransferObject.Model.Konkurrence Konkurrence = null;
+        private List<DataTransferObject.Model.Springer> _springereIBilen = new List<DataTransferObject.Model.Springer>();
+        private List<DataTransferObject.Model.Springer> _springerePaaKonkSomIkErIBil = new List<DataTransferObject.Model.Springer>();
         public TilfoejSpringerTilBil(DataTransferObject.Model.Bil b, DataTransferObject.Model.Konkurrence k)
         {
             InitializeComponent();
@@ -46,10 +48,58 @@ namespace WpfApp1
         {
             var valgteSpringere = SpringerListBox.SelectedItems.OfType<DataTransferObject.Model.Springer>().ToList();
 
-            BilBLL.TilfoejSpringerTilBil(Bil.Id, valgteSpringere);
+            foreach (var springer in valgteSpringere)
+            {
+                if (!_springereIBilen.Contains(springer))
+                {
+                    _springereIBilen.Add(springer);
+                }
+            }
 
-            OpdaterSpringerLister();
+            foreach (var springer in valgteSpringere)
+            {
+                if (_springerePaaKonkSomIkErIBil.Contains(springer))
+                {
+                    _springerePaaKonkSomIkErIBil.Remove(springer);
+                }
+            }
 
+            SpringereIBilen.ItemsSource = _springereIBilen;
+            SpringerListBox.ItemsSource = _springerePaaKonkSomIkErIBil;
+
+            SpringereIBilen.Items.Refresh();
+            SpringerListBox.Items.Refresh();
+
+
+
+
+        }
+
+        private void FjernSpringerFraBilKnap(object sender, RoutedEventArgs e)
+        {
+            var valgteSpringere = SpringereIBilen.SelectedItems.OfType<DataTransferObject.Model.Springer>().ToList();
+
+            foreach (var springer in valgteSpringere)
+            {
+                if (!_springerePaaKonkSomIkErIBil.Contains(springer))
+                {
+                    _springerePaaKonkSomIkErIBil.Add(springer);
+                }
+            }
+
+            foreach (var springer in valgteSpringere)
+            {
+                if (_springereIBilen.Contains(springer))
+                {
+                    _springereIBilen.Remove(springer);
+                }
+            }
+
+            SpringereIBilen.ItemsSource = _springereIBilen;
+            SpringerListBox.ItemsSource = _springerePaaKonkSomIkErIBil;
+
+            SpringereIBilen.Items.Refresh();
+            SpringerListBox.Items.Refresh();
 
 
 
@@ -58,14 +108,22 @@ namespace WpfApp1
 
         private void OpdaterSpringerLister()
         {
-            
-            
-                SpringereIBilen.ItemsSource = KonkurrenceBLL.GetSpringerePaaBil(Bil.Id, Konkurrence.Id);
+            _springereIBilen = KonkurrenceBLL.GetSpringerePaaBil(Bil.Id, Konkurrence.Id);
+            _springerePaaKonkSomIkErIBil = KonkurrenceBLL.GetSpringerePaaKonkSomIkErIBil(Konkurrence.Id);
+
+
+
+            SpringereIBilen.ItemsSource = _springereIBilen;
 
                 SpringereIBilen.Items.Refresh();
-                SpringerListBox.ItemsSource = KonkurrenceBLL.GetSpringerePaaKonkSomIkErIBil(Konkurrence.Id);
+            SpringerListBox.ItemsSource = _springerePaaKonkSomIkErIBil;
                 SpringerListBox.Items.Refresh();
 
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

@@ -15,6 +15,10 @@ namespace DataAccessLayer.Model
         public string TraeningsMaal { get; set; }
         public virtual KontaktPerson KontaktPerson { get; set; }
         public virtual List<Hold> Hold { get; set; } = new List<Hold>();
+        //Navigation property used by EF to generate table
+        public virtual List<Konkurrence> Konkurrencer { get; set; } = new List<Konkurrence>();
+        //Navigation property used by EF to generate table
+        public virtual List<Bil> Biler { get; set; } = new List<Bil>();
         public Springer()
         {
         }

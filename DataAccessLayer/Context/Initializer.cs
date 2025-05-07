@@ -54,23 +54,7 @@ namespace DataAccessLayer.Context
             }
 
 
-            var Springer = new Springer
-            {
-                Navn = "Kasper Dalgaard",
-                Foedselsdato = new DateTime(2001, 01, 01),
-                KontaktPerson = kontakt2,
-            };
-
-            var traening1 = new Traening
-            {
-                Dato = new DateTime(2025, 07, 02)
-            };
-
-            var fremmoede = new Fremmoederegistrering
-            {
-                MoedeStatus = Status.FREMMOEDT,
-                Springer = Springer
-            };
+            
 
             context.SaveChanges();
 
@@ -81,10 +65,12 @@ namespace DataAccessLayer.Context
             // Find holdet "Tirsdag hold 1"
             var tirsdagHold1 = context.Hold.FirstOrDefault(h => h.HoldNavn == "Tirsdag hold 1");
 
+            Springer springer1 = null;
+
             // Sørg for at holdet findes
             if (tirsdagHold1 != null)
             {
-                var springer1 = new Springer("William Jensen", new DateTime(2010, 5, 15), kontakt, new List<Hold> { tirsdagHold1 });
+                springer1 = new Springer("William Jensen", new DateTime(2010, 5, 15), kontakt, new List<Hold> { tirsdagHold1 });
                 springer1.KonkurrenceSerie = "DoubleBack, Frontflip" ;
                 springer1.TraeningsMaal = "TripleBack, TripleFront";
 
@@ -100,13 +86,13 @@ namespace DataAccessLayer.Context
                 springer5.KonkurrenceSerie = "DoubleFront , TripleFront";
 
                 var springere = new List<Springer>
-    {
-        springer1,
-        springer2,
-        springer3,
-        springer4,
-        springer5
-    };
+                {
+                    springer1,
+                    springer2,
+                    springer3,
+                    springer4,
+                    springer5
+                };
 
                 context.Springere.AddRange(springere);
 
@@ -114,6 +100,22 @@ namespace DataAccessLayer.Context
 
 
             context.SaveChanges();
+
+
+            var konkurrence = new Konkurrence("Hovedgaden 12", "Forårskonkurrence", new DateTime(2026, 5, 10));
+            konkurrence.Springere.Add(springer1);
+            Bil bil = new Bil(kontakt2);
+            konkurrence.Biler.Add(bil);
+
+            bil.Springere.Add(springer1);
+
+            context.Konkurrencer.Add(konkurrence);
+
+
+            context.SaveChanges();
+
+
+
         }
     }
 }
