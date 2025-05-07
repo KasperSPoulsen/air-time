@@ -11,6 +11,6 @@
         <Button x:Name="Konkurrence" Content="Konkurrencer" HorizontalAlignment="Center" Margin="0,249,0,0" VerticalAlignment="Top" Height="51" Width="224" Click="VisKonkurrenceVindue"/>
         <Button Content="Hold" HorizontalAlignment="Center" Margin="0,161,0,0" VerticalAlignment="Top" Height="64" Width="224" Click="VisHoldVindue"/>
         <Button x:Name="InformationOmSpringer" Content="Information Om Springer" HorizontalAlignment="Center" Margin="0,322,0,0" VerticalAlignment="Top" Height="51" Width="224" Click="InformationOmSpringer_Click"/>
-
+        <Button x:Name="Tidligere_Træninger" Content="Tidligere Træninger" HorizontalAlignment="Center" Margin="0,383,0,0" VerticalAlignment="Top" Height="51" Width="224" Click="Tidligere_Træninger_Click"/>
     </Grid>
 </Window>
