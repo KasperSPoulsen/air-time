@@ -27,9 +27,6 @@ namespace BusinessLogicLayer.BLL
                
         }
 
-
-    
-
         public static DataTransferObject.Model.Springer CreateSpringer(string navn, DateTime? foedselsdato, string kontaktNavn, string kontaktTelefon, string kontaktEmail, List<string> holdNavne)
         {
             if (string.IsNullOrWhiteSpace(navn) ||
