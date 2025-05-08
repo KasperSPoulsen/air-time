@@ -30,22 +30,21 @@ namespace DataAccessLayer.Repositories
         {
             using (AirTimeContext context = new AirTimeContext())
             {
-                var mapped = FremmoederegistreringMapper.Map(fremmoederegistrering);
-
-                // Try to find existing Springer
+                var springerDto = fremmoederegistrering.Springer;
                 var existingSpringer = context.Springere
                     .Include(s => s.KontaktPerson)
-                    .FirstOrDefault(s => s.Id == mapped.Springer.Id);
+                    .FirstOrDefault(s => s.Id == springerDto.Id);
 
-                if (existingSpringer != null)
-                {
-                    mapped.Springer = existingSpringer;
-                }
+                var springer = existingSpringer ?? SpringerMapper.MapWithoutHold(springerDto);
 
-                context.Fremmoederegistreringer.Add(mapped);
+                var moedeStatus = StatusMapper.Map(fremmoederegistrering.MoedeStatus);
+                var entity = new DataAccessLayer.Model.Fremmoederegistrering(moedeStatus, springer);
+
+                context.Fremmoederegistreringer.Add(entity);
                 context.SaveChanges();
             }
         }
+
 
     }
 }

@@ -101,8 +101,11 @@ namespace WpfApp1
                 case "FRAVÆRENDE":
                     button.Content = "FREMMØDT";
                     break;
-                default:
+                case "FREMMØDT":
                     button.Content = "SYG";
+                    break;
+                default:
+                    button.Content = "FREMMØDT";
                     break;
             }
         }
@@ -116,7 +119,7 @@ namespace WpfApp1
             }
 
             DateTime valgtDato = DatoVælger.SelectedDate.Value;
-
+            Console.WriteLine("Antal children" + PlayerStackPanel.Children.Count);
             foreach (StackPanel stack in PlayerStackPanel.Children)
             {
                 var button = stack.Children.OfType<Button>().FirstOrDefault();
@@ -135,6 +138,8 @@ namespace WpfApp1
                             status = Status.FRAVAERENDE;
                             break;
                         case "SYG":
+                            status = Status.SYG;
+                            break;
                         default:
                             status = Status.FREMMOEDT;
                             break;
@@ -146,14 +151,18 @@ namespace WpfApp1
                         MoedeStatus = status
                     };
 
-                    
+
                     alleFremmoederegistreringer.Add(fremmoede);
                     
 
                 }
+                Console.WriteLine("Antal children" + PlayerStackPanel.Children.Count);
+
             }
+
             
             traeningBLL.AddTraening(valgtDato, valgtHold.Id, alleFremmoederegistreringer);
+
 
             MessageBox.Show("Fremmøde registreret.");
         }
