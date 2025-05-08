@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer.Context;
 using DataAccessLayer.Mappers;
+using DataAccessLayer.Model;
 using DataTransferObject.Model;
 
 namespace DataAccessLayer.Repositories
@@ -12,7 +13,7 @@ namespace DataAccessLayer.Repositories
     public class TraeningRepository
     {
         // Så vi kan få en træning
-        public static Traening GetTraening(int id)
+        public static  DataTransferObject.Model.Traening GetTraening(int id)
         {
             using (AirTimeContext context = new AirTimeContext())
             {
@@ -20,7 +21,7 @@ namespace DataAccessLayer.Repositories
             }
         }
         // Liste af alle træninger
-        public static List<Traening> GetAlleTraeninger()
+        public static List<DataTransferObject.Model.Traening> GetAlleTraeninger()
         {
             using(AirTimeContext context = new AirTimeContext())
             {
@@ -28,17 +29,18 @@ namespace DataAccessLayer.Repositories
             }
         }
 
-        public static void AddTraening(Traening traening)
+        public static void AddTraening(DateTime dato, DataTransferObject.Model.Hold valgthold, List<DataTransferObject.Model.Fremmoederegistrering> fremmoederegistreringer)
         {
             using (AirTimeContext context = new AirTimeContext())
             {
+                DataTransferObject.Model.Traening traening = new DataTransferObject.Model.Traening(dato, valgthold, fremmoederegistreringer);
                 context.Traeninger.Add(TraeningMapper.Map(traening));
                 context.SaveChanges();
             }
         }
 
 
-        public static Traening GetSenesteTraening()
+        public static DataTransferObject.Model.Traening GetSenesteTraening()
         {
             using (AirTimeContext context = new AirTimeContext())
             {
@@ -50,7 +52,7 @@ namespace DataAccessLayer.Repositories
             }
         }
 
-        public static Traening GetTilmeldte()
+        public static DataTransferObject.Model.Traening GetTilmeldte()
         {
             using (AirTimeContext context = new AirTimeContext())
             {

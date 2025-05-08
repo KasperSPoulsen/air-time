@@ -152,8 +152,8 @@ namespace WpfApp1
 
                 }
             }
-            //Traening newTraening = new Traening(valgtDato, valgtHold, alleFremmoederegistreringer);
-            //traeningBLL.AddTraening(newTraening);
+            
+            traeningBLL.AddTraening(valgtDato, valgtHold, alleFremmoederegistreringer);
 
             MessageBox.Show("Fremmøde registreret.");
         }
