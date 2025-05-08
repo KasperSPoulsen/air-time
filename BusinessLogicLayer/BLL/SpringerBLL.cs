@@ -91,7 +91,7 @@ namespace BusinessLogicLayer.BLL
                     existingSpringer.KontaktPerson.Mail = updatedSpringer.KontaktPerson.Mail;
                 }
 
-                existingSpringer.KonkurrenceSerie = string.Join(", ", updatedSpringer.KonkurrenceSerieList);
+                existingSpringer.KonkurrenceSerier = string.Join(", ", updatedSpringer.KonkurrenceSerier);
 
                 existingSpringer.Hold.Clear();
                 var newHolds = HoldRepository.GetDALHold(updatedSpringer.Hold.Select(h => h.HoldNavn).ToList(), context);

@@ -27,9 +27,9 @@ namespace DataAccessLayer.Mappers
             {
                 DTOSpringer.TraeningsMaal = springer.TraeningsMaal;
             }
-            if (springer.KonkurrenceSerie != null)
+            if (springer.KonkurrenceSerier != null)
             {
-                DTOSpringer.KonkurrenceSerie = springer.KonkurrenceSerie;
+                DTOSpringer.KonkurrenceSerie = springer.KonkurrenceSerier;
             }
             if (springer.Id != 0)
             {
@@ -62,9 +62,9 @@ namespace DataAccessLayer.Mappers
             {
                 DALSpringer.TraeningsMaal = springer.TraeningsMaal;
             }
-            if (springer.KonkurrenceSerie != null)
+            if (springer.KonkurrenceSerier != null)
             {
-                DALSpringer.KonkurrenceSerie = springer.KonkurrenceSerie;
+                DALSpringer.KonkurrenceSerier = springer.KonkurrenceSerie;
             }
             if (springer.Id != 0)
             {
@@ -98,9 +98,9 @@ namespace DataAccessLayer.Mappers
             {
                 DTOSpringer.TraeningsMaal = springer.TraeningsMaal;
             }
-            if (springer.KonkurrenceSerie != null)
+            if (springer.KonkurrenceSerier != null)
             {
-                DTOSpringer.KonkurrenceSerie = springer.KonkurrenceSerie;
+                DTOSpringer.KonkurrenceSerie = springer.KonkurrenceSerier;
             }
             if (springer.Id != 0)
             {
@@ -123,9 +123,9 @@ namespace DataAccessLayer.Mappers
             {
                 DALSpringer.TraeningsMaal = springer.TraeningsMaal;
             }
-            if (springer.KonkurrenceSerie != null)
+            if (springer.KonkurrenceSerier != null)
             {
-                DALSpringer.KonkurrenceSerie = springer.KonkurrenceSerie;
+                DALSpringer.KonkurrenceSerier = springer.KonkurrenceSerie;
             }
             if (springer.Id != 0)
             {

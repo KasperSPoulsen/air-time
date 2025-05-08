@@ -13,13 +13,8 @@ namespace DataTransferObject.Model
         public string KonkurrenceSerie { get; set; } 
 
         [NotMapped]
-        public List<string> KonkurrenceSerieList
-        {
-            get => string.IsNullOrEmpty(KonkurrenceSerie)
-                ? new List<string>()
-                : KonkurrenceSerie.Split(',').Select(s => s.Trim()).ToList();
-            set => KonkurrenceSerie = string.Join(", ", value);
-        }
+        public List<string> KonkurrenceSerier { get; set; } = new List<string>();
+
         public DateTime? Foedselsdato { get; set; }
         public string TraeningsMaal { get; set; }
         public KontaktPerson KontaktPerson { get; set; }
