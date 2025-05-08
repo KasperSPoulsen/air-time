@@ -15,6 +15,7 @@ namespace DataAccessLayer.Context
 
         protected override void Seed(DataAccessLayer.Context.AirTimeContext context)
         {
+            // Check if the KontaktPersoner already exist before adding
             var kontakt = new KontaktPerson
             {
                 Navn = "Anders Andersen",
@@ -29,21 +30,20 @@ namespace DataAccessLayer.Context
                 Mail = "clemen.dalgaard@gmail.com"
             };
 
-
-
-            if (!context.KontaktPersoner.Any(k => k.Mail == kontakt.Mail))
+            if (!context.KontaktPersoner.Any(k => k.Mail == kontakt.Mail) && !context.KontaktPersoner.Any(k => k.Mail == kontakt2.Mail))
             {
                 context.KontaktPersoner.Add(kontakt);
                 context.KontaktPersoner.Add(kontakt2);
                 context.SaveChanges();
             }
 
+            // Check if any Hold data already exists before adding new hold names
             string[] holdNavne = {
-            "Tirsdag hold 1",
-            "Tirsdag hold 2",
-            "Torsdag hold 1",
-            "Torsdag hold 2"
-        };
+        "Tirsdag hold 1",
+        "Tirsdag hold 2",
+        "Torsdag hold 1",
+        "Torsdag hold 2"
+    };
 
             foreach (var navn in holdNavne)
             {
@@ -98,7 +98,6 @@ namespace DataAccessLayer.Context
 
             }
 
-
             context.SaveChanges();
 
 
@@ -117,5 +116,6 @@ namespace DataAccessLayer.Context
 
 
         }
+
     }
 }

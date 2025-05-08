@@ -26,6 +26,14 @@ namespace BusinessLogicLayer.BLL
             }
                
         }
+         
+        public List<Springer> GetSpringerFromHold(int holdID)
+        {
+            using (var context = new AirTimeContext())
+            {
+                return SpringerRepository.GetSpringerFromHold(holdID,context);
+            }
+        }
 
         public static DataTransferObject.Model.Springer CreateSpringer(string navn, DateTime? foedselsdato, string kontaktNavn, string kontaktTelefon, string kontaktEmail, List<string> holdNavne)
         {
