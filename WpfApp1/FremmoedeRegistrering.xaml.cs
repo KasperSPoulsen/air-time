@@ -136,7 +136,7 @@ namespace WpfApp1
                             break;
                         case "SYG":
                         default:
-                            status = Status.SYG;
+                            status = Status.FREMMOEDT;
                             break;
                     }
 
