@@ -13,8 +13,8 @@
         <TextBlock HorizontalAlignment="Left" Margin="12,171,0,0" TextWrapping="Wrap" Text="Vælg springer:" VerticalAlignment="Top" FontSize="35"/>
         <TextBlock HorizontalAlignment="Left" Margin="468,171,0,0" TextWrapping="Wrap" Text="Springere i bilen:" VerticalAlignment="Top" FontSize="35" RenderTransformOrigin="0.517,-2.456" Width="322"/>
         <ListBox x:Name="SpringereIBilen" DisplayMemberPath="Navn" Margin="506,223,72,103" />
-        <Button Content="---&gt;" HorizontalAlignment="Left" Margin="400,246,0,0" VerticalAlignment="Top" Click="TilfoejSpringerTilBilKnap"/>
-        <Button Content="&lt;---" HorizontalAlignment="Left" Margin="400,277,0,0" VerticalAlignment="Top" Click="FjernSpringerFraBilKnap"/>
+        <Button Content="---&gt;" HorizontalAlignment="Left" Margin="367,238,0,0" VerticalAlignment="Top" Click="TilfoejSpringerTilBilKnap" RenderTransformOrigin="-1.13,0.753"/>
+        <Button Content="&lt;---" HorizontalAlignment="Left" Margin="367,277,0,0" VerticalAlignment="Top" Click="FjernSpringerFraBilKnap"/>
         <Button Content="Gem" HorizontalAlignment="Left" Margin="367,368,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
     </Grid>

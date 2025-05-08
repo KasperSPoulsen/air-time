@@ -32,17 +32,10 @@ namespace WpfApp1
             DataContext = b;
             Konkurrence = k;
             OpdaterSpringerLister();
-            LoadSpringere();
-        }
-
-        public void LoadSpringere()
-        {
-            //List<DataTransferObject.Model.Springer> springere = KonkurrenceBLL.GetAlleSpringerTilKonkurrence(Konkurrence.Id);
-            //SpringerListBox.ItemsSource = springere;
             
-
-
         }
+
+        
 
         private void TilfoejSpringerTilBilKnap(object sender, RoutedEventArgs e)
         {
@@ -124,7 +117,8 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            BilBLL.OpdaterSpringerIBil(_springereIBilen, _springerePaaKonkSomIkErIBil, Bil.Id, Konkurrence.Id);
+            this.Close();
         }
     }
 }
