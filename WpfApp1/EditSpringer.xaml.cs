@@ -1,30 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using BusinessLogicLayer.BLL;
 using DataTransferObject.Model;
 
-
 namespace WpfApp1
 {
-    /// <summary>
-    /// Interaction logic for EditSpringer.xaml
-    /// </summary>
     public partial class EditSpringer : Window
     {
         private Springer _springer;
-        private int konkurrenceSerieCount = 1;
-
+        private int konkurrenceSerieCount = 0;
+        private List<TextBox> konkurrenceSerieTextBoxes = new List<TextBox>();
 
         public EditSpringer(Springer p)
         {
@@ -44,29 +32,11 @@ namespace WpfApp1
                 KontaktEmailTextBox.Text = _springer.KontaktPerson.Mail ?? "";
             }
 
-            if (_springer.KonkurrenceSerieList != null && _springer.KonkurrenceSerieList.Any())
+            if (_springer.KonkurrenceSerier != null)
             {
-                KonkurreneSerie1Box.Text = _springer.KonkurrenceSerieList[0];
-                konkurrenceSerieCount = 1;
-
-                for (int i = 1; i < _springer.KonkurrenceSerieList.Count; i++)
+                foreach (var serie in _springer.KonkurrenceSerier)
                 {
-                    konkurrenceSerieCount++;
-                    var newLabel = new TextBlock
-                    {
-                        Text = $"Konkurrenceserie {konkurrenceSerieCount}:",
-                        Margin = new Thickness(0, 0, 0, 5)
-                    };
-
-                    var newBox = new TextBox
-                    {
-                        Name = $"KonkurrenceSerieBox{konkurrenceSerieCount}",
-                        Margin = new Thickness(0, 0, 0, 10),
-                        Text = _springer.KonkurrenceSerieList[i]
-                    };
-
-                    KonkurrenceSerierPanel.Children.Add(newLabel);
-                    KonkurrenceSerierPanel.Children.Add(newBox);
+                    AddKonkurrenceSerie(serie);
                 }
             }
         }
@@ -76,39 +46,39 @@ namespace WpfApp1
             this.Close();
         }
 
-        private void AddKonkurrenceSerie_Click(object sender, RoutedEventArgs e)
+        private void AddKonkurrenceSerie(string initialText = "")
         {
             konkurrenceSerieCount++;
 
-            var newLabel = new TextBlock
+            var label = new TextBlock
             {
                 Text = $"Konkurrenceserie {konkurrenceSerieCount}:",
-                Margin = new Thickness(0, 0, 0, 5)
+                Margin = new Thickness(0, 10, 0, 5)
             };
 
-            var newBox = new TextBox
+            var textBox = new TextBox
             {
-                Name = $"KonkurrenceSerieBox{konkurrenceSerieCount}",
-                Margin = new Thickness(0, 0, 0, 10)
+                Margin = new Thickness(0, 0, 0, 10),
+                Text = initialText
             };
 
-            KonkurrenceSerierPanel.Children.Add(newLabel);
-            KonkurrenceSerierPanel.Children.Add(newBox);
+            konkurrenceSerieTextBoxes.Add(textBox);
+
+            KonkurrenceSerierPanel.Children.Add(label);
+            KonkurrenceSerierPanel.Children.Add(textBox);
+        }
+
+        private void AddKonkurrenceSerie_Click(object sender, RoutedEventArgs e)
+        {
+            AddKonkurrenceSerie();
         }
 
         private void GemOplysninger_Click(object sender, RoutedEventArgs e)
         {
-            List<string> konkurrenceSerier = new List<string>();
-
-            foreach (var child in KonkurrenceSerierPanel.Children)
-            {
-                if (child is TextBox box && !string.IsNullOrWhiteSpace(box.Text))
-                {
-                    konkurrenceSerier.Add(box.Text.Trim());
-                }
-            }
-
-            _springer.KonkurrenceSerieList = konkurrenceSerier;
+            _springer.KonkurrenceSerier = konkurrenceSerieTextBoxes
+                .Select(tb => tb.Text.Trim())
+                .Where(text => !string.IsNullOrWhiteSpace(text))
+                .ToList();
 
             _springer.Navn = NavnTextBox.Text.Trim();
             _springer.TraeningsMaal = TræningsmålTextBox.Text.Trim();
