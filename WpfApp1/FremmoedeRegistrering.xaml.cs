@@ -151,7 +151,7 @@ namespace WpfApp1
                         MoedeStatus = status
                     };
 
-                    //FremmoederegistreringBLL.AddFremmoederegistrering(fremmoede);
+
                     alleFremmoederegistreringer.Add(fremmoede);
                     
 
@@ -160,7 +160,9 @@ namespace WpfApp1
 
             }
 
-            traeningBLL.AddTraening(valgtDato, valgtHold, alleFremmoederegistreringer);
+            
+            traeningBLL.AddTraening(valgtDato, valgtHold.Id, alleFremmoederegistreringer);
+
 
             MessageBox.Show("Fremmøde registreret.");
         }

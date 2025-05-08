@@ -22,10 +22,10 @@ namespace BusinessLogicLayer.BLL
         {
             return TraeningRepository.GetAlleTraeninger();
         }
-        public void AddTraening(DateTime dato, DataTransferObject.Model.Hold valgthold, List<DataTransferObject.Model.Fremmoederegistrering> fremmoederegistreringer )
+        public void AddTraening(DateTime dato, int holdId, List<DataTransferObject.Model.Fremmoederegistrering> fremmoederegistreringer )
         {
             //valider employee
-            TraeningRepository.AddTraening(dato, valgthold, fremmoederegistreringer);
+            TraeningRepository.AddTraening(dato, holdId, fremmoederegistreringer);
         }
 
         public Traening GetSenesteTraening()

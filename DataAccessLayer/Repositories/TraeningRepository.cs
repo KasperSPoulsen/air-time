@@ -29,12 +29,34 @@ namespace DataAccessLayer.Repositories
             }
         }
 
-        public static void AddTraening(DateTime dato, DataTransferObject.Model.Hold valgthold, List<DataTransferObject.Model.Fremmoederegistrering> fremmoederegistreringer)
+        public static void AddTraening(DateTime dato, int holdId, List<DataTransferObject.Model.Fremmoederegistrering> fremmoederegistreringer)
         {
             using (AirTimeContext context = new AirTimeContext())
             {
-                DataTransferObject.Model.Traening traening = new DataTransferObject.Model.Traening(dato, valgthold, fremmoederegistreringer);
-                context.Traeninger.Add(TraeningMapper.Map(traening));
+                var dalFremmoedeRegistreringer = new List<DataAccessLayer.Model.Fremmoederegistrering>();
+
+                foreach (var dtoReg in fremmoederegistreringer)
+                {
+                    var springer = context.Springere.Find(dtoReg.Springer.Id); // brug eksisterende
+                    if (springer == null) continue;
+
+                    var dalReg = new DataAccessLayer.Model.Fremmoederegistrering
+                    {
+                        Springer = springer,
+                        MoedeStatus = StatusMapper.Map(dtoReg.MoedeStatus)
+                    };
+
+                    dalFremmoedeRegistreringer.Add(dalReg);
+                }
+
+                var traening = new DataAccessLayer.Model.Traening
+                {
+                    Dato = dato,
+                    Hold = context.Hold.Find(holdId), // brug eksisterende fra DB
+                    Fremmoederegistreringer = dalFremmoedeRegistreringer
+                };
+
+                context.Traeninger.Add(traening);
                 context.SaveChanges();
             }
         }

@@ -153,7 +153,7 @@ namespace DataAccessLayer.Mappers
                 }
                 if (springer.KonkurrenceSerie != null)
                 {
-                    DALSpringer.KonkurrenceSerie = springer.KonkurrenceSerie;
+                    DALSpringer.KonkurrenceSerier = springer.KonkurrenceSerie;
                 }
 
                 DALSpringere.Add(DALSpringer);
