@@ -31,7 +31,6 @@ namespace DataAccessLayer.Repositories
             using (AirTimeContext context = new AirTimeContext())
             {
                 var holds = context.Hold
-                    .Include(h => h.Springere)
                     .ToList();
 
                 return holds.Select(HoldMapper.Map).ToList();

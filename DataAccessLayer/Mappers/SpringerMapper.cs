@@ -134,6 +134,7 @@ namespace DataAccessLayer.Mappers
             return DALSpringer;
         }
 
+
         internal static List<DataAccessLayer.Model.Springer> MapListWithoutHold(List<DataTransferObject.Model.Springer> springere)
         {
             List<DataAccessLayer.Model.Springer> DALSpringere = new List<DataAccessLayer.Model.Springer>();
