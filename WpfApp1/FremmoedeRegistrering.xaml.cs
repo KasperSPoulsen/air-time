@@ -74,7 +74,7 @@ namespace WpfApp1
 
                 var statusBTN = new Button
                 {
-                    Content = "SYG",
+                    Content = "FREMMØDT",
                     Tag = springer,
                     VerticalAlignment = VerticalAlignment.Center,
                     Margin = new Thickness(10, 0, 0, 0)
@@ -146,14 +146,14 @@ namespace WpfApp1
                         MoedeStatus = status
                     };
 
-                    FremmoederegistreringBLL.AddFremmoederegistrering(fremmoede);
+                    
                     alleFremmoederegistreringer.Add(fremmoede);
                     
 
                 }
             }
             
-            traeningBLL.AddTraening(valgtDato, valgtHold, alleFremmoederegistreringer);
+            traeningBLL.AddTraening(valgtDato, valgtHold.Id, alleFremmoederegistreringer);
 
             MessageBox.Show("Fremmøde registreret.");
         }
