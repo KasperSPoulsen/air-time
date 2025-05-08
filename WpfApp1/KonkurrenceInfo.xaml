@@ -19,8 +19,8 @@
         <TextBlock HorizontalAlignment="Left" Margin="499,28,0,0" TextWrapping="Wrap" Text="Springere:" VerticalAlignment="Top"/>
         <ListBox x:Name="SpringerListBox" DisplayMemberPath="Navn" Margin="499,51,93,226"/>
         <Button Content="Tilføj springer" HorizontalAlignment="Left" Margin="499,217,0,0" VerticalAlignment="Top" Background="#FF8EDD59" Click="TilfoejSpringerTilKonk"/>
-        <Button Content="Slet Springer" HorizontalAlignment="Left" Margin="635,217,0,0" VerticalAlignment="Top" Background="#FFF6824B"/>
-        <Button Content="Tilføj springer" HorizontalAlignment="Left" Margin="220,328,0,0" VerticalAlignment="Top" Click="IndPaaValgteBillist"/>
+        <Button Content="Fjern Springer" HorizontalAlignment="Left" Margin="635,217,0,0" VerticalAlignment="Top" Background="#FFF6824B"/>
+        <Button Content="Rediger samkørsel" HorizontalAlignment="Left" Margin="216,318,0,0" VerticalAlignment="Top" Click="IndPaaValgteBillist"/>
 
     </Grid>
 </Window>

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer.Context;
 
+
 namespace BusinessLogicLayer.BLL
 {
     public class BilBLL
@@ -53,6 +54,16 @@ namespace BusinessLogicLayer.BLL
                 BilRepository.TilfoejSpringerTilBil(bilId, valgteSpringere, context);
                 context.SaveChanges();
 
+            }
+        }
+
+        public static void OpdaterSpringerIBil(List<Springer> springereIBil, List<Springer> springereIkIBil, int bilId, int konkurrenceId)
+        {
+            using (AirTimeContext context = new AirTimeContext())
+            {
+                
+                BilRepository.OpdatereSpringerIBil(springereIBil, springereIkIBil, bilId, konkurrenceId, context);
+                context.SaveChanges();
             }
         }
 

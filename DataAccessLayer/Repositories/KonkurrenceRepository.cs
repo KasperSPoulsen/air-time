@@ -87,38 +87,31 @@ namespace DataAccessLayer.Repositories
 
         public static List<DataTransferObject.Model.Springer> GetSpringerePaaBil(int bilId, int konkurrenceId, AirTimeContext context)
         {
-            // Find bilen via konkurrence (da bil ikke kender konkurrence)
-            var bil = context.Konkurrencer
+            // Hent alle springer-ids som deltager i konkurrencen
+            var konkurrenceSpringerIds = context.Konkurrencer
                 .Where(k => k.Id == konkurrenceId)
-                .SelectMany(k => k.Biler)
-                .FirstOrDefault(b => b.Id == bilId);
+                .SelectMany(k => k.Springere.Select(s => s.Id))
+                .ToHashSet();
 
-            if (bil == null) return new List<DataTransferObject.Model.Springer>();
-
-            // Find springere, som har samme kontaktperson og deltager i samme konkurrence
-            var springere = context.Konkurrencer
-                .Where(k => k.Id == konkurrenceId)
-                .SelectMany(k => k.Springere)
-                .Where(s => s.KontaktPerson.Id == bil.KontaktPerson.Id)
+            // Find springere som både er i bilen og deltager i konkurrencen
+            var springere = context.Springere
+                .Where(s => s.Biler.Any(b => b.Id == bilId))
+                .Where(s => konkurrenceSpringerIds.Contains(s.Id))
                 .ToList();
 
             return springere.Select(SpringerMapper.Map).ToList();
         }
 
 
-        public static List<DataTransferObject.Model.Springer> GetSpringerePaaKonkSomIkErIBil(int konkId, AirTimeContext context)
+        public static List<DataTransferObject.Model.Springer> GetSpringerePaaKonkSomIkErIBil(int konkurrenceId, AirTimeContext context)
         {
-            var springere = context.Konkurrencer
-                .Where(k => k.Id == konkId)
+            var springereUdenBil = context.Konkurrencer
+                .Where(k => k.Id == konkurrenceId)
                 .SelectMany(k => k.Springere)
+                .Where(s => !s.Biler.Any()) // Ingen tilknyttede biler
                 .ToList();
-            // Find biler, som har samme kontaktperson og deltager i samme konkurrence
-            var biler = context.Konkurrencer
-                .Where(k => k.Id == konkId)
-                .SelectMany(k => k.Biler)
-                .ToList();
-            var springereIkkeIBil = springere.Where(s => !biler.Any(b => b.KontaktPerson.Id == s.KontaktPerson.Id)).ToList();
-            return springereIkkeIBil.Select(SpringerMapper.Map).ToList();
+
+            return springereUdenBil.Select(SpringerMapper.Map).ToList();
         }
     }
 }
