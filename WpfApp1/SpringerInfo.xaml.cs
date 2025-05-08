@@ -52,8 +52,6 @@ public partial class SpringerInfo : Window, INotifyPropertyChanged
             FødselsdagLabel.Content = springer.Foedselsdato?.ToString("dd-MM-yyyy") ?? "";
             TraeningsmaalTekst.Text = springer.TraeningsMaal ?? "";
             TilmeldteHold.Text = string.Join(", ", springer.Hold?.Select(h => h.HoldNavn) ?? new List<string>());
-            
-
 
             if (springer.KontaktPerson != null)
             {
@@ -62,17 +60,25 @@ public partial class SpringerInfo : Window, INotifyPropertyChanged
                 KontaktEmailLabel.Content = springer.KontaktPerson.Mail ?? "";
             }
 
-
-
-            if (springer.KonkurrenceSerieList != null)
+            if (springer.KonkurrenceSerier != null && springer.KonkurrenceSerier.Any())
             {
-                var visningsliste = springer.KonkurrenceSerieList
-                    .Select((serie, index) => $"Konkurrenceserie {index + 1}:\n{serie}\n")
-                    .ToList();
-
-                KonkurrenceserierListe.ItemsSource = visningsliste;
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < springer.KonkurrenceSerier.Count; i++)
+                {
+                    var serie = springer.KonkurrenceSerier[i];
+                    sb.AppendLine($"Konkurrenceserie {i + 1}:");
+                    sb.AppendLine(string.Join(", ", serie));
+                    sb.AppendLine();
+                }
+                KonkurrenceserierListe.Text = sb.ToString().Trim();
             }
+            else
+            {
+                KonkurrenceserierListe.Text = "Ingen konkurrenceserier.";
+            }
+
         }
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;

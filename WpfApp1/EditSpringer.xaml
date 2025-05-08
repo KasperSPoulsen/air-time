@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="EditSpringer" Height="450" Width="800">
+        Title="EditSpringer" Height="500" Width="900">
     <Grid Name="springerDialogGrid" Margin="20">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -18,7 +18,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Første kolonne: Personlig info -->
+        <!-- Kolonne 0: Personlig info -->
         <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="10,10,10,0">
             <TextBlock FontWeight="Bold" Text="Springer Information" Margin="0 0 0 10"/>
             <TextBlock Text="Navn:"/>
@@ -37,33 +37,33 @@
             <TextBox Name="KontaktEmailTextBox"/>
         </StackPanel>
 
-        <!-- Anden kolonne: Konkurrenceserier -->
-        <StackPanel x:Name="KonkurrenceSerierPanel" Grid.Column="1" VerticalAlignment="Top" Margin="10,10,10,0">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock FontWeight="Bold" Text="Konkurrenceserier" Margin="0 0 10 10" Width="104"/>
-                <Button Content="+" Width="27" Click="AddKonkurrenceSerie_Click"/>
+        <!-- Kolonne 1: KonkurrenceSerier -->
+        <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10,10,10,0">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock FontWeight="Bold" Text="Konkurrenceserier" Margin="0 0 10 0"/>
+                <Button Content="+" Width="25" Click="AddKonkurrenceSerie_Click"/>
             </StackPanel>
 
-            <TextBlock Text="Konkurrenceserie 1:" Margin="0 0 0 5"/>
-            <TextBox Name="KonkurreneSerie1Box" Margin="0 0 0 10"/>
+            <ScrollViewer Height="250" VerticalScrollBarVisibility="Auto">
+                <StackPanel x:Name="KonkurrenceSerierPanel"/>
+            </ScrollViewer>
         </StackPanel>
 
-
-
-        <!-- Tredje kolonne: Træningsmål -->
+        <!-- Kolonne 2: Træningsmål -->
         <StackPanel Grid.Column="2" VerticalAlignment="Top" Margin="10,10,10,0">
             <TextBlock FontWeight="Bold" Text="Træningsmål" Margin="0 0 0 10"/>
             <TextBox Name="TræningsmålTextBox" TextWrapping="Wrap" AcceptsReturn="True" Height="100"/>
         </StackPanel>
 
-        <!-- Fjerde kolonne: Tilmeldte hold -->
+        <!-- Kolonne 3: Tilmeldte Hold -->
         <StackPanel Grid.Column="3" VerticalAlignment="Top" Margin="10,10,10,0">
-            <TextBlock FontWeight="Bold" Text="Tilmeldt(e) Hold:" Margin="0 0 0 10"/>
-            <TextBox Name="TilmeldteHoldTextBox" TextWrapping="Wrap" AcceptsReturn="True" Height="100"/>
+            <TextBlock FontWeight="Bold" Text="Tilmeldt(e) Hold" Margin="0 0 0 10"/>
+            <TextBox Name="TilmeldteHoldTextBox" TextWrapping="Wrap" AcceptsReturn="True" Height="100" IsReadOnly="True"/>
         </StackPanel>
 
         <!-- Nederst: Gem knap -->
-        <Button x:Name="GemOplysninger" Content="Gem Oplysninger" Width="200" Height="40" Margin="37,0,0,0"
-                HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="1" Grid.ColumnSpan="2" Click="GemOplysninger_Click"/>
+        <Button x:Name="GemOplysninger" Content="Gem Oplysninger" Width="200" Height="40" Margin="0,10,0,0"
+                Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                HorizontalAlignment="Center" Click="GemOplysninger_Click"/>
     </Grid>
 </Window>
