@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using DataAccessLayer.Context;
 using DataAccessLayer.Mappers;
 using DataTransferObject.Model;
-
+using System.Data.Entity;
 namespace DataAccessLayer.Repositories
 {
     public class FremmoederegisteringRepository
@@ -30,10 +30,22 @@ namespace DataAccessLayer.Repositories
         {
             using (AirTimeContext context = new AirTimeContext())
             {
-                context.Fremmoederegistreringer.Add(FremmoederegistreringMapper.Map(fremmoederegistrering));
+                var mapped = FremmoederegistreringMapper.Map(fremmoederegistrering);
+
+                // Try to find existing Springer
+                var existingSpringer = context.Springere
+                    .Include(s => s.KontaktPerson)
+                    .FirstOrDefault(s => s.Id == mapped.Springer.Id);
+
+                if (existingSpringer != null)
+                {
+                    mapped.Springer = existingSpringer;
+                }
+
+                context.Fremmoederegistreringer.Add(mapped);
                 context.SaveChanges();
             }
         }
-        
+
     }
 }

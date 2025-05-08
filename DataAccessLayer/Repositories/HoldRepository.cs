@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DataAccessLayer.Context;
 using DataAccessLayer.Mappers;
 using DataTransferObject.Model;
+using System.Data.Entity;
 
 namespace DataAccessLayer.Repositories
 {
@@ -29,8 +30,12 @@ namespace DataAccessLayer.Repositories
         {
             using (AirTimeContext context = new AirTimeContext())
             {
-                return context.Hold.Select(HoldMapper.Map).ToList();
+                var holds = context.Hold
+                    .ToList();
+
+                return holds.Select(HoldMapper.Map).ToList();
             }
+
         }
         public static void AddHold(Hold hold)
         {

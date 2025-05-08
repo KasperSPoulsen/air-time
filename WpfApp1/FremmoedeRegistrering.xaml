@@ -15,28 +15,31 @@
         </Grid.ColumnDefinitions>
 
         <!-- RadioButtons til holdvalg -->
-        <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="10">
+        <StackPanel DataContext="{Binding}" Name="AlleHoldPanel" Grid.Column="0" VerticalAlignment="Top" Margin="10">
             <TextBlock FontWeight="Bold" Margin="0 0 0 10">Vælg hold:</TextBlock>
-            <RadioButton Content="Tirsdag hold 1" GroupName="Holdvalg" Checked="RadioButton_Checked"/>
-            <RadioButton Content="Tirsdag hold 2" GroupName="Holdvalg" Checked="RadioButton_Checked"/>
-            <RadioButton Content="Torsdag hold 1" GroupName="Holdvalg" Checked="RadioButton_Checked"/>
-            <RadioButton Content="Torsdag hold 2" GroupName="Holdvalg" Checked="RadioButton_Checked"/>
+
         </StackPanel>
 
         <!-- Navneliste -->
-        <ListBox Grid.Column="1" Margin="31,10,10,10" Name="NavneListe">
+        <!--<ListBox Grid.Column="1" Margin="31,10,10,10" Name="NavneListe">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding}" Width="200"/>
-                        <Button Content="Tilstede" Click="MarkerTilstede_Click" Tag="{Binding}" />
+                        <TextBlock x:Name="SpringerNavn" Text="{Binding}" Width="200"/>
+                        <Button x:Name="SpringerStatus" Content="Tilstede" Click="MarkerTilstede_Click" Tag="{Binding}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>
+        </ListBox>-->
+
+        <!-- The above ListBox and its DataTemplate are commented out because we will be using a StackPanel for displaying player names and status. -->
+
         <DatePicker Name="DatoVælger" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>
-        <Button Content="Registrer fremmøde" HorizontalAlignment="Center" Margin="0,207,0,0" VerticalAlignment="Top" Click="RegistrerFremmoede"/>
+        <Button x:Name="RegistrereFremmødeBTN" Content="Registrer fremmøde" HorizontalAlignment="Center" Margin="0,207,0,0" VerticalAlignment="Top" Click="RegistrerFremmoede"/>
 
+        <!-- This StackPanel will dynamically display player names and status buttons based on the selected team -->
+        <StackPanel DataContext="{Binding}" Name="PlayerStackPanel" Grid.Column="1" Margin="42,0,44,0">
+
+        </StackPanel>
     </Grid>
-
 </Window>
