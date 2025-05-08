@@ -134,6 +134,33 @@ namespace DataAccessLayer.Mappers
             return DALSpringer;
         }
 
+        internal static List<DataAccessLayer.Model.Springer> MapListWithoutHold(List<DataTransferObject.Model.Springer> springere)
+        {
+            List<DataAccessLayer.Model.Springer> DALSpringere = new List<DataAccessLayer.Model.Springer>();
+
+            foreach (var springer in springere)
+            {
+                DataAccessLayer.Model.Springer DALSpringer = new DataAccessLayer.Model.Springer(
+                    springer.Navn,
+                    springer.Foedselsdato,
+                    KontaktPersonMapper.Map(springer.KontaktPerson)
+                );
+
+                if (springer.TraeningsMaal != null)
+                {
+                    DALSpringer.TraeningsMaal = springer.TraeningsMaal;
+                }
+                if (springer.KonkurrenceSerie != null)
+                {
+                    DALSpringer.KonkurrenceSerie = springer.KonkurrenceSerie;
+                }
+
+                DALSpringere.Add(DALSpringer);
+            }
+
+            return DALSpringere;
+        }
+
         /*public static DataAccessLayer.Model.Springer MapForAddingSpringer(DataTransferObject.Model.Springer springer)
         {
             DataAccessLayer.Model.Springer DALSpringer = new DataAccessLayer.Model.Springer(
