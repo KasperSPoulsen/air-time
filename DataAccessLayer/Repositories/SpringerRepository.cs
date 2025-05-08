@@ -32,11 +32,18 @@ namespace DataAccessLayer.Repositories
                 
             
         }
-        //public static List<Springer> GetSpringerFromHold(Hold hold, AirTimeContext context)
-        //{
-        //    //return context.Springere
-        //    //    .Where(springer => springer.Hold.Any(springerHold => springerHold.Id == hold.Id))
-        //    //    .ToList();
-        //}
+        public static List<DataTransferObject.Model.Springer> GetSpringerFromHold(int holdID, AirTimeContext context)
+        {
+            // Get the springere associated with the holdID
+            var springereFromHold = context.Springere
+                .Where(springer => springer.Hold.Any(hold => hold.Id == holdID))
+                .ToList(); // Now it's a List of DataAccessLayer.Model.Springer
+
+            // Map the DataAccessLayer.Model.Springer to DataTransferObject.Model.Springer
+            // and return the mapped list directly
+            return springereFromHold.Select(springer => SpringerMapper.Map(springer)).ToList();
+        }
+
+
     }
 }

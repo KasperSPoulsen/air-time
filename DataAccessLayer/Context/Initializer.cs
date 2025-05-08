@@ -15,6 +15,7 @@ namespace DataAccessLayer.Context
 
         protected override void Seed(DataAccessLayer.Context.AirTimeContext context)
         {
+            // Check if the KontaktPersoner already exist before adding
             var kontakt = new KontaktPerson
             {
                 Navn = "Anders Andersen",
@@ -29,21 +30,20 @@ namespace DataAccessLayer.Context
                 Mail = "clemen.dalgaard@gmail.com"
             };
 
-
-
-            if (!context.KontaktPersoner.Any(k => k.Mail == kontakt.Mail))
+            if (!context.KontaktPersoner.Any(k => k.Mail == kontakt.Mail) && !context.KontaktPersoner.Any(k => k.Mail == kontakt2.Mail))
             {
                 context.KontaktPersoner.Add(kontakt);
                 context.KontaktPersoner.Add(kontakt2);
                 context.SaveChanges();
             }
 
+            // Check if any Hold data already exists before adding new hold names
             string[] holdNavne = {
-            "Tirsdag hold 1",
-            "Tirsdag hold 2",
-            "Torsdag hold 1",
-            "Torsdag hold 2"
-        };
+        "Tirsdag hold 1",
+        "Tirsdag hold 2",
+        "Torsdag hold 1",
+        "Torsdag hold 2"
+    };
 
             foreach (var navn in holdNavne)
             {
@@ -52,8 +52,6 @@ namespace DataAccessLayer.Context
                     context.Hold.Add(new Hold { HoldNavn = navn });
                 }
             }
-
-                      
 
             context.SaveChanges();
 
@@ -67,21 +65,24 @@ namespace DataAccessLayer.Context
             // Sørg for at holdet findes
             if (tirsdagHold1 != null)
             {
-                var springere = new List<Springer>
+                // Check if any Springere already exist before adding new ones
+                if (!context.Springere.Any(s => s.Navn == "William Jensen" || s.Navn == "Emil Sørensen" || s.Navn == "Laura Nielsen" || s.Navn == "Frederik Madsen" || s.Navn == "Sofie Kristensen"))
                 {
-                    new Springer("William Jensen", new DateTime(2010, 5, 15), kontakt, new List<Hold> { tirsdagHold1 }),
-                    new Springer("Emil Sørensen", new DateTime(2011, 3, 20), kontakt, new List<Hold> { tirsdagHold1 }),
-                    new Springer("Laura Nielsen", new DateTime(2009, 11, 2), kontakt2, new List<Hold> { tirsdagHold1 }),
-                    new Springer("Frederik Madsen", new DateTime(2012, 7, 8), kontakt2, new List<Hold> { tirsdagHold1 }),
-                    new Springer("Sofie Kristensen", new DateTime(2010, 1, 25), kontakt, new List<Hold> { tirsdagHold1 }),
-                };
+                    var springere = new List<Springer>
+            {
+                new Springer("William Jensen", new DateTime(2010, 5, 15), kontakt, new List<Hold> { tirsdagHold1 }),
+                new Springer("Emil Sørensen", new DateTime(2011, 3, 20), kontakt, new List<Hold> { tirsdagHold1 }),
+                new Springer("Laura Nielsen", new DateTime(2009, 11, 2), kontakt2, new List<Hold> { tirsdagHold1 }),
+                new Springer("Frederik Madsen", new DateTime(2012, 7, 8), kontakt2, new List<Hold> { tirsdagHold1 }),
+                new Springer("Sofie Kristensen", new DateTime(2010, 1, 25), kontakt, new List<Hold> { tirsdagHold1 }),
+            };
 
-                context.Springere.AddRange(springere);
-                
+                    context.Springere.AddRange(springere);
+                }
             }
-
 
             context.SaveChanges();
         }
+
     }
 }

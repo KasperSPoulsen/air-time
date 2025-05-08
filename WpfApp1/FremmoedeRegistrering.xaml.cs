@@ -15,6 +15,7 @@ namespace WpfApp1
         private List<Springer> holdetSpringere = new List<Springer>();
         private List<DataTransferObject.Model.Hold> alleHold = new List<DataTransferObject.Model.Hold>();
         private List<DataTransferObject.Model.Fremmoederegistrering> alleFremmoederegistreringer = new List<Fremmoederegistrering>();
+
         private HoldBLL holdbll;
         private FremmoederegistreringBLL FremmoederegistreringBLL;
         private TraeningBLL traeningBLL;
@@ -55,7 +56,7 @@ namespace WpfApp1
 
             valgtHold = alleHold.First(hold => hold.HoldNavn == valgtHoldNavn);
 
-            //holdetSpringere = springerBLL.GetSpringerByHold(valgtHold);
+            holdetSpringere = springerBLL.GetSpringerFromHold(valgtHold.Id);
 
             holdetSpringere.ForEach(springer =>
             {
@@ -151,8 +152,8 @@ namespace WpfApp1
 
                 }
             }
-            Traening newTraening = new Traening(valgtDato, valgtHold, alleFremmoederegistreringer);
-            traeningBLL.AddTraening(newTraening);
+            //Traening newTraening = new Traening(valgtDato, valgtHold, alleFremmoederegistreringer);
+            //traeningBLL.AddTraening(newTraening);
 
             MessageBox.Show("Fremmøde registreret.");
         }

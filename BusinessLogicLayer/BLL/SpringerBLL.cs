@@ -26,12 +26,12 @@ namespace BusinessLogicLayer.BLL
             }
                
         }
-
-        public List<Springer> GetSpringerFromHold()
+         
+        public List<Springer> GetSpringerFromHold(int holdID)
         {
             using (var context = new AirTimeContext())
             {
-                return SpringerRepository.GetAllSpringere(context);
+                return SpringerRepository.GetSpringerFromHold(holdID,context);
             }
         }
 
